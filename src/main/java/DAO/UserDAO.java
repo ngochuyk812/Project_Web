@@ -17,6 +17,20 @@ public class UserDAO {
         ResultSet rs= stmt.executeQuery();
         return rs.next();
     }
+    public static boolean checkByEmail(String email) throws SQLException {
+        Connection c=ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("select email from user where email=?");
+        stmt.setString(1,email);
+        ResultSet rs= stmt.executeQuery();
+        return rs.next();
+    }
+    public static boolean checkByUsername(String username) throws SQLException {
+        Connection c=ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("select username from user where username=?");
+        stmt.setString(1,username);
+        ResultSet rs= stmt.executeQuery();
+        return rs.next();
+    }
     public static int getCountUser() throws SQLException {
         Connection c = ConnectDB.getConnect();
         PreparedStatement stmt = c.prepareStatement("select count(*) from user where isAdmin=0 ");
@@ -52,17 +66,16 @@ public class UserDAO {
         ResultSet rs= stmt.executeQuery();
         return rs.next();
     }
-    public static int insertUser(String name, String pass, String fullname, String email, String phone, String address, String avatar ) throws SQLException, ClassNotFoundException {
+    public static int insertUser(User user) throws SQLException, ClassNotFoundException {
         Connection c=ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("insert into user value(?,?,?,?,?,?,?,?)");
-        stmt.setString(1,name);
-        stmt.setString(2,pass);
-        stmt.setString(3,fullname);
-        stmt.setString(4,email);
-        stmt.setString(5,phone);
-        stmt.setString(6,avatar);
-        stmt.setString(7,address);
-        stmt.setInt(8,0);
+        PreparedStatement stmt = c.prepareStatement("insert into user (username,password,fullname,email,phone,address, role) value(?,?,?,?,?,?,?)");
+        stmt.setString(1,user.getUserName());
+        stmt.setString(2,user.getPassWord());
+        stmt.setString(3,user.getFullName());
+        stmt.setString(4,user.getEmail());
+        stmt.setString(5,user.getPhone());
+        stmt.setString(6,user.getAddress());
+        stmt.setString(7,"USER");
         int rs= stmt.executeUpdate();
         return rs;
     }

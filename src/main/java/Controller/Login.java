@@ -18,6 +18,10 @@ import java.sql.SQLException;
 @WebServlet("/login")
 public class Login extends HttpServlet {
     @Override
+    protected  void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        req.getRequestDispatcher("Page/Login.jsp").forward(req,res);
+    }
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
         PrintWriter pw;

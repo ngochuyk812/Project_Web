@@ -41,7 +41,7 @@
 <%--                    hậu--%>
                     <div class="box-login-acc" id="login">
                         <span style="margin-right: 15px">
-        <a href="/Page/Login_Register.jsp" rel="nofollow" id="dangky">Đăng ký/ Đăng nhập
+        <a href="login" rel="nofollow" id="dangky">Đăng ký/ Đăng nhập
         </a>
     </span>
                         <div style="display: none" id="profile">
