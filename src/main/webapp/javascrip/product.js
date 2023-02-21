@@ -176,7 +176,7 @@ const addToCart = (id)=>{
                 timer: 500,
             });
             if(JSON.parse(res) === 0){
-                window.location = "/Page/Login_Register.jsp"
+                window.location = "../Page/Login.jsp"
             }
 
 

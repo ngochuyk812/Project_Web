@@ -44,7 +44,7 @@ public class CartControl extends HttpServlet {
 
             request.getRequestDispatcher("Page/Cart.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("/Page/Login_Register.jsp").forward(request, response);
+            request.getRequestDispatcher("/Page/Login.jsp").forward(request, response);
 
         }
     }

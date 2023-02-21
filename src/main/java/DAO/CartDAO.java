@@ -4,6 +4,8 @@ import Connect.ConnectDB;
 import Model.Cart;
 import Model.Post;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -34,7 +36,6 @@ public class CartDAO {
         PreparedStatement stmt = c.prepareStatement("SELECT * FROM cart where cart.username = ? and cart.idpost = ? ");
         stmt.setString(1,username);
         stmt.setInt(2,idPost);
-
         ResultSet resultSet = stmt.executeQuery();
         ProductDAO ps = new ProductDAO();
         Cart cart = null;
@@ -92,5 +93,7 @@ public class CartDAO {
         return rowAffected;
 
     }
-
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        System.out.println(URLDecoder.decode("Ng%E1%BB%8Dc%20Huy", "UTF-8"));
+    }
 }
