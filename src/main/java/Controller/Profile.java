@@ -1,12 +1,16 @@
 package Controller;
 
+import Beans.JWT;
 import Model.User;
 import DAO.UserDAO;
 import com.google.gson.Gson;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -95,20 +99,31 @@ public class Profile extends HttpServlet {
         res.sendRedirect("/profile");
 
     }
+    public String getUserNameByToken(String token){
+        try {
+            Jws<Claims> claims = JWT.getBodyJWTLogin(token);
+            String username = (String) claims.getBody().get("username");
+            return username;
+        }catch (Exception e){
+            return null;
+        }
+    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 
-        String user = null;
+        String userName = null;
+        String token=null;
         for (int i = 0; i < req.getCookies().length; i++) {
-            if (req.getCookies()[i].getName().equals("user")) {
-                user = req.getCookies()[i].getValue();
+            if (req.getCookies()[i].getName().equals("token")) {
+                token = req.getCookies()[i].getValue();
                 break;
             }
         }
-        if(user != null){
+        if(token != null){
             User u;
+            userName=getUserNameByToken(token);
             try {
-                u = UserDAO.getUserByName(user);
+                u = UserDAO.getUserByName(userName);
                 req.setAttribute("userInfo", u);
                 req.getRequestDispatcher("Page/Profile.jsp").forward(req, res);
 

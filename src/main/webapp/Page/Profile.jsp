@@ -313,9 +313,7 @@
 
   }
   const logout = ()=>{
-    console.log("Logout")
-    del_cookie("user")
-    del_cookie("isAdmin")
+    del_cookie("token")
     window.location.pathname="/"
   }
   function del_cookie(name) {

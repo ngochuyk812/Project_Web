@@ -169,7 +169,7 @@
 </script>
 <script>
     setTimeout(() => {
-        fetch("http://localhost:3000/getProduct")
+        fetch("http://localhost:3000/product")
     }, 1)
 </script>
 </html>

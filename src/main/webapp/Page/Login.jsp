@@ -99,12 +99,11 @@
 <script type="text/javascript"
         src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/mdb5/standard/core.min.js"></script>
 <script>
-    document.querySelector(".upload-item").addEventListener("click", (e) => {
-        document.querySelector(".fileupload").click()
-    })
+    // document.querySelector(".upload-item").addEventListener("click", (e) => {
+    //     document.querySelector(".fileupload").click()
+    // })
 </script>
 <script>
-    $('#login')
     $('.login').bind('click', function (e) {
         e.preventDefault()
         $.ajax({

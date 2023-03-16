@@ -99,29 +99,25 @@
             '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
     }
     const checkAccountExist=()=>{
-        if(findCookieByname("user")){
+        const token=findCookieByname("token");
+        if(token){
             Login_Res.classList.add("hidden")
             profile.classList.add("show")
+            $.ajax({
+                type: "POST",
+                url: "/checkToken",
+                data: {
+                    "token": token,
+                },
+                contentType: "application/x-www-form-urlencoded",
+                success: function(data){
+                    console.log(data.userName)
+                }
+            });
 
-        if(findCookieByname("isAdmin") !=1){
-            document.querySelector("#checkIsAdmin").style.display = 'none'
-        }
-        }
-    }
-    const pathName=window.location.pathname
-    const liS=document.querySelectorAll(".menu-top>li h2")
-    console.log(pathName)
-    if(pathName=="/"){
-        liS[0].classList.add("active")
-    }else {
-        if(pathName=="/product"){
-            liS[1].classList.add("active")
-
-        }else {
-            if(pathName=="/pricecar"){
-                liS[2].classList.add("active")
-
-            }
+        // if(findCookieByname("isAdmin") !=1){
+        //     document.querySelector("#checkIsAdmin").style.display = 'none'
+        // }
         }
     }
     checkAccountExist()

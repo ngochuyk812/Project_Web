@@ -1,10 +1,14 @@
 package DAO;
+
 import Connect.ConnectDB;
 import Model.User;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,10 +55,9 @@ public class UserDAO {
         String fullName=rs.getString("fullname");
         String email=rs.getString("email");
         String phone = rs.getString("phone");
-        String avatar = rs.getString("avatar");
         String address = rs.getString("address");
-        int isAdmin = Integer.valueOf(rs.getString("isAdmin"));
-        User user = new User(userName, null, fullName, email, phone, avatar,address);
+        int isAdmin = Integer.valueOf(rs.getString("role"));
+        User user = new User(userName, null, fullName, email, phone, null,address);
         user.setIsAdmin(isAdmin);
         return user;
     }
@@ -75,7 +78,7 @@ public class UserDAO {
         stmt.setString(4,user.getEmail());
         stmt.setString(5,user.getPhone());
         stmt.setString(6,user.getAddress());
-        stmt.setString(7,"USER");
+        stmt.setInt(7,0);
         int rs= stmt.executeUpdate();
         return rs;
     }

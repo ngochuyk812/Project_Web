@@ -1,5 +1,6 @@
 package Beans;
 
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SignatureException;
@@ -9,18 +10,11 @@ import java.util.Date;
 public class HashSHA216 {
 
     public static String hash(String pass){
-        try {
-            MessageDigest md = MessageDigest.getInstance("SHA-512");
-            byte[] bytes = md.digest(pass.getBytes());
-            return Base64.getEncoder().encodeToString(bytes);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-
+        byte[] encodedBytes = Base64.getEncoder().encode(pass.getBytes());
+        return Base64.getEncoder().encodeToString(encodedBytes);
     }
-
-    public static void main(String[] args) {
-
-     //   1676800503126
+    public static String decode(String pass){
+        byte[] decodedBytes = Base64.getDecoder().decode(pass);
+        return new String(decodedBytes);
     }
 }

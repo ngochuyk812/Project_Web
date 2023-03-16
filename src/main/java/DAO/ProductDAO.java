@@ -1,13 +1,10 @@
 package DAO;
 
 import Connect.ConnectDB;
-import Model.Cart;
-import Model.Company;
 import Model.Post;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Random;
 
 public class ProductDAO {
     Statement statement = null;
