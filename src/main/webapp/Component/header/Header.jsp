@@ -45,7 +45,7 @@
         </a>
     </span>
                         <div style="display: none" id="profile">
-                            <a href="profile"><i class="fa-solid fa-user"></i></a>
+                            <a href="/profile"><i class="fa-solid fa-user"></i></a>
                         </div>
 
                     </div>
@@ -100,6 +100,8 @@
     }
     const checkAccountExist=()=>{
         const token=findCookieByname("token");
+        console.log(123123)
+        console.log(token)
         if(token){
             Login_Res.classList.add("hidden")
             profile.classList.add("show")
@@ -111,7 +113,6 @@
                 },
                 contentType: "application/x-www-form-urlencoded",
                 success: function(data){
-                    console.log(data.userName)
                 }
             });
 

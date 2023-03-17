@@ -21,6 +21,23 @@
         .hidden{
             display: none !important;
         }
+        #loginWithGG,#loginWithFb{
+             padding: 10px !important;
+             border: 2px solid #4b7bca !important;
+            border-radius: 10px;
+         }
+        #loginWithGG i,#loginWithFb i{
+            color: #3b71ca;
+            margin-right: 10px;
+        }
+        #loginWithGG:hover,#loginWithFb:hover{
+            background-color:#3b71ca;
+            color: white;
+            cursor: pointer;
+        }
+        #loginWithGG:hover i,#loginWithFb:hover i{
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -75,6 +92,11 @@
 
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary btn-block mb-4 login">Login</button>
+                    <div class="text-center">
+                        <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:3000/login/loginWithGg&response_type=code
+		   &client_id=108677386257-pqkllmloi7d9f60ipgvb053sfg9eosrr.apps.googleusercontent.com&approval_prompt=force" id="loginWithGG"><i class="fa-brands fa-google"></i>Login with google</a>
+                        <a  type="submit"  id="loginWithFb"><i class="fa-brands fa-facebook"></i>Login with facebook</a>
+                    </div>
                     <!-- Register buttons -->
                     <div class="text-center">
                         <a  href="/">

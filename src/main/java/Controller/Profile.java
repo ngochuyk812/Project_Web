@@ -110,7 +110,6 @@ public class Profile extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
         String userName = null;
         String token=null;
         for (int i = 0; i < req.getCookies().length; i++) {
@@ -119,13 +118,16 @@ public class Profile extends HttpServlet {
                 break;
             }
         }
+        System.out.println(123123);
+        System.out.println(token);
         if(token != null){
             User u;
             userName=getUserNameByToken(token);
+            System.out.println(userName);
             try {
                 u = UserDAO.getUserByName(userName);
                 req.setAttribute("userInfo", u);
-                req.getRequestDispatcher("Page/Profile.jsp").forward(req, res);
+                req.getRequestDispatcher("/Page/Profile.jsp").forward(req, res);
 
             } catch (SQLException e) {
                 throw new RuntimeException(e);

@@ -49,17 +49,19 @@ public class UserDAO {
         PreparedStatement stmt = c.prepareStatement("select * from user where username=?");
         stmt.setString(1,name);
         ResultSet rs= stmt.executeQuery();
-        System.out.println(rs.getRow());
-        rs.next();
-        String userName=rs.getString("username");
-        String fullName=rs.getString("fullname");
-        String email=rs.getString("email");
-        String phone = rs.getString("phone");
-        String address = rs.getString("address");
-        int isAdmin = Integer.valueOf(rs.getString("role"));
-        User user = new User(userName, null, fullName, email, phone, null,address);
-        user.setIsAdmin(isAdmin);
-        return user;
+        if(rs.next()){
+            String userName=rs.getString("username");
+            String fullName=rs.getString("fullname");
+            String email=rs.getString("email");
+            String phone = rs.getString("phone");
+            String address = rs.getString("address");
+            int isAdmin = Integer.valueOf(rs.getString("role"));
+            User user = new User(userName, null, fullName, email, phone, null,address);
+            user.setIsAdmin(isAdmin);
+            return user;
+        };
+        return null;
+
     }
     public static boolean checkUser(String username, String email) throws SQLException, ClassNotFoundException {
         Connection c=ConnectDB.getConnect();
