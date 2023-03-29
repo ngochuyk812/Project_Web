@@ -21,23 +21,36 @@
         .hidden{
             display: none !important;
         }
-        #loginWithGG,#loginWithFb{
-             padding: 10px !important;
-             border: 2px solid #4b7bca !important;
+        #loginWithGG,.fb_iframe_widget {
+            min-width: 200px;
+            min-height: 50px;
+            padding: 10px !important;
+            border: 2px solid #4b7bca !important;
             border-radius: 10px;
+            margin-bottom: 20px;
+            margin-right: 20px;
          }
-        #loginWithGG i,#loginWithFb i{
+
+        #loginWithGG i,.fb_iframe_widget i{
             color: #3b71ca;
             margin-right: 10px;
         }
-        #loginWithGG:hover,#loginWithFb:hover{
+        #loginWithGG:hover,.fb_iframe_widget:hover{
             background-color:#3b71ca;
             color: white;
             cursor: pointer;
         }
-        #loginWithGG:hover i,#loginWithFb:hover i{
+        #loginWithGG:hover i,.fb_iframe_widget:hover i{
             color: white;
         }
+        #login{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
     </style>
 </head>
 <body>
@@ -93,9 +106,12 @@
                     <!-- Submit button -->
                     <button type="submit" class="btn btn-primary btn-block mb-4 login">Login</button>
                     <div class="text-center">
-                        <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:3000/login/loginWithGg&response_type=code
+                        <div id="login">
+                            <a href="https://accounts.google.com/o/oauth2/auth?scope=profile&redirect_uri=http://localhost:3000/login/loginWithGg&response_type=code
 		   &client_id=108677386257-pqkllmloi7d9f60ipgvb053sfg9eosrr.apps.googleusercontent.com&approval_prompt=force" id="loginWithGG"><i class="fa-brands fa-google"></i>Login with google</a>
-                        <a  type="submit"  id="loginWithFb"><i class="fa-brands fa-facebook"></i>Login with facebook</a>
+                            <fb:login-button id="loginWithFb" scope="public_profile,email" onlogin="checkLoginState();">
+                            </fb:login-button>
+                        </div>
                     </div>
                     <!-- Register buttons -->
                     <div class="text-center">
@@ -120,6 +136,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript"
         src="https://mdbcdn.b-cdn.net/wp-content/themes/mdbootstrap4/docs-app/js/dist/mdb5/standard/core.min.js"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 <script>
     // document.querySelector(".upload-item").addEventListener("click", (e) => {
     //     document.querySelector(".fileupload").click()
@@ -182,10 +199,6 @@
     }
     const handleForm = (name, fullName, email, sdt, passRepeat, pass, imgRequest, address) => {
         if (pass == passRepeat && name && fullName && email && sdt && pass && imgRequest && address) {
-            console.log("cung ok")
-            console.log(name)
-            console.log(fullName)
-            console.log(imgRequest)
             return true
         }
         return false
@@ -331,4 +344,58 @@
         document.querySelector(".form-forgot").classList.add("show")
     })
 </script>
+<%--Login with fb--%>
+<script>
+    function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+        console.log('statusChangeCallback');
+        console.log(response);                   // The current login status of the person.
+        if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+            testAPI();
+        } else {                                 // Not logged into your webpage or we are unable to tell.
+            document.getElementById('status').innerHTML = 'Please log ' +
+                'into this webpage.';
+        }
+    }
+
+
+    function checkLoginState() {               // Called when a person is finished with the Login Button.
+        FB.getLoginStatus(function(response) {   // See the onlogin handler
+            statusChangeCallback(response);
+        });
+    }
+
+
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '2159772147554215',
+            cookie     : true,                     // Enable cookies to allow the server to access the session.
+            xfbml      : true,                     // Parse social plugins on this webpage.
+            version    : 'v16.0'           // Use this Graph API version for this call.
+        });
+
+
+        FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+            statusChangeCallback(response);        // Returns the login status.
+        });
+    };
+
+    function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+        console.log('Welcome!  Fetching your information.... ');
+        FB.api('/me', function(response) {
+            console.log(response)
+            $.ajax({
+                url: "/login/LoginWithFb",
+                type: "POST",
+                data: {
+                userName:response.id
+                },
+                contentType: 'application/x-www-form-urlencoded',
+                success: function (data) {
+
+                }
+        });
+    })
+    }
+</script>
+
 </html>

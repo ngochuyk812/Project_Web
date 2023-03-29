@@ -1,5 +1,6 @@
 package Controller;
 
+import Beans.HashSHA216;
 import Beans.JWT;
 import DAO.UserDAO;
 import Model.User;
@@ -38,9 +39,7 @@ public class LoginWithGg extends HttpServlet {
     public static String GOOGLE_CLIENT_SECRET = "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";
 
     public static String GOOGLE_REDIRECT_URI = "http://localhost:3000/login/loginWithGg";
-
     public static String GOOGLE_LINK_GET_TOKEN = "https://accounts.google.com/o/oauth2/token";
-
     public static String GOOGLE_LINK_GET_USER_INFO = "https://www.googleapis.com/oauth2/v1/userinfo?access_token=";
 
     public static String GOOGLE_GRANT_TYPE = "authorization_code";
@@ -62,27 +61,24 @@ public class LoginWithGg extends HttpServlet {
         UserGoogleDto googlePojo = new Gson().fromJson(response, UserGoogleDto.class);
         return googlePojo;
     }
-    public static void  addCookiesToken(User user, HttpServletResponse resp){
-        String token= JWT.createJWTLogin(user,24);
-        Cookie cookie=new Cookie("token", token);
-        cookie.setMaxAge(30*24*60*60); //for 30 days
-        cookie.setPath("/");
-        resp.addCookie(cookie);
-    }
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
         String code=req.getParameter("code");
         String accessTokens=getToken(code);
         UserGoogleDto userGoogleDto = getUserInfo(accessTokens);
-        User user=new User(userGoogleDto.getId(),null, userGoogleDto.getName(),null,null,null,null);
+        String userId=userGoogleDto.getId();
         try {
-            if(UserDAO.getUserByName(userGoogleDto.getId())!=null){
-                addCookiesToken(user,resp);
+            User user=null;
+            if(UserDAO.getUserByName(userId)!=null){
+                user=UserDAO.getUserByName(userId);
+                req.getSession().setAttribute("user",user);
             }else {
+                user=new User(userId, null,null,null,null,null,null,0,1,1);
                 UserDAO.insertUser(user);
-                addCookiesToken(user,resp);
+                req.getSession().setAttribute("user",user);
             }
+            saveSession(user,req);
             req.getRequestDispatcher("/index.jsp").forward(req,resp);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -90,5 +86,8 @@ public class LoginWithGg extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+    }
+    public void saveSession(User user, HttpServletRequest req){
+        req.getSession().setAttribute("user",user);
     }
 }

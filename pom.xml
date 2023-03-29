@@ -109,7 +109,6 @@
       <artifactId>fluent-hc</artifactId>
       <version>4.5.6</version>
     </dependency>
-
   </dependencies>
   <build>
     <finalName>Project</finalName>

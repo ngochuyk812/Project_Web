@@ -70,7 +70,7 @@ public class Register extends HttpServlet {
         }
 
         User user = null;
-        user = new User(data.get("username"), HashSHA216.hash(data.get("password")), data.get("fullname"), data.get("email"), data.get("phone"), "", data.get("address"));
+        user = new User(data.get("username"), HashSHA216.hash(data.get("password")), data.get("fullname"), data.get("email"), data.get("phone"), "", data.get("address"),0,1,0);
         String tokenUser = JWT.createJWT(user.getUserName(),6);
         SendEmail.getInstance().sendTokenVerify(user.getEmail(), "http://" + req.getHeader("host") + "/verifyAccount?token=" + tokenUser);
         req.getSession().setAttribute("verifyAccount_" + user.getUserName(), user);

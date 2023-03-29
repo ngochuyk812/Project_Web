@@ -23,12 +23,13 @@
                 <div class="left-head"> Hotline: 09793459242</div>
                 <div class="head-right">
                     <div class="box-search-head">
-                        <div class="box-search-head-element"><label for="txtKeyword"></label> <input style="vertical-align: center" id="txtKeyword"
-                                                                                                     class="input-text ui-autocomplete-input"
-                                                                                                     maxlength="100"
-                                                                                                     autocomplete="off"
-                                                                                                     placeholder="Tìm kiếm theo hãng xe, dòng xe"
-                                                                                                     type="text">
+                        <div class="box-search-head-element"><label for="txtKeyword"></label> <input
+                                style="vertical-align: center" id="txtKeyword"
+                                class="input-text ui-autocomplete-input"
+                                maxlength="100"
+                                autocomplete="off"
+                                placeholder="Tìm kiếm theo hãng xe, dòng xe"
+                                type="text">
                             <ul class="sub-search" id="sub-search"></ul>
                         </div>
                     </div>
@@ -38,7 +39,7 @@
                                 id="countproduct" class=""></span>
                         <div id="box-show-noti" class="scroll-list box-show-noti hide"></div>
                     </div>
-<%--                    hậu--%>
+                    <%--                    hậu--%>
                     <div class="box-login-acc" id="login">
                         <span style="margin-right: 15px">
         <a href="login" rel="nofollow" id="dangky">Đăng ký/ Đăng nhập
@@ -65,7 +66,7 @@
 
                     </li>
 
-                    <li id="checkIsAdmin"><a href="admin?page=index"><h2>Admin</h2></a>
+                    <li id="checkIsAdmin"><a href="/admin?page=index"><h2>Admin</h2></a>
 
                     </li>
                 </ul>
@@ -77,49 +78,44 @@
 <script src="../EventJs/HeaderActive.js">
 </script>
 <script>
-    var Login_Res= document.querySelector("#login>span")
-    var account=document.querySelector("#account")
-    var profile=document.querySelector("#profile")
-    const home = ()=>{
-        window.location.pathname="/"
+    var Login_Res = document.querySelector("#login>span")
+    var account = document.querySelector("#account")
+    var profile = document.querySelector("#profile")
+    const home = () => {
+        window.location.pathname = "/"
     }
 
 
-    const findCookieByname=(name)=>{
-        const cookies=document.cookie.split("; ")
-        for(const i in cookies){
-            if((cookies[i].split("=")[0])==name){
+    const findCookieByname = (name) => {
+        const cookies = document.cookie.split("; ")
+        for (const i in cookies) {
+            if ((cookies[i].split("=")[0]) == name) {
                 return cookies[i].split("=")[1]
             }
         }
 
     }
+
     function del_cookie(name) {
         document.cookie = name +
             '=; expires=Thu, 01-Jan-70 00:00:01 GMT;';
     }
-    const checkAccountExist=()=>{
-        const token=findCookieByname("token");
-        console.log(123123)
-        console.log(token)
-        if(token){
-            Login_Res.classList.add("hidden")
-            profile.classList.add("show")
-            $.ajax({
-                type: "POST",
-                url: "/checkToken",
-                data: {
-                    "token": token,
-                },
-                contentType: "application/x-www-form-urlencoded",
-                success: function(data){
-                }
-            });
+
+    const checkAccountExist = () => {
+        $.ajax({
+            type: "Get",
+            url: "/check/UserIsExist",
+            contentType: "application/x-www-form-urlencoded",
+            success: function (data) {
+                Login_Res.classList.add("hidden")
+                profile.classList.add("show")
+            }
+        });
 
         // if(findCookieByname("isAdmin") !=1){
         //     document.querySelector("#checkIsAdmin").style.display = 'none'
         // }
-        }
+
     }
     checkAccountExist()
 </script>

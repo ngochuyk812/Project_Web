@@ -205,11 +205,43 @@
 </body>
 <script src="../javascrip/profileEdit.js"></script>
 <script >
-
   var changePass = false
-  const openFormChanglePass = (ele)=>{
+  var statusLogin;
+  var pass;
+  const openFormChanglePass = async (ele)=>{
     changePass = !changePass
-    let rs = `<div class="col">
+    await $.ajax({
+      url: "/check/UserIsExist",
+      type: 'Get',
+      success: function(res) {
+        statusLogin=res.statusLogin
+        pass=res.pass
+      }
+    });
+    console.log(statusLogin)
+    console.log(pass)
+    let rs=``;
+    if(statusLogin==1&&pass==null){
+      rs+=`<div class="col">
+        <div class="mb-2"><b>Change Password</b></div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label>New Password</label>
+              <input class="form-control" type="password" name="passnew" placeholder="••••••">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label>Confirm <span class="d-none d-xl-inline">Password</span></label>
+              <input class="form-control" name="repassnew" type="password" placeholder="••••••"></div>
+          </div>
+        </div>
+      </div>`
+    }else {
+      rs+=`<div class="col">
     <div class="mb-2"><b>Change Password</b></div>
     <div class="row">
       <div class="col">
@@ -235,12 +267,11 @@
       </div>
     </div>
   </div>`
+    }
     if(changePass){
       document.querySelector("#changlePass").innerHTML = rs
       ele.textContent = "Hủy"
-
     }else{
-
       document.querySelector("#changlePass").innerHTML = ``
       ele.textContent = "Thay đổi mật khẩu"
 
@@ -258,19 +289,16 @@
         checkNull = false
       }
     }
-
     if(changePass){
       if(formDataObject.passnew != formDataObject.repassnew){
         document.querySelector(`input[name ='passnew']`).style.border = 'solid 1px red'
         document.querySelector(`input[name ='repassnew']`).style.border = 'solid 1px red'
         checkNull = false
       }
-
     }
     if(checkNull){
       formDataObject.fullName = encodeURIComponent(formDataObject.fullName)
       formDataObject.address = encodeURIComponent(formDataObject.address)
-      console.log(formDataObject);
       $.ajax({
         url: "/profile?action=changeProfile",
         type: 'POST',
@@ -280,7 +308,6 @@
           let rs = JSON.parse(res)
           if(rs === 1){
             window.location.pathname = "/profile"
-
           }else{
             alert(rs)
           }
@@ -290,30 +317,29 @@
     }else{
       console.log("Loi");
     }
-
-
-
   }
 
 
   const handleAvatar =(e)=>{
-
     const file = e.files[0];
     let image = document.querySelector("#imgAvatar")
     if(file){
       const src = URL.createObjectURL(file);
       image.src = src;
       document.querySelector("#applyChange").classList.remove("hide")
-
     }
-
   }
   const cannel = ()=>{
     document.querySelector("#applyChange").classList.add("hide")
 
   }
   const logout = ()=>{
-    del_cookie("token")
+    $.ajax({
+      type: "GET",
+      url: "/session/del",
+      success: function(data){
+      }
+    });
     window.location.pathname="/"
   }
   function del_cookie(name) {
@@ -367,11 +393,6 @@
 
   }
   getOrder()
-
-
-
-
-
 </script>
 
 </html>

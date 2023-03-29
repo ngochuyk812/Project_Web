@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import com.google.gson.JsonObject;
+import org.apache.http.HttpRequest;
 
 @WebServlet("/login")
 public class Login extends HttpServlet {
@@ -28,13 +29,10 @@ public class Login extends HttpServlet {
         PrintWriter pw;
         String name= req.getParameter("username");
         String pass= HashSHA216.hash(req.getParameter("password"));
-        Gson gson=new Gson();
         try {
             if(UserDAO.checkLogin(name,pass)){
                 User user= UserDAO.getUserByName(name);
-                String token=JWT.createJWTLogin(user,24);
-                Cookie cookie=new Cookie("token", token);
-                resp.addCookie(cookie);
+                saveSession(user,req);
                 pw=resp.getWriter();
                 pw.println(new RespJsonServlet("ok").json());
                 pw.close();
@@ -46,5 +44,8 @@ public class Login extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+    }
+    public void saveSession(User user, HttpServletRequest req){
+        req.getSession().setAttribute("user",user);
     }
 }

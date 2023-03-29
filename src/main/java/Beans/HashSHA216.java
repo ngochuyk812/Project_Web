@@ -13,8 +13,4 @@ public class HashSHA216 {
         byte[] encodedBytes = Base64.getEncoder().encode(pass.getBytes());
         return Base64.getEncoder().encodeToString(encodedBytes);
     }
-    public static String decode(String pass){
-        byte[] decodedBytes = Base64.getDecoder().decode(pass);
-        return new String(decodedBytes);
-    }
 }
