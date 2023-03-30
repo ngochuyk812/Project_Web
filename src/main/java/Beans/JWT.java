@@ -1,7 +1,10 @@
 package Beans;
 
 
+import Model.RespJsonServlet;
 import Model.User;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 
@@ -19,10 +22,10 @@ public class JWT {
 
     }
 
-    public static String createJWT(String subject){
+    public static String createJWT(String subject,int time){
        return Jwts.builder()
                 .setSubject(subject)
-                .setExpiration(new Date(new Date().getTime() + 1000 * 60 * TIMEOUT))
+                .setExpiration(new Date(new Date().getTime() + 1000 * 60 * time))
                 .signWith(SignatureAlgorithm.HS256, JWT_SECRET)
                 .compact();
     }
@@ -33,9 +36,7 @@ public class JWT {
                 .getBody()
                 .getSubject();
     }
-
-    public static void main(String[] args) {
-
-
+    public static Jws<Claims> getBodyJWTLogin(String token){
+        return Jwts.parser().setSigningKey(JWT_SECRET).parseClaimsJws(token);
     }
 }

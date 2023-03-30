@@ -10,8 +10,19 @@ public class User implements Serializable {
     private String phone;
     private String avatar;
     private String address;
-    private int isAdmin;
-    public User(String userName, String passWord, String fullName, String email, String phone, String avatar, String address) {
+    private int role;
+    private int status;
+    private int statusLogin;
+
+    public int getStatusLogin() {
+        return statusLogin;
+    }
+
+    public void setStatusLogin(int statusLogin) {
+        this.statusLogin = statusLogin;
+    }
+
+    public User(String userName, String passWord, String fullName, String email, String phone, String avatar, String address, int role, int status, int statusLogin) {
         this.userName = userName;
         this.passWord = passWord;
         this.fullName = fullName;
@@ -19,16 +30,10 @@ public class User implements Serializable {
         this.phone = phone;
         this.avatar = avatar;
         this.address = address;
+        this.role=role;
+        this.status=status;
+        this.statusLogin=statusLogin;
     }
-
-    public int getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(int isAdmin) {
-        this.isAdmin = isAdmin;
-    }
-
     public String getUserName() {
         return userName;
     }

@@ -1,7 +1,8 @@
 package Controller;
 
-import Model.User;
+import Beans.HashSHA216;
 import DAO.UserDAO;
+import Model.User;
 import com.google.gson.Gson;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
@@ -10,7 +11,6 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,40 +23,41 @@ import java.util.Map;
 
 @WebServlet("/profile")
 public class Profile extends HttpServlet {
-
     private void changleUser(HttpServletRequest req, HttpServletResponse res, String user) throws IOException, SQLException, ClassNotFoundException {
         res.setContentType("text/html;charset=UTF-8");
         req.setCharacterEncoding("utf-8");
+        String userName = user;
         Map<String, String[]> params = req.getParameterMap();
         String pass = null;
         try {
             pass = params.get("oldpass")[0];
-
-        }catch (Exception e){
-
+        } catch (Exception e) {
         }
-        if(pass != null){
-            if(!UserDAO.checkLogin(user,pass)){
+        if (pass != null) {
+            String oldPass = HashSHA216.hash(pass);
+            if (!UserDAO.checkLogin(userName, oldPass)) {
                 res.getWriter().write(new Gson().toJson("Wrong Password"));
                 return;
             }
-            if(UserDAO.updateUser(user,params.get("passnew")[0], URLDecoder.decode(params.get("fullName")[0], "UTF-8"),params.get("email")[0],params.get("phone")[0], URLDecoder.decode(params.get("address")[0], "UTF-8")) == 1){
+            if (UserDAO.updateUser(userName, HashSHA216.hash(params.get("passnew")[0]), URLDecoder.decode(params.get("fullName")[0], "UTF-8"), params.get("email")[0], params.get("phone")[0], URLDecoder.decode(params.get("address")[0], "UTF-8")) == 1) {
+                User userMain = UserDAO.getUserByName(user);
+                saveSession(userMain, req);
                 res.getWriter().write(new Gson().toJson(1));
                 return;
             }
             res.getWriter().write(new Gson().toJson("Error"));
-
-        }else{
-
-            if(UserDAO.updateUser(user,URLDecoder.decode(params.get("fullName")[0], "UTF-8"),params.get("email")[0],params.get("phone")[0],URLDecoder.decode(params.get("address")[0], "UTF-8")) == 1){
+        } else {
+            if (UserDAO.updateUser(userName, HashSHA216.hash(params.get("passnew")[0]), URLDecoder.decode(params.get("fullName")[0], "UTF-8"), params.get("email")[0], params.get("phone")[0], URLDecoder.decode(params.get("address")[0], "UTF-8")) == 1) {
+                User userMain = UserDAO.getUserByName(user);
+                saveSession(userMain, req);
                 res.getWriter().write(new Gson().toJson(1));
                 return;
             }
-
+            res.getWriter().write(new Gson().toJson("Error"));
         }
 
     }
-    protected void changeAvatar(HttpServletRequest req, HttpServletResponse res, String user) throws ServletException, IOException {
+    protected void changeAvatar(HttpServletRequest req, HttpServletResponse res, String user) throws ServletException, IOException, SQLException {
         DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();
         ServletFileUpload upload = new ServletFileUpload(fileItemFactory);
         try {
@@ -67,8 +68,6 @@ public class Profile extends HttpServlet {
                     if (!nameimg.equals("")) {
                         String dirUrl = req.getServletContext()
                                 .getRealPath("") + File.separator + "Img/User";
-                        System.out.println(req.getServletContext()
-                                .getRealPath(""));
                         File dir = new File(dirUrl);
                         if (!dir.exists()) {
                             dir.mkdir();
@@ -77,13 +76,9 @@ public class Profile extends HttpServlet {
                         File file = new File(fileImg);
                         try {
                             fileItem.write(file);
-                            System.out.println("UPLOAD THÀNH CÔNG...!");
-                            System.out.println("ĐƯỜNG DẪN KIỂM TRA UPLOAD HÌNH ẢNH : \n"+dirUrl);
-                            UserDAO.uploadAvatar(user,"Img/User/"+user + ".jpg");
-                            Cookie img=new Cookie("imgUser","Img/User/"+user + ".jpg");
-                            res.addCookie(img);
+                            UserDAO.uploadAvatar(user, "Img/User/" + user + ".jpg");
+                            saveSession(UserDAO.getUserByName(user), req);
                         } catch (Exception e) {
-                            System.out.println("CÓ LỖ TRONG QUÁ TRÌNH UPLOAD!");
                             e.printStackTrace();
                         }
                     }
@@ -93,48 +88,27 @@ public class Profile extends HttpServlet {
             e.printStackTrace();
         }
         res.sendRedirect("/profile");
-
     }
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-
-        String user = null;
-        for (int i = 0; i < req.getCookies().length; i++) {
-            if (req.getCookies()[i].getName().equals("user")) {
-                user = req.getCookies()[i].getValue();
-                break;
-            }
+        User user = (User) req.getSession().getAttribute("user");
+        if (user != null) {
+            req.setAttribute("userInfo", user);
+            req.setAttribute("statusLogin", user);
+            req.getRequestDispatcher("/Page/Profile.jsp").forward(req, res);
+        } else {
+            res.setStatus(200);
         }
-        if(user != null){
-            User u;
-            try {
-                u = UserDAO.getUserByName(user);
-                req.setAttribute("userInfo", u);
-                req.getRequestDispatcher("Page/Profile.jsp").forward(req, res);
-
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
-
-        }
-
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        String user = null;
-        String action ;
-
-        for (int i = 0; i < req.getCookies().length; i++) {
-            if (req.getCookies()[i].getName().equals("user")) {
-                user = req.getCookies()[i].getValue();
-                break;
-            }
-        }
-        action = req.getParameter("action");
-        if(action!= null && action.equals("changeProfile")){
+        User user = (User) req.getSession().getAttribute("user");
+        String action = req.getParameter("action");
+        if (action != null && action.equals("changeProfile")) {
             try {
-                changleUser(req,res, user);
+                changleUser(req, res, user.getUserName());
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
@@ -142,8 +116,17 @@ public class Profile extends HttpServlet {
             }
             return;
         }
-        if(action!= null && action.equals("changeAvatar")){
-            changeAvatar(req,res,user);
+        if (action != null && action.equals("changeAvatar")) {
+            System.out.println(user);
+            try {
+                changeAvatar(req, res, user.getUserName());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         }
+    }
+
+    public void saveSession(User user, HttpServletRequest req) {
+        req.getSession().setAttribute("user", user);
     }
 }
