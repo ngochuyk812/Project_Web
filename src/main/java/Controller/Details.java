@@ -3,6 +3,7 @@ package Controller;
 import DAO.CommentDAO;
 import DAO.ProductDAO;
 import Model.Post;
+import Model.Product;
 import Model.RespJsonServlet;
 import Model.User;
 import DAO.UserDAO;
@@ -30,7 +31,7 @@ public class Details extends HttpServlet {
         }
         try {
             req.setAttribute("listComment", CommentDAO.getListComment(Integer.valueOf(id)));
-            Post product = ProductDAO.getPostById(Integer.valueOf(id));
+            Product product = ProductDAO.getProductById(Integer.valueOf(id));
             req.setAttribute("product", product);
             req.getRequestDispatcher("Page/Detail.jsp").forward(req, res);
 

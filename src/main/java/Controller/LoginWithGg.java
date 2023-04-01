@@ -78,8 +78,10 @@ public class LoginWithGg extends HttpServlet {
                 UserDAO.insertUser(user);
                 req.getSession().setAttribute("user",user);
             }
+            String contextPath = req.getContextPath();
+
             saveSession(user,req);
-            req.getRequestDispatcher("/index.jsp").forward(req,resp);
+            resp.sendRedirect(contextPath+"/");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (ClassNotFoundException e) {

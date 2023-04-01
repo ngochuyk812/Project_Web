@@ -2,6 +2,7 @@ package DAO;
 
 import Connect.ConnectDB;
 import Model.Post;
+import Model.Product;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -72,10 +73,10 @@ public class ProductDAO {
 
 
 
-    public static Post getPostById(int id){
+    public static Product getProductById(int id){
         System.out.println("ID Post ================ " + id);
-        Post post =null;
-        String query = "SELECT * FROM product where idpost = ?";
+        Product post =null;
+        String query = "SELECT * FROM product where id = ?";
 
         try {
             Statement statement = ConnectDB.getConnect().createStatement();
@@ -86,20 +87,16 @@ public class ProductDAO {
             while (resultSet.next()) {
 
 
-                post = new Post(resultSet.getInt(1),
-                        resultSet.getString(2),
+                post = new Product(resultSet.getInt(1),
+                        resultSet.getInt(2),
                         resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getString(5),
-                        resultSet.getString(6),
+                        resultSet.getInt(6),
                         resultSet.getInt(7),
-                        resultSet.getInt(8),
-                        resultSet.getInt(9),
-                        resultSet.getInt(10),
-                        resultSet.getString(11),
-                        resultSet.getFloat(12),
-                        resultSet.getInt(13)
-
+                        resultSet.getDouble(8),
+                        resultSet.getDate(9),
+                        resultSet.getInt(10)
                 );
                 System.out.println(post.toString());
 
@@ -110,6 +107,19 @@ public class ProductDAO {
         }
         System.out.println(post);
         return post;
+    }
+    public static int getQuantityProduct(int idProduct)throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("SELECT (SELECT  SUM(orderdetail.quantity) FROM (`order` JOIN orderdetail on `order`.id = orderdetail.idOrder) WHERE orderdetail.idProduct = ? ) as SLB, (SELECT  SUM(importproduct.quantity) FROM importproduct WHERE importproduct.idProduct = ?) AS SLN");
+        stmt.setInt(1,idProduct);
+        stmt.setInt(2,idProduct);
+        ResultSet resultSet = stmt.executeQuery();
+        int rs = 0;
+        while (resultSet.next()) {
+            rs= resultSet.getInt(2) - resultSet.getInt(1);
+
+        }
+        return rs;
     }
     public static int deleteProduct(int idPost) throws SQLException {
         Statement statement = ConnectDB.getConnect().createStatement();
@@ -268,7 +278,7 @@ public class ProductDAO {
 //    }
 
     public static void main(String[] args) throws SQLException {
-        ProductDAO.getPostById(208);
+        ProductDAO.getProductById(208);
     }
 }
 

@@ -112,17 +112,17 @@ public class Oder extends HttpServlet {
             try {
                  user = UserDAO.getUserByName(username);
                  CartDAO cs = new CartDAO();
-                carts = cs.getAllCartByUser(username);
+                carts = cs.getAllCartByUser(0);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
 
             for(Cart tmp : carts){
-                Model.Oder oder = new Model.Oder(username,user.getFullName(), user.getPhone(), user.getAddress(), tmp.getPost().getTitle(), tmp.getAmount(), (double) (tmp.getAmount() * tmp.getPost().getPrice()), 0);
+                Model.Oder oder = new Model.Oder(username,user.getFullName(), user.getPhone(), user.getAddress(), tmp.getProduct().getName(), tmp.getQuantity(), (double) (tmp.getQuantity() * tmp.getProduct().getPrice()), 0);
                 try {
                     if(OderDAO.addOrder(oder) == 1){
                         oders.add(oder);
-                        CartDAO.removeCart(username, tmp.getPost().getIdPost());
+//                        CartDAO.removeCart(username, tmp.getProduct().getId());
                         checkRs = true;
                     }else{
                         checkRs = false;

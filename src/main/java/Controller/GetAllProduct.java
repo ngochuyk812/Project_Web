@@ -21,8 +21,8 @@ import java.sql.SQLException;
 public class GetAllProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        req.setAttribute("listProduct", ProductDAO.getAllProduct());
-        System.out.println(ProductDAO.getAllProduct());
+//        req.setAttribute("listProduct", ProductDAO.getAllProduct());
+//        System.out.println(ProductDAO.getAllProduct());
         req.getRequestDispatcher("/index.jsp").forward(req, res);
     }
 }

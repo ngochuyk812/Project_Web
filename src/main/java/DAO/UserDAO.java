@@ -52,6 +52,7 @@ public class UserDAO {
         stmt.setString(1, name);
         ResultSet rs = stmt.executeQuery();
         if (rs.next()) {
+            int idUser = rs.getInt("id");
             String userName = rs.getString("username");
             String fullName = rs.getString("fullname");
             String email = rs.getString("email");
@@ -63,6 +64,7 @@ public class UserDAO {
             int status = Integer.valueOf(rs.getString("status"));
             int statusLogin = rs.getInt("statusLogin");
             User user = new User(userName, pass, fullName, email, phone, avatar, address, role, status, statusLogin);
+            user.setIdUser(idUser);
             return user;
         }
         ;
