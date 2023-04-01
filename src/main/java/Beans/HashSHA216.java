@@ -10,7 +10,12 @@ import java.util.Date;
 public class HashSHA216 {
 
     public static String hash(String pass){
-        byte[] encodedBytes = Base64.getEncoder().encode(pass.getBytes());
-        return Base64.getEncoder().encodeToString(encodedBytes);
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-512");
+            byte[] bytes = md.digest(pass.getBytes());
+            return Base64.getEncoder().encodeToString(bytes);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
