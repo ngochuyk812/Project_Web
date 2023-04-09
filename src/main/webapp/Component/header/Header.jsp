@@ -102,6 +102,8 @@
     }
 
     const checkAccountExist = () => {
+        console.log("get User")
+
         $.ajax({
             type: "Get",
             url: "/check/UserIsExist",

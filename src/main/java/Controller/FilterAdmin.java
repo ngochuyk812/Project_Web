@@ -7,6 +7,7 @@ import DAO.UserDAO;
 import Model.Company;
 import Model.Oder;
 import Model.Post;
+import Model.Product;
 import Model.User;
 
 import javax.servlet.ServletException;
@@ -129,7 +130,7 @@ public class FilterAdmin extends HttpServlet {
         String action = req.getParameter("action");
         String id = req.getParameter("id");
         if (action != null && action.equalsIgnoreCase("editproduct")) {
-            Post product = ProductDAO.getPostById(Integer.valueOf(id));
+            Product product = ProductDAO.getProductById(Integer.valueOf(id));
             req.setAttribute("product", product);
             ArrayList<Company> list = null;
             try {

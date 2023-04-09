@@ -3,6 +3,7 @@ package DAO;
 import Connect.ConnectDB;
 import Model.Cart;
 import Model.Post;
+import Model.Product;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -10,26 +11,59 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class CartDAO {
-    static Statement statement = null;
-    PreparedStatement preparedStatement = null;
-    ResultSet resultSet = null;
-    public static  ArrayList<Cart> getAllCartByUser(String username) throws SQLException {
+
+    public static  ArrayList<Cart> getAllCartByUser(int idUser) throws SQLException {
         ArrayList<Cart> carts = new ArrayList<>();
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("SELECT cart.* FROM cart where cart.username = ? ");
-        stmt.setString(1,username);
+        PreparedStatement stmt = c.prepareStatement("SELECT idUser, idProduct, quantity, createAt, status, id FROM cart where cart.idUser = ? ");
+        stmt.setInt(1,idUser);
         ResultSet resultSet = stmt.executeQuery();
         ProductDAO ps = new ProductDAO();
         while (resultSet.next()) {
             Cart cart = new Cart();
-            cart.setUsername(resultSet.getString(1));
-            Post post = ps.getPostById(resultSet.getInt(2));
-            cart.setPost(post);
-            cart.setAmount( resultSet.getInt(3));
+            cart.setIdUser(resultSet.getInt(1));
+            Product post = ps.getProductById(resultSet.getInt(2));
+            cart.setId( resultSet.getInt(6));
+            cart.setProduct(post);
+            cart.setQuantity( resultSet.getInt(3));
+            cart.setCreateAt( resultSet.getDate(4));
+            cart.setStatus(resultSet.getInt(5));
             carts.add(cart);
         }
+        System.out.println();
         return carts;
     }
+    public static  Cart getCartById(int idCart) throws SQLException {
+        ArrayList<Cart> carts = new ArrayList<>();
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("SELECT idUser, idProduct, quantity, createAt, status, id FROM cart where cart.id = ? ");
+        stmt.setInt(1,idCart);
+        ResultSet resultSet = stmt.executeQuery();
+        ProductDAO ps = new ProductDAO();
+        while (resultSet.next()) {
+            Cart cart = new Cart();
+            cart.setIdUser(resultSet.getInt(1));
+            Product post = ps.getProductById(resultSet.getInt(2));
+            cart.setProduct(post);
+            cart.setQuantity( resultSet.getInt(3));
+            cart.setCreateAt( resultSet.getDate(4));
+            cart.setStatus( resultSet.getInt(5));
+            cart.setId( resultSet.getInt(6));
+
+            return cart;
+
+        }
+        System.out.println();
+        return null;
+    }
+    private boolean checkQuantity(int idCart) throws SQLException {
+        boolean rs = true;
+        Cart cart = CartDAO.getCartById(idCart);
+        int idProduct = cart.getProduct().getId();
+
+        return rs;
+    }
+
     public static Cart getCart(String username, int idPost) throws SQLException {
 
         Connection c = ConnectDB.getConnect();
@@ -41,35 +75,51 @@ public class CartDAO {
         Cart cart = null;
         while (resultSet.next()) {
             cart = new Cart();
-            cart.setUsername(resultSet.getString(1));
-            Post post = ps.getPostById(resultSet.getInt(2));
-            cart.setPost(post);
-            cart.setAmount( resultSet.getInt(3));
+            cart.setIdUser(resultSet.getInt(1));
+            Product product = ps.getProductById(resultSet.getInt(2));
+            cart.setProduct(product);
+            cart.setQuantity( resultSet.getInt(3));
 
         }
         return cart;
     }
-    public static Cart updateQuantityCart(String username , int idPost, int amount) throws SQLException{
+    public static Cart updateCartById(Cart cart) throws SQLException {
+        System.out.println(cart.toString());
         String sqlUpdate = "UPDATE cart "
-                + "SET amount = ? "
-                + "WHERE username = ?"
-                + "AND idpost = ?";
+                + "SET idUser = ? , idProduct = ?, quantity = ?, status = ? "
+                + "WHERE id = ?";
         Connection conn = ConnectDB.getConnect();
         PreparedStatement pstmt = conn.prepareStatement(sqlUpdate);
-        pstmt.setInt(1, amount);
-        pstmt.setString(2, username);
-        pstmt.setInt(3, idPost);
+        pstmt.setInt(1, cart.getIdUser());
+        pstmt.setInt(2, cart.getProduct().getId());
+        pstmt.setInt(3, cart.getQuantity());
+        pstmt.setInt(4, cart.getStatus());
+        pstmt.setInt(5, cart.getId());
         int rowAffected = pstmt.executeUpdate();
-        return getCart(username, idPost);
+        if(rowAffected == 1){
+            return getCartById(cart.getId());
+
+        }else{
+            return null;
+        }
     }
-    public static int removeCart(String username , int idPost) throws SQLException {
-        String sqlUpdate = "DELETE FROM cart "
-                + "WHERE username = ?"
-                + "AND idpost = ?";
+    public static Cart updateQuantityCartById(int id, int quantity) throws SQLException{
+        String sqlUpdate = "UPDATE cart "
+                + "SET quantity = ? "
+                + "WHERE id = ?";
         Connection conn = ConnectDB.getConnect();
         PreparedStatement pstmt = conn.prepareStatement(sqlUpdate);
-        pstmt.setString(1, username);
-        pstmt.setInt(2, idPost);
+        pstmt.setInt(1, quantity);
+        pstmt.setInt(2, id);
+        int rowAffected = pstmt.executeUpdate();
+        return getCartById(id);
+    }
+    public static int removeCartById(int idCart) throws SQLException {
+        String sqlUpdate = "DELETE FROM cart "
+                + "WHERE id = ?";
+        Connection conn = ConnectDB.getConnect();
+        PreparedStatement pstmt = conn.prepareStatement(sqlUpdate);
+        pstmt.setInt(1, idCart);
         int rowAffected = pstmt.executeUpdate();
         return rowAffected;
     }

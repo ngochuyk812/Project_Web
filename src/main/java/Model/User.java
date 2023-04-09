@@ -3,6 +3,7 @@ package Model;
 import java.io.Serializable;
 
 public class User implements Serializable {
+    private int idUser;
     private String userName;
     private String passWord;
     private String fullName;
@@ -34,6 +35,31 @@ public class User implements Serializable {
         this.status=status;
         this.statusLogin=statusLogin;
     }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     public String getUserName() {
         return userName;
     }
