@@ -45,9 +45,7 @@ public class Product extends HttpServlet {
         for(Post tmp :products ){
             tmp.setContent(URLEncoder.encode(tmp.getContent(), StandardCharsets.UTF_8));
             tmp.setTitle(tmp.getTitle());
-            System.out.println(tmp.getTitle());
-            tmp.setFuel(URLEncoder.encode(tmp.getFuel(), StandardCharsets.UTF_8));
-
+            tmp.setFuel(tmp.getFuel());
         }
         res.getWriter().write(new Gson().toJson(products));
     }

@@ -1,44 +1,41 @@
 package Model;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.regex.Pattern;
 
 public class Post implements Serializable {
     private int idPost;
+    private int idVendor;
+    private String name;
     private String title;
-    private String content;
-    private String body ;
-    private String made;
-    private String images;
-    private int gear;
-    private int idCompany;
+    private String content ;
+    private String body;
+    private int made;
     private int yearOfManuFacture;
-    private int status;
-    private String fuel;
+    private int fuel;
     private float price;
+    private Date createAt;
+    private int status;
     private int quantity;
 
 
 
-
-
-    public Post(int idPost, String title, String content, String body, String made, String images, int gear, int idCompany, int yearOfManuFacture, int status,  String fuel, float price, int quantity) {
+    public Post(int idPost, String title, int idVendor, String name, String content, String body, int made, int yearOfManuFacture, int fuel, float price, Date createAt, int status, int quantity) {
         this.idPost = idPost;
-        this.title = title;
+        this.title=title;
+        this.idVendor = idVendor;
+        this.name = name;
         this.content = content;
         this.body = body;
         this.made = made;
-        this.images = images;
-        this.gear = gear;
-        this.idCompany = idCompany;
         this.yearOfManuFacture = yearOfManuFacture;
-        this.status = status;
         this.fuel = fuel;
         this.price = price;
-        this.quantity = quantity;
+        this.createAt = createAt;
+        this.status = status;
+        this.quantity=quantity;
     }
-
-
     public int getQuantity() {
         return quantity;
     }
@@ -53,6 +50,22 @@ public class Post implements Serializable {
 
     public void setIdPost(int idPost) {
         this.idPost = idPost;
+    }
+
+    public int getIdVendor() {
+        return idVendor;
+    }
+
+    public void setIdVendor(int idVendor) {
+        this.idVendor = idVendor;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getTitle() {
@@ -79,36 +92,12 @@ public class Post implements Serializable {
         this.body = body;
     }
 
-    public String getMade() {
+    public int getMade() {
         return made;
     }
 
-    public void setMade(String made) {
+    public void setMade(int made) {
         this.made = made;
-    }
-
-    public String getImages() {
-        return images;
-    }
-
-    public void setImages(String images) {
-        this.images = images;
-    }
-
-    public int getGear() {
-        return gear;
-    }
-
-    public void setGear(int gear) {
-        this.gear = gear;
-    }
-
-    public int getIdCompany() {
-        return idCompany;
-    }
-
-    public void setIdCompany(int idCompany) {
-        this.idCompany = idCompany;
     }
 
     public int getYearOfManuFacture() {
@@ -119,25 +108,11 @@ public class Post implements Serializable {
         this.yearOfManuFacture = yearOfManuFacture;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public String[] arrayImg(){
-        System.out.println(this.getImages());
-        String[] rs = this.getImages().split(Pattern.quote("||"));
-        return rs;
-    }
-
-    public String getFuel() {
+    public int getFuel() {
         return fuel;
     }
 
-    public void setFuel(String fuel) {
+    public void setFuel(int fuel) {
         this.fuel = fuel;
     }
 
@@ -148,27 +123,37 @@ public class Post implements Serializable {
     public void setPrice(float price) {
         this.price = price;
     }
-    public String getSrcFirst() {
-        return images.split("||")[0];
 
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     @Override
     public String toString() {
         return "Post{" +
                 "idPost=" + idPost +
-                ", title='" + title + '\'' +
+                ", idVendor=" + idVendor +
+                ", name='" + name + '\'' +
                 ", content='" + content + '\'' +
                 ", body='" + body + '\'' +
-                ", made='" + made + '\'' +
-                ", images='" + images + '\'' +
-                ", gear=" + gear +
-                ", idCompany=" + idCompany +
+                ", made=" + made +
                 ", yearOfManuFacture=" + yearOfManuFacture +
-                ", status=" + status +
-                ", fuel='" + fuel + '\'' +
+                ", fuel=" + fuel +
                 ", price=" + price +
-                ", quantity=" + quantity +
+                ", createAt=" + createAt +
+                ", status=" + status +
                 '}';
     }
 }

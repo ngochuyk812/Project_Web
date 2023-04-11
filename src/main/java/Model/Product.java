@@ -27,12 +27,11 @@ public class Product {
         this.status = status;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public int getIdVendo() {
         return idVendo;
+    }
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -106,5 +105,6 @@ public class Product {
     public void setStatus(int status) {
         this.status = status;
     }
+
 
 }

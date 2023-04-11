@@ -38,7 +38,7 @@ public class FilterAdmin extends HttpServlet {
         req.setAttribute("countOrder", countOrder);
         req.setAttribute("countOrderOut", countOrderOut);
         req.setAttribute("getPriceRevenue", getPriceRevenue);
-
+//
         ArrayList<Post> products = ProductDAO.getProductOut();
         req.setAttribute("products", products);
 

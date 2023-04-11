@@ -138,7 +138,7 @@
                             </td>
                             <td><%=tmp.getTitle()%>
                             </td>
-                            <td><img src="<%=tmp.arrayImg()[0]%>" alt="" width="100px;"></td>
+<%--                            <td><img src="<%=tmp.arrayImg()[0]%>" alt="" width="100px;"></td>--%>
                             <td><%=tmp.getQuantity()%>
                             </td>
                             <td><span
