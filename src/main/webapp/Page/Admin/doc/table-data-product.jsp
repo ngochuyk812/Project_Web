@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="Model.Post" %>
+<%@ page import="Model.Product" %>
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="java.util.Locale" %>
 <%@ page import="Model.Company" %>
@@ -25,7 +25,7 @@
       </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
-<%ArrayList<Post> products = (ArrayList<Post>) request.getAttribute("products"); %>
+<%ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("products"); %>
 <%ArrayList<Company> list = (ArrayList<Company>)request.getAttribute("list") ;%>
    <!-- Navbar-->
    <header class="app-header">
@@ -87,7 +87,7 @@
                                 double doubleNumber1 = 10.17d;
 
                                 for(int i = 0; i < products.size();i++){
-                                Post tmp = products.get(i);
+                                Product tmp = products.get(i);
                             %>
                             <tr id="row<%=tmp.getIdPost()%>">
                                 <td width="10"><input type="checkbox" name="check<%=i + 1%>" value="<%=i + 1%>"></td>

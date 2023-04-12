@@ -6,7 +6,6 @@ import DAO.ProductDAO;
 import DAO.UserDAO;
 import Model.Company;
 import Model.Oder;
-import Model.Post;
 import Model.Product;
 import Model.User;
 
@@ -39,7 +38,7 @@ public class FilterAdmin extends HttpServlet {
         req.setAttribute("countOrderOut", countOrderOut);
         req.setAttribute("getPriceRevenue", getPriceRevenue);
 //
-        ArrayList<Post> products = ProductDAO.getProductOut();
+        ArrayList<Product> products = ProductDAO.getProductOut();
         req.setAttribute("products", products);
 
         ArrayList<Oder> oders = OderDAO.getOrderOut();
@@ -75,7 +74,7 @@ public class FilterAdmin extends HttpServlet {
     }
 
     protected void productPage(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        ArrayList<Post> products = ProductDAO.getProduct();
+        ArrayList<Product> products = ProductDAO.getProduct();
         req.setAttribute("products", products);
         ArrayList<Company> list = null;
         try {

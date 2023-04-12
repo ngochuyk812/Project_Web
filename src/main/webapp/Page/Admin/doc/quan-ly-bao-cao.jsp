@@ -2,7 +2,7 @@
 <%@ page import="java.text.NumberFormat" %>
 <%@ page import="Model.Oder" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="Model.Post" %>
+<%@ page import="Model.Product" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -122,7 +122,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <%ArrayList<Post> products = (ArrayList<Post>) request.getAttribute("products"); %>
+                        <%ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("products"); %>
 
                         <%
                             Locale localeVN = new Locale("vi", "VN");
@@ -130,11 +130,11 @@
                             double doubleNumber1 = 10.17d;
 
                             for (int i = 0; i < products.size(); i++) {
-                                Post tmp = products.get(i);
+                                Product tmp = products.get(i);
                         %>
-                        <tr id="row<%=tmp.getIdPost()%>">
+                        <tr id="row<%=tmp.getId()%>">
                             <td width="10"><input type="checkbox" name="check<%=i + 1%>" value="<%=i + 1%>"></td>
-                            <td><%=tmp.getIdPost()%>
+                            <td><%=tmp.getId()%>
                             </td>
                             <td><%=tmp.getTitle()%>
                             </td>
@@ -148,12 +148,12 @@
 
                             <td>
                                 <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
-                                        onclick="deleteRow(this, <%=tmp.getIdPost()%>)"><i class="fas fa-trash-alt"></i>
+                                        onclick="deleteRow(this, <%=tmp.getId()%>)"><i class="fas fa-trash-alt"></i>
                                 </button>
-                                <form action="admin?action=editproduct&id=<%=tmp.getIdPost()%>" method="POST">
-                                    <input name="id" value="<%=tmp.getIdPost()%>" hidden>
+                                <form action="admin?action=editproduct&id=<%=tmp.getId()%>" method="POST">
+                                    <input name="id" value="<%=tmp.getId()%>" hidden>
                                     <button class="btn btn-primary btn-sm edit" type="submit" title="Sửa"
-                                            id="show-emp<%=tmp.getIdPost()%>" data-toggle="modal"
+                                            id="show-emp<%=tmp.getId()%>" data-toggle="modal"
                                             data-target="#ModalUP2"><i class="fas fa-edit"></i></button>
                                 </form>
 

@@ -2,7 +2,6 @@ package DAO;
 
 import Connect.ConnectDB;
 import Model.Cart;
-import Model.Post;
 import Model.Product;
 
 import java.io.UnsupportedEncodingException;

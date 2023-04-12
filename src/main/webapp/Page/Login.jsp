@@ -244,8 +244,6 @@
                     data: dataBody,
                     contentType: 'application/x-www-form-urlencoded',
                     success: function (data) {
-                        console.log(data['message'])
-                        console.log(data['message'] == "register success")
                         if (data['message'] == "register success") {
                             swal({
                                 title: "Thành công",

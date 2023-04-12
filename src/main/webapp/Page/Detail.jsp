@@ -1,4 +1,4 @@
-<%@ page import="Model.Post" %>
+<%@ page import="Model.Product" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page isELIgnored="false" %>
@@ -19,7 +19,7 @@
 <body>
 <jsp:include page="../Component/header/Header.jsp" />
 <div class="container " style="height: auto" id="detailPage">
-    <%Post product = (Post) request.getAttribute("product"); %>
+    <%Product product = (Product) request.getAttribute("product"); %>
     <img src="https://img1.oto.com.vn/Static/Images/otocare/web/477_290622_MuaXeTaiDay_AnTamKiemDinh_1140x140.webp" alt="OTOCheck" width="1140" height="140">
 
     <div class="content-detail" style="margin-top: 10px">

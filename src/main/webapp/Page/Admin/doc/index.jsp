@@ -30,19 +30,23 @@
         .inp:focus {
             border: 1px solid #56A1EE;
         }
+
         .group-bt.two-bt .btn-send {
             float: right;
             background: #4DB848;
         }
-        .control-last{
+
+        .control-last {
             display: flex;
             align-items: center;
         }
+
         .imgContainer {
             width: 180px;
             height: 134px;
             margin-right: 10px;
         }
+
         .imgContainer > img {
             width: 100%;
             height: 100%;
@@ -50,12 +54,12 @@
             border: none;
             overflow: hidden;
         }
-        .list-thumb-gallery{
+
+        .list-thumb-gallery {
             display: flex !important;
             align-items: center;
             flex-wrap: wrap;
         }
-
 
 
     </style>
@@ -286,7 +290,7 @@
         return arr
     }
 
-    $("#btn-send").click(function (e){
+    $("#btn-send").click(function (e) {
         e.preventDefault()
         const arr = getStatus()
         const nameCompany = $('.form-select option:selected').text();
@@ -295,7 +299,7 @@
         const images = listImg
         const xmas = new Date("December 25, 2000 23:15:00");
         const year = xmas.getYear();
-        const yearofmanufacture = getYear() ||year
+        const yearofmanufacture = getYear() || year
         const made = encodeURI(arr[0])
         const gear = arr[1]
         const fuel = encodeURI(arr[2])
@@ -303,11 +307,9 @@
         const price = $("#Price").val()
         const body = $("#body").val()
         const quantity = $("#quantity").val()
-        console.log(status)
-
-        if(nameCompany&&title&&content&&images&&yearofmanufacture&&made&&gear&&fuel&&status&&price&&body&&quantity){
+        if (nameCompany && title && content && images && yearofmanufacture && made && gear && fuel && status && price && body && quantity) {
             // if(typeof price==="number"){
-            var dataBody={
+            var dataBody = {
                 nameCompany,
                 images,
                 title,
@@ -321,7 +323,6 @@
                 made,
                 quantity
             }
-
             $.ajax({
                 url: "/postProduct",
                 type: "POST",
@@ -338,13 +339,10 @@
                     }).then((value) => {
                         console.log(value);
                     });
-                    window.location.href=window.location.href
-
-
+                    window.location.href = window.location.href
                 }
             });
-
-        }else {
+        } else {
             swal({
                 title: 'Lỗi ',
                 text: 'Thông tin không chính xác',
@@ -359,7 +357,6 @@
 
 
     })
-
 
 
 </script>

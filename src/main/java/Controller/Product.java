@@ -1,23 +1,16 @@
 package Controller;
 
-import DAO.CartDAO;
 import DAO.CompanyDAO;
 import DAO.ProductDAO;
-import Model.Post;
-import Model.RespJsonServlet;
-import Model.User;
-import DAO.UserDAO;
 import Upload.UploadImage;
 import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -41,8 +34,8 @@ public class Product extends HttpServlet {
         req.getRequestDispatcher("Page/Product.jsp").forward(req, res);
     }
     protected void getListProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException, SQLException {
-        ArrayList<Post> products = ProductDAO.getProduct();
-        for(Post tmp :products ){
+        ArrayList<Model.Product> products = ProductDAO.getProduct();
+        for(Model.Product tmp :products ){
             tmp.setContent(URLEncoder.encode(tmp.getContent(), StandardCharsets.UTF_8));
             tmp.setTitle(tmp.getTitle());
             tmp.setFuel(tmp.getFuel());
