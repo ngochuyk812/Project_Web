@@ -1,7 +1,9 @@
 package Controller;
 
+import Beans.JWT;
 import DAO.CompanyDAO;
 import DAO.ProductDAO;
+import Model.User;
 import Upload.UploadImage;
 
 import javax.servlet.ServletException;
@@ -31,25 +33,19 @@ public class PostProduct extends HttpServlet {
             String images=req.getParameter("images");
             int idCompany=CompanyDAO.getIdByName(req.getParameter("nameCompany"));
             int year=Integer.parseInt(req.getParameter("yearofmanufacture"));
-            ArrayList<String> listimgs=UploadImage.uploadAllFile(images,pathRoot,"post"+String.valueOf(idCompany),"Product");
-            String rsImg="";
-            for (String tmp : listimgs) {
-                rsImg+=tmp+"||";
-            }
-            System.out.println(rsImg);
+            User user=(User)req.getSession().getAttribute("user");
+            String token=JWT.createJWT(String.valueOf(user.getIdUser()), 365);
+            ArrayList<String> listimgs=UploadImage.uploadAllFile(images, pathRoot,"post"+token,"Product");
             int gear=Integer.valueOf(req.getParameter("gear"));
             String fuel= URLDecoder.decode(req.getParameter("fuel"), "UTF-8");
             Float price=Float.parseFloat(req.getParameter("price"));
             String body=req.getParameter("body");
             String made=URLDecoder.decode(req.getParameter("made"),"UTF-8");
-            System.out.println(made);
             int quantity=Integer.valueOf(req.getParameter("quantity"));
-            int rs=ProductDAO.insertProduct(title,content,body,made,rsImg,gear,idCompany,year,statusMain,fuel,price, quantity);
-
+            int rs=ProductDAO.insertProduct(title,content,body,made,listimgs,gear,idCompany,year,statusMain,fuel,price, quantity);
+            resp.sendError(200);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }

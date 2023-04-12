@@ -1,4 +1,4 @@
-<%@ page import="Model.Post" %>
+<%@ page import="Model.Product" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Model.Company" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -70,7 +70,7 @@
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
-<%Post product = (Post) request.getAttribute("product");%>
+<%Product product = (Product) request.getAttribute("product");%>
 <!-- Navbar-->
 <input id="idpost" hidden value="<%=product.getIdPost()%>"/>
 <header class="app-header">
