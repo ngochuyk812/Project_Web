@@ -25,7 +25,7 @@
             <label class="lbl-form">Hãng xe</label>
             <select class="form-select" aria-label="Default select example">
                 <c:forEach items="${listCompany}" var="item">
-                    <option>${item.name}</option>
+                    <option class="${item.id}">${item.name}</option>
                 </c:forEach>
                 <%System.out.println(request.getSession().getAttribute("listCompany"));%>
             </select>

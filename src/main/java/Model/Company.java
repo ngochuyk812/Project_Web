@@ -6,12 +6,14 @@ import java.io.Serializable;
 public class Company implements Serializable {
     private int id;
     private String name;
-    private String logo;
+    private int status;
+    private String srcImg;
 
-    public Company(int id, String name, String logo) {
+    public Company(int id, String name, String srcImg, int status) {
         this.id = id;
         this.name = name;
-        this.logo = logo;
+        this.status = status;
+        this.srcImg = srcImg;
     }
 
     public int getId() {
@@ -30,22 +32,29 @@ public class Company implements Serializable {
         this.name = name;
     }
 
-
-    public String getLogo() {
-        return logo;
+    public int getStatus() {
+        return status;
     }
 
-    public void setLogo(String logo) {
-        this.logo = logo;
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getSrcImg() {
+        return srcImg;
+    }
+
+    public void setSrcImg(String srcImg) {
+        this.srcImg = srcImg;
     }
 
     @Override
     public String toString() {
         return "Company{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
-                ", logo='" + logo + '\'' +
+                ", status=" + status +
+                ", srcImg='" + srcImg + '\'' +
                 '}';
     }
-
 }
