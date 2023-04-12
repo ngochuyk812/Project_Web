@@ -136,10 +136,10 @@
                             <td width="10"><input type="checkbox" name="check<%=i + 1%>" value="<%=i + 1%>"></td>
                             <td><%=tmp.getId()%>
                             </td>
-                            <td><%=tmp.getTitle()%>
+                            <td><%=tmp.getName()%>
                             </td>
 <%--                            <td><img src="<%=tmp.arrayImg()[0]%>" alt="" width="100px;"></td>--%>
-                            <td><%=tmp.getQuantity()%>
+                            <td><%=0%>
                             </td>
                             <td><span
                                     class="badge bg-info">Hết hàng</span>

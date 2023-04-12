@@ -13,60 +13,52 @@ public class ProductDAO {
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
 
-    public static ArrayList<Product> getProduct() {
-        ArrayList<Product> posts = new ArrayList<>();
-        String query = "SELECT p.idProduct, pr.title, pr.idVendo,pr.content, pr.body,pr.made,pr.yearOfManuFacture, pr.fuel,pr.price,pr.createAt, pr.status, SUM(o.quantity) as orderquantity, SUM(p.quantity) as productquantity, SUM(o.quantity) + SUM(p.quantity) as totalquantity FROM importproduct as p JOIN orderdetail as o ON o.idProduct = p.idProduct JOIN product as pr ON pr.id = p.idProduct GROUP BY p.idProduct, pr.title, pr.idVendo,pr.content, pr.body,pr.made,pr.yearOfManuFacture, pr.fuel,pr.price,pr.createAt, pr.status";
-        try {
-            Statement statement = ConnectDB.getConnect().createStatement();
-            PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                posts.add(new Product(resultSet.getInt(1),
-                        resultSet.getString(2),
-                        resultSet.getInt(3),
-                        resultSet.getString(4),
-                        resultSet.getString(5),
-                        resultSet.getString(6),
-                        resultSet.getInt(7),
-                        resultSet.getString(8),
-                        resultSet.getFloat(9),
-                        resultSet.getDate(10),
-                        resultSet.getInt(11),
-                        resultSet.getInt(14)
-                ));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return posts;
-    }
 
-    public static ArrayList<Product> getProductOut() {
-        ArrayList<Product> posts = new ArrayList<>();
-        String query = "SELECT p.idProduct, pr.title, pr.idVendo,pr.content, pr.body,pr.made,pr.yearOfManuFacture, pr.fuel,pr.price,pr.createAt, pr.status, SUM(o.quantity) as orderquantity, SUM(p.quantity) as productquantity, SUM(o.quantity) + SUM(p.quantity) as totalquantity FROM importproduct as p JOIN orderdetail as o ON o.idProduct = p.idProduct JOIN product as pr ON pr.id = p.idProduct GROUP BY p.idProduct, pr.title, pr.idVendo,pr.content, pr.body,pr.made,pr.yearOfManuFacture, pr.fuel,pr.price,pr.createAt, pr.status HAVING SUM(o.quantity) + SUM(p.quantity) <=0;";
+    public static ArrayList<Product> getProduct() {
+        ArrayList<Product> products = new ArrayList<>();
+        String query = "SELECT product.*, sum(product.quantity) as quantity FROM importproduct join product on importproduct.idProduct = product.id GROUP by product.id HAVING quantity >0";
         try {
             Statement statement = ConnectDB.getConnect().createStatement();
             PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
-                posts.add(new Product(resultSet.getInt(1),
-                        resultSet.getString(2),
-                        resultSet.getInt(3),
+                Company vendo = CompanyDAO.getVendoById(resultSet.getInt(2));
+                Product prod = new Product(resultSet.getInt(1),
+                        vendo,
+                        resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getString(5),
-                        resultSet.getString(6),
-                        resultSet.getInt(7),
-                        resultSet.getString(8),
-                        resultSet.getFloat(9),
-                        resultSet.getDate(10),
-                        resultSet.getInt(11),
-                        resultSet.getInt(14)
-                ));
+                        resultSet.getInt(6),
+                        resultSet.getString(7),
+                        resultSet.getDouble(8),
+                        resultSet.getDate(9),
+                        resultSet.getInt(10),
+                        getImagesByID(resultSet.getInt(1))
+                );
+                System.out.println(prod.toString());
+                products.add(prod);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return posts;
+        return products;
+    }
+    public static ArrayList<String> getImagesByID(int idProduct){
+        ArrayList<String> images = new ArrayList<>();
+        String query = "SELECT srcImg FROM imgproduct where idProduct = ?";
+
+        try {
+            Statement statement = ConnectDB.getConnect().createStatement();
+            PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, idProduct);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                images.add(resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return images;
     }
 
     public static int newImgProduct(ImgProduct tmp) {
@@ -91,7 +83,7 @@ public class ProductDAO {
 
     public static Product getProductById(int id) {
         System.out.println("ID Post ================ " + id);
-        Product post = null;
+        Product product = null;
         String query = "SELECT * FROM product where id = ?";
 
         try {
@@ -103,28 +95,27 @@ public class ProductDAO {
             while (resultSet.next()) {
 
 
-                post = new Product(resultSet.getInt(1),
-                        resultSet.getString(2),
-                        resultSet.getInt(3),
+                Company vendo = CompanyDAO.getVendoById(resultSet.getInt(2));
+
+                product=  new Product(resultSet.getInt(1),
+                        vendo,
+                        resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getString(5),
-                        resultSet.getString(6),
-                        resultSet.getInt(7),
-                        resultSet.getString(8),
-                        resultSet.getFloat(9),
-                        resultSet.getDate(10),
-                        resultSet.getInt(11),
-                        resultSet.getInt(14)
+                        resultSet.getInt(6),
+                        resultSet.getString(7),
+                        resultSet.getDouble(8),
+                        resultSet.getDate(9),
+                        resultSet.getInt(10),
+                        getImagesByID(resultSet.getInt(1))
                 );
-                System.out.println(post.toString());
 
             }
 
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        System.out.println(post);
-        return post;
+        return product;
     }
 
     public static int getQuantityProduct(int idProduct) throws SQLException {
@@ -187,33 +178,7 @@ public class ProductDAO {
         return count;
     }
 
-    public ArrayList<Product> getPostUnComfirm() {
-        ArrayList<Product> posts = new ArrayList<>();
-        String query = "SELECT * FROM post where Comfirm=0";
-        try {
-            statement = ConnectDB.getConnect().createStatement();
-            preparedStatement = statement.getConnection().prepareStatement(query);
-            resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                posts.add(new Product(resultSet.getInt(1),
-                        resultSet.getString(2),
-                        resultSet.getInt(3),
-                        resultSet.getString(4),
-                        resultSet.getString(5),
-                        resultSet.getString(6),
-                        resultSet.getInt(7),
-                        resultSet.getString(8),
-                        resultSet.getFloat(9),
-                        resultSet.getDate(10),
-                        resultSet.getInt(11),
-                        resultSet.getInt(14)
-                ));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        return posts;
-    }
+
     public static int insertProduct(String title, String content, String body, String made, ArrayList<String> images, int gear, int idCompany, int year, int status, String fuel, float price, int quantity) {
         String query = "INSERT INTO product(idVendo,quantity,content,body,made,yearOfManuFacture,fuel,price,status,title) VALUES (?,?,?,?,?,?,?,?,?,?); ";
         int productId = -1;
@@ -281,51 +246,9 @@ public class ProductDAO {
 
     }
 
-    public static ArrayList<Product> getAllProduct() {
-        ArrayList<Product> posts = new ArrayList<>();
-        String query = "select * from product ";
-        try {
-            PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query);
-            ResultSet rs = stmt.executeQuery();
 
-            while (rs.next()) {
-                posts.add(new Product(rs.getInt(1),
-                        rs.getString(2),
-                        rs.getInt(3),
-                        rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getInt(7),
-                        rs.getString(8),
-                        rs.getFloat(9),
-                        rs.getDate(10),
-                        rs.getInt(11),
-                        rs.getInt(14)));
-            }
-            return posts;
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-
-    //    public static int updateBasic(int idPost, String title, int quantity, float price) throws SQLException{
-//        String sqlUpdate = "UPDATE prooduct "
-//                + "SET idpost = ?, title = ?,  quantity = ? ,price = ?  "
-//                + "WHERE idpost = ?";
-//        Connection conn = ConnectDB.getConnect();
-//        PreparedStatement pstmt = conn.prepareStatement(sqlUpdate);
-//        pstmt.setInt(1, idPost);
-//        pstmt.setString(2, title);
-//        pstmt.setInt(3, quantity);
-//        pstmt.setFloat(4, price);
-//
-//        int rowAffected = pstmt.executeUpdate();
-//        return rowAffected;
-//    }
     public static void main(String[] args) throws SQLException {
-        ProductDAO.getProductById(208);
+
     }
 }
 

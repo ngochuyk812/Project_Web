@@ -25,8 +25,7 @@
       <div class="card">
         <article class="filter-group">
           <header class="card-header">
-            <a href="#" data-toggle="collapse" data-target="#collapse_aside1" data-abc="true" aria-expanded="false" class="collapsed">
-              <i class="icon-control fa fa-chevron-down"></i>
+            <a  class="collapsed" >
               <h6 class="title">Hãng xe </h6>
             </a>
           </header>
@@ -41,32 +40,26 @@
         </article>
         <article class="filter-group">
           <header class="card-header">
-            <a href="#" data-toggle="collapse" data-target="#collapse_aside2" data-abc="true" aria-expanded="false" class="collapsed">
-              <i class="icon-control fa fa-chevron-down"></i>
+            <a  class="collapsed" >
               <h6 class="title">Giá ( triệu ) </h6>
             </a>
           </header>
-          <div class="filter-content collapse show" id="collapse_aside2" style="">
-            <div class="card-body">
-              <div class="price-input">
-                <div class="field">
-                  <span>Min</span>
-                  <input type="number" class="input-min" value="0">
-                </div>
-                <div class="separator">-</div>
-                <div class="field">
-                  <span>Max</span>
-                  <input type="number" class="input-max" value="2000">
-                </div>
-              </div>
+          <div class="group">
+            <div class="progress"></div>
+            <div class="range-input">
+              <input class="range-min" max="50000" type="range" value="0">
 
+              <input class="range-max" max="50000" type="range" value="50000">
+            </div>
+            <div class="range-text">
+              <div class="text-min">0</div>
+              <div class="text-max">50.000</div>
             </div>
           </div>
         </article>
         <article class="filter-group">
           <header class="card-header">
-            <a href="#" data-toggle="collapse" data-target="#collapse_aside3" data-abc="true" aria-expanded="false" class="collapsed">
-              <i class="icon-control fa fa-chevron-down"></i>
+            <a   class="collapsed" >
               <h6 class="title">Năm sản xuất </h6>
             </a>
           </header>
@@ -81,8 +74,7 @@
         </article>
         <article class="filter-group">
           <header class="card-header">
-            <a href="#" data-toggle="collapse" data-target="#collapse_aside4" data-abc="true" class="collapsed" aria-expanded="false">
-              <i class="icon-control fa fa-chevron-down"></i>
+            <a  class="collapsed" >
               <h6 class="title">Nhiên liệu </h6>
             </a>
           </header>

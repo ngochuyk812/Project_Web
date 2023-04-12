@@ -12,21 +12,17 @@ import java.util.ArrayList;
 public class CompanyDAO {
 
 
-    public static ArrayList<Company> getCompany() throws SQLException {
-        ArrayList<Company> rs = new ArrayList<>();
-        Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("select * from vendo");
-        ResultSet resultSet = stmt.executeQuery();
-        while (resultSet.next()) {
-            rs.add(new Company(
-                    resultSet.getInt(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getInt(4)));
-        }
-        return rs;
-    }
 
+    public static Company getVendoById(int id) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("select * from vendo where id = ?");
+        stmt.setInt(1,id);
+        ResultSet resultSet = stmt.executeQuery();
+        while (resultSet.next()){
+            return new Company(resultSet.getInt(1), resultSet.getString(2) , resultSet.getString(3));
+        }
+        return null;
+    }
     public static ArrayList<Company> getAllCompany() throws SQLException {
         ArrayList<Company> companys = new ArrayList<>();
         Connection c = ConnectDB.getConnect();

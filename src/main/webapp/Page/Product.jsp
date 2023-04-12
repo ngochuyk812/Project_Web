@@ -49,7 +49,7 @@
 
     </div>
 </div>
-
+<br>
 <%--<script type="text/javascript" src="${pageContext.request.contextPath}/js/index.js"></script>--%>
 
 <jsp:include page="../Component/footer/footer.jsp"/>

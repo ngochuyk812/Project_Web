@@ -21,6 +21,8 @@ import java.util.ArrayList;
 public class Product extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.setContentType("text/html;charset=UTF-8");
+        req.setCharacterEncoding("utf-8");
         String action = req.getParameter("action");
         if(action != null && action.equals("getlistproduct")){
             try {
@@ -36,9 +38,11 @@ public class Product extends HttpServlet {
     protected void getListProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException, SQLException {
         ArrayList<Model.Product> products = ProductDAO.getProduct();
         for(Model.Product tmp :products ){
-            tmp.setContent(URLEncoder.encode(tmp.getContent(), StandardCharsets.UTF_8));
-            tmp.setTitle(tmp.getTitle());
-            tmp.setFuel(tmp.getFuel());
+            System.out.println(tmp.toString());
+
+//            tmp.setContent(URLEncoder.encode(tmp.getContent(), StandardCharsets.UTF_8));
+//            tmp.setName(tmp.getName());
+//            tmp.setFuel(tmp.getFuel());
         }
         res.getWriter().write(new Gson().toJson(products));
     }
