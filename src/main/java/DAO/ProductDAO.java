@@ -1,8 +1,8 @@
 package DAO;
 
 import Connect.ConnectDB;
-import Model.Company;
 import Model.ImgProduct;
+import Model.ImportProduct;
 import Model.Product;
 
 import java.sql.*;
@@ -12,10 +12,11 @@ public class ProductDAO {
     Statement statement = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
+    //SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.idProduct = od.idProduct LEFT JOIN importproduct ip ON p.idProduct = ip.idProduct WHERE p.id=?
 
     public static ArrayList<Product> getProduct() {
         ArrayList<Product> posts = new ArrayList<>();
-        String query = "SELECT p.idProduct, pr.title, pr.idVendo,pr.content, pr.body,pr.made,pr.yearOfManuFacture, pr.fuel,pr.price,pr.createAt, pr.status, SUM(o.quantity) as orderquantity, SUM(p.quantity) as productquantity, SUM(o.quantity) + SUM(p.quantity) as totalquantity FROM importproduct as p JOIN orderdetail as o ON o.idProduct = p.idProduct JOIN product as pr ON pr.id = p.idProduct GROUP BY p.idProduct, pr.title, pr.idVendo,pr.content, pr.body,pr.made,pr.yearOfManuFacture, pr.fuel,pr.price,pr.createAt, pr.status";
+        String query = "SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.id = od.idProduct LEFT JOIN importproduct ip ON p.id = ip.idProduct";
         try {
             Statement statement = ConnectDB.getConnect().createStatement();
             PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
@@ -32,7 +33,7 @@ public class ProductDAO {
                         resultSet.getFloat(9),
                         resultSet.getDate(10),
                         resultSet.getInt(11),
-                        resultSet.getInt(14)
+                        resultSet.getInt(12)
                 ));
             }
         } catch (SQLException e) {
@@ -43,7 +44,7 @@ public class ProductDAO {
 
     public static ArrayList<Product> getProductOut() {
         ArrayList<Product> posts = new ArrayList<>();
-        String query = "SELECT p.idProduct, pr.title, pr.idVendo,pr.content, pr.body,pr.made,pr.yearOfManuFacture, pr.fuel,pr.price,pr.createAt, pr.status, SUM(o.quantity) as orderquantity, SUM(p.quantity) as productquantity, SUM(o.quantity) + SUM(p.quantity) as totalquantity FROM importproduct as p JOIN orderdetail as o ON o.idProduct = p.idProduct JOIN product as pr ON pr.id = p.idProduct GROUP BY p.idProduct, pr.title, pr.idVendo,pr.content, pr.body,pr.made,pr.yearOfManuFacture, pr.fuel,pr.price,pr.createAt, pr.status HAVING SUM(o.quantity) + SUM(p.quantity) <=0;";
+        String query = "SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.id = od.idProduct LEFT JOIN importproduct ip ON p.id = ip.idProduct WHERE COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) <= 0;;";
         try {
             Statement statement = ConnectDB.getConnect().createStatement();
             PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
@@ -60,7 +61,7 @@ public class ProductDAO {
                         resultSet.getFloat(9),
                         resultSet.getDate(10),
                         resultSet.getInt(11),
-                        resultSet.getInt(14)
+                        resultSet.getInt(12)
                 ));
             }
         } catch (SQLException e) {
@@ -70,7 +71,7 @@ public class ProductDAO {
     }
 
     public static int newImgProduct(ImgProduct tmp) {
-        int resultSet=0;
+        int resultSet = 0;
         System.out.println(tmp.getArr());
         for (String img : tmp.getArr()) {
             String query = "INSERT INTO imgproduct(idproduct,srcImg, status) VALUES (?,?,?); ";
@@ -92,7 +93,7 @@ public class ProductDAO {
     public static Product getProductById(int id) {
         System.out.println("ID Post ================ " + id);
         Product post = null;
-        String query = "SELECT * FROM product where id = ?";
+        String query = "SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.id = od.idProduct LEFT JOIN importproduct ip ON p.id = ip.idProduct WHERE p.id=?";
 
         try {
             Statement statement = ConnectDB.getConnect().createStatement();
@@ -114,7 +115,7 @@ public class ProductDAO {
                         resultSet.getFloat(9),
                         resultSet.getDate(10),
                         resultSet.getInt(11),
-                        resultSet.getInt(14)
+                        resultSet.getInt(12)
                 );
                 System.out.println(post.toString());
 
@@ -175,7 +176,7 @@ public class ProductDAO {
     public static int getCountPOut() throws SQLException {
         int count = 0;
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("SELECT DISTINCT idProduct FROM importproduct; ");
+        PreparedStatement stmt = c.prepareStatement("SELECT DISTINCT idProduct FROM importproduct;");
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             int id = rs.getInt("idProduct");
@@ -214,22 +215,22 @@ public class ProductDAO {
         }
         return posts;
     }
-    public static int insertProduct(String title, String content, String body, String made, ArrayList<String> images, int gear, int idCompany, int year, int status, String fuel, float price, int quantity) {
-        String query = "INSERT INTO product(idVendo,quantity,content,body,made,yearOfManuFacture,fuel,price,status,title) VALUES (?,?,?,?,?,?,?,?,?,?); ";
+
+    public static int insertProduct(int idUser,String title, String content, String body, String made, ArrayList<String> images, int gear, int idCompany, int year, int status, String fuel, float price, int quantity) {
+        String query = "INSERT INTO product(idVendo,content,body,made,yearOfManuFacture,fuel,price,status,title) VALUES (?,?,?,?,?,?,?,?,?); ";
         int productId = -1;
-        int resultSet=0;
+        int resultSet = 0;
         try {
-            PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, idCompany);
-            stmt.setInt(2, quantity);
-            stmt.setString(3, content);
-            stmt.setString(4, body);
-            stmt.setString(5, made);
-            stmt.setInt(6, year);
-            stmt.setString(7, fuel);
-            stmt.setFloat(8, price);
-            stmt.setFloat(9, status);
-            stmt.setString(10, title);
+            stmt.setString(2, content);
+            stmt.setString(3, body);
+            stmt.setString(4, made);
+            stmt.setInt(5, year);
+            stmt.setString(6, fuel);
+            stmt.setFloat(7, price);
+            stmt.setInt(8, status);
+            stmt.setString(9, title);
             int affectedRows = stmt.executeUpdate();
             if (affectedRows > 0) {
                 ResultSet generatedKeys = stmt.getGeneratedKeys();
@@ -240,9 +241,24 @@ public class ProductDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        ImgProduct imgProduct=new ImgProduct(productId,images , 1);
+        ImgProduct imgProduct = new ImgProduct(productId, images, 1);
         newImgProduct(imgProduct);
+        newImportProduct(new ImportProduct(idUser,productId,quantity,1));
         return resultSet;
+    }
+
+    public static void newImportProduct(ImportProduct importProduct) {
+        String query = "INSERT INTO importproduct(idUser,idProduct,quantity,status) VALUES (?,?,?,?); ";
+        try {
+            PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query);
+            stmt.setInt(1, importProduct.getIdUser());
+            stmt.setInt(2, importProduct.getIdProduct());
+            stmt.setInt(3,importProduct.getQuantity());
+            stmt.setInt(4, importProduct.getStatus());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static int getCountProduct() throws SQLException {
@@ -280,10 +296,10 @@ public class ProductDAO {
         }
 
     }
-
+    //123
     public static ArrayList<Product> getAllProduct() {
         ArrayList<Product> posts = new ArrayList<>();
-        String query = "select * from product ";
+        String query = "select * from product";
         try {
             PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
