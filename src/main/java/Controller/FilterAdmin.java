@@ -2,7 +2,6 @@ package Controller;
 
 import DAO.CompanyDAO;
 import DAO.OderDAO;
-import DAO.ProductDAO;
 import DAO.UserDAO;
 import Model.Company;
 import Model.Oder;
