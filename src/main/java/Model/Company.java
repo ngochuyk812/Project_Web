@@ -15,7 +15,11 @@ public class Company implements Serializable {
         this.status = status;
         this.srcImg = srcImg;
     }
-
+    public Company(int id, String name, String srcImg) {
+        this.id = id;
+        this.name = name;
+        this.srcImg = srcImg;
+    }
     public int getId() {
         return id;
     }

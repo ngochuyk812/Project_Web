@@ -2,7 +2,6 @@ package Controller;
 
 import DAO.CommentDAO;
 import DAO.ProductDAO;
-import Model.Post;
 import Model.Product;
 import Model.RespJsonServlet;
 import Model.User;

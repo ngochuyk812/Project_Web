@@ -16,7 +16,7 @@ public class Company extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         try {
-            res.getWriter().write(new Gson().toJson(CompanyDAO.getCompany()));
+            res.getWriter().write(new Gson().toJson(CompanyDAO.getAllCompany()));
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

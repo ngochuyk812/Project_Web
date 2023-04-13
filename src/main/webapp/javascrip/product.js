@@ -8,10 +8,7 @@ const changeNumberPage = (n)=>{
     window.scrollTo(0, 300);
     showData(dataFilter)
 }
-const VND = new Intl.NumberFormat('vi-VN', {
-    style: 'currency',
-    currency: 'VND',
-});
+
 const showData = (arr) =>{
     console.log(indexNumber)
     let rs =``
@@ -30,24 +27,22 @@ const showData = (arr) =>{
         if(index <= indexNumber * quantityProductOnPage && index >= (indexNumber - 1) *  quantityProductOnPage){
             rs += `
         <div class="item-car vipprior dev-item-car" >
-           <button class="button-item-car" onclick="addToCart(${tmp.idPost})">Thêm giỏ hàng</button>
-  <div class="photo"><a href="details?id=${tmp.idPost}" class="rt pdt-per-74">
+           <button class="button-item-car" onclick="addToCart(${tmp.id})">Thêm giỏ hàng</button>
+  <div class="photo"><a href="details?id=${tmp.id}" class="rt pdt-per-74">
     
-    <img class="lozad" src="${tmp.images.split("||")[0]}" width="230" height="172" data-loaded="true"> </a> <span
+    <img class="lozad" src="${tmp.images[0]}" width="230" height="172" data-loaded="true"> </a> <span
           class="box-icon"> </span></div>
   <div class="info">
     <h3 class="title ">
-      <a href="details?id=${tmp.idPost}">
-    ${tmp.title}
+      <a href="details?id=${tmp.id}">
+    ${tmp.name}
       </a>
     </h3>
-    <p class="price redprice">${VND.format(tmp.price)} triệu<br>
-      <span class="old-price">140 triệu</span>
-      <span class="b-promotion">Tiền mặt</span></p>
+    <p class="price redprice">${tmp.price} USD<br>
+<!--      <span class="old-price">140 triệu</span>-->
+      <span class="b-promotion ">Tiền đô</span></p>
     <ul class="info-car">
       <li>${tmp.yearOfManuFacture}</li>
-      <li>${tmp.status === 0 ? "Chưa sử dụng" : "Đã qua sử dụng"}</li>
-      <li>${tmp.coverNumber === 0 ? "Số tay" : "Số tự động"}</li>
       
     </ul>
     <ul class="info-car">
@@ -77,10 +72,10 @@ const handleFilter = ()=>{
             return Number(companySel) === tmp.idCompany
         })
     }
-    let priceMin = document.querySelector(".input-min").value
-    let priceMax = document.querySelector(".input-max").value
+    let priceMin = document.querySelector(".text-min").textContent.replace(",","").replace(".","")
+    let priceMax = document.querySelector(".text-max").textContent.replace(",","").replace(".","")
     dataFilter = dataFilter.filter((tmp)=>{
-        return Number(priceMin)*1000000<= tmp.price && Number(priceMax)*1000000 >= tmp.price
+        return Number(priceMin)<= tmp.price && Number(priceMax)>= tmp.price
     })
     console.log(parseInt(year))
 
@@ -114,10 +109,14 @@ const handleFilter = ()=>{
             return decodeURIComponent(tmp.fuel) === dau.value
         })
     }
-    console.log(year, companySel,)
+    console.log(year, companySel,Number(priceMin),priceMin, priceMax, Number(priceMax))
 
     showData(dataFilter)
 }
+document.querySelector(".range-input").addEventListener("mouseup", function() {
+    handleFilter()
+});
+
 document.querySelector('#xang').addEventListener("input", ()=>{
     {document.querySelector('#xang').checked ? document.querySelector('#dau').checked = false : ""}
 })
@@ -151,10 +150,11 @@ const init = ()=>{
             dataAll =JSON.parse(res)
             showData(JSON.parse(res))
             getCompany()
-           document.querySelector(".input-min").addEventListener("blur", handleFilter)
-            document.querySelector(".input-max").addEventListener("blur", handleFilter)
+            console.log("dsdsdsd")
+
             let year = `<option value="all">Tất cả</option>`
             for (let i = 1990; i < 2024; i++) {
+                console.log(i)
                 year += `<option value="${i}">${i}</option>`
             }
             document.querySelector("#year").innerHTML = year
