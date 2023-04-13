@@ -1,41 +1,29 @@
-const rangeInput = document.querySelectorAll(".range-input input"),
-    priceInput = document.querySelectorAll(".price-input input"),
-    range = document.querySelector(".slider .progress");
+let rangeInput = document.querySelectorAll('.range-input input');
+let rangeText = document.querySelectorAll('.range-text div');
+let progress = document.querySelector('.progress');
+let priceMax = rangeInput[0].max;
 let priceGap = 1000;
 
-priceInput.forEach(input =>{
-    input.addEventListener("input", e =>{
-        let minPrice = parseInt(priceInput[0].value),
-            maxPrice = parseInt(priceInput[1].value);
+rangeInput.forEach(input => {
+    input.addEventListener('input', (event) => {
+        let minVal = parseInt(rangeInput[0].value);
+        let maxVal = parseInt(rangeInput[1].value);
 
-        if((maxPrice - minPrice >= priceGap) && maxPrice <= rangeInput[1].max){
-            if(e.target.className === "input-min"){
-                rangeInput[0].value = minPrice;
-                range.style.left = ((minPrice / rangeInput[0].max) * 100) + "%";
+        if(maxVal - minVal < priceGap){
+            if(event.target.className === 'range-min'){
+                minVal = rangeInput[0].value = maxVal - priceGap;
             }else{
-                rangeInput[1].value = maxPrice;
-                range.style.right = 100 - (maxPrice / rangeInput[1].max) * 100 + "%";
+                maxVal = rangeInput[1].value = minVal + priceGap;
             }
         }
-    });
-});
 
-rangeInput.forEach(input =>{
-    input.addEventListener("input", e =>{
-        let minVal = parseInt(rangeInput[0].value),
-            maxVal = parseInt(rangeInput[1].value);
-
-        if((maxVal - minVal) < priceGap){
-            if(e.target.className === "range-min"){
-                rangeInput[0].value = maxVal - priceGap
-            }else{
-                rangeInput[1].value = minVal + priceGap;
-            }
-        }else{
-            priceInput[0].value = minVal;
-            priceInput[1].value = maxVal;
-            range.style.left = ((minVal / rangeInput[0].max) * 100) + "%";
-            range.style.right = 100 - (maxVal / rangeInput[1].max) * 100 + "%";
-        }
-    });
-});
+        let positionMin = (minVal / priceMax) * 100;
+        let positionMax = 100 - ((maxVal / priceMax) * 100);
+        progress.style.left = positionMin + '%';
+        progress.style.right = positionMax + '%';
+        rangeText[0].style.left = positionMin + '%';
+        rangeText[1].style.right = positionMax + '%';
+        rangeText[0].innerText = minVal.toLocaleString();
+        rangeText[1].innerText = maxVal.toLocaleString();
+    })
+})
