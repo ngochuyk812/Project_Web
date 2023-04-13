@@ -348,7 +348,7 @@
                 text: 'Thông tin không chính xác',
                 content: "form",
                 buttons: {
-                    cancel: "Cancel",
+                    cancel: "Cancel", l
                 }
             }).then((value) => {
                 console.log(value);

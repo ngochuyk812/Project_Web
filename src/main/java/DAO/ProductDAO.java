@@ -1,8 +1,8 @@
 package DAO;
 
 import Connect.ConnectDB;
-import Model.Company;
 import Model.ImgProduct;
+import Model.ImportProduct;
 import Model.Product;
 
 import java.sql.*;
@@ -12,6 +12,7 @@ public class ProductDAO {
     Statement statement = null;
     PreparedStatement preparedStatement = null;
     ResultSet resultSet = null;
+    //SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.idProduct = od.idProduct LEFT JOIN importproduct ip ON p.idProduct = ip.idProduct WHERE p.id=?
 
 
     public static ArrayList<Product> getProduct() {
@@ -35,15 +36,13 @@ public class ProductDAO {
                         resultSet.getInt(10),
                         getImagesByID(resultSet.getInt(1))
                 );
-                System.out.println(prod.toString());
-                products.add(prod);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return products;
     }
-    public static ArrayList<String> getImagesByID(int idProduct){
+ ublic static ArrayList<String> getImagesByID(int idProduct){
         ArrayList<String> images = new ArrayList<>();
         String query = "SELECT srcImg FROM imgproduct where idProduct = ?";
 
@@ -61,8 +60,37 @@ public class ProductDAO {
         return images;
     }
 
+
+    public static ArrayList<Product> getProductOut() {
+        ArrayList<Product> posts = new ArrayList<>();
+        String query = "SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.id = od.idProduct LEFT JOIN importproduct ip ON p.id = ip.idProduct WHERE COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) <= 0;;";
+        try {
+            Statement statement = ConnectDB.getConnect().createStatement();
+            PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1, idProduct);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                posts.add(new Product(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getInt(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getInt(7),
+                        resultSet.getString(8),
+                        resultSet.getFloat(9),
+                        resultSet.getDate(10),
+                        resultSet.getInt(11),
+                        resultSet.getInt(12)
+                ));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static int newImgProduct(ImgProduct tmp) {
-        int resultSet=0;
+        int resultSet = 0;
         System.out.println(tmp.getArr());
         for (String img : tmp.getArr()) {
             String query = "INSERT INTO imgproduct(idproduct,srcImg, status) VALUES (?,?,?); ";
@@ -83,9 +111,8 @@ public class ProductDAO {
 
     public static Product getProductById(int id) {
         System.out.println("ID Post ================ " + id);
-        Product product = null;
-        String query = "SELECT * FROM product where id = ?";
-
+        Product post = null;
+        String query = "SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.id = od.idProduct LEFT JOIN importproduct ip ON p.id = ip.idProduct WHERE p.id=?";
         try {
             Statement statement = ConnectDB.getConnect().createStatement();
             PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
@@ -102,12 +129,13 @@ public class ProductDAO {
                         resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getString(5),
-                        resultSet.getInt(6),
-                        resultSet.getString(7),
-                        resultSet.getDouble(8),
-                        resultSet.getDate(9),
-                        resultSet.getInt(10),
-                        getImagesByID(resultSet.getInt(1))
+                        resultSet.getString(6),
+                        resultSet.getInt(7),
+                        resultSet.getString(8),
+                        resultSet.getFloat(9),
+                        resultSet.getDate(10),
+                        resultSet.getInt(11),
+                        resultSet.getInt(12)
                 );
 
             }
@@ -166,7 +194,7 @@ public class ProductDAO {
     public static int getCountPOut() throws SQLException {
         int count = 0;
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("SELECT DISTINCT idProduct FROM importproduct; ");
+        PreparedStatement stmt = c.prepareStatement("SELECT DISTINCT idProduct FROM importproduct;");
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             int id = rs.getInt("idProduct");
@@ -177,24 +205,49 @@ public class ProductDAO {
         }
         return count;
     }
-
-
-    public static int insertProduct(String title, String content, String body, String made, ArrayList<String> images, int gear, int idCompany, int year, int status, String fuel, float price, int quantity) {
-        String query = "INSERT INTO product(idVendo,quantity,content,body,made,yearOfManuFacture,fuel,price,status,title) VALUES (?,?,?,?,?,?,?,?,?,?); ";
-        int productId = -1;
-        int resultSet=0;
+    public ArrayList<Product> getPostUnComfirm() {
+        ArrayList<Product> posts = new ArrayList<>();
+        String query = "SELECT * FROM post where Comfirm=0";
         try {
-            PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query,Statement.RETURN_GENERATED_KEYS);
+            statement = ConnectDB.getConnect().createStatement();
+            preparedStatement = statement.getConnection().prepareStatement(query);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                posts.add(new Product(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getInt(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getInt(7),
+                        resultSet.getString(8),
+                        resultSet.getFloat(9),
+                        resultSet.getDate(10),
+                        resultSet.getInt(11),
+                        resultSet.getInt(14)
+                ));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return posts;
+    }
+
+    public static int insertProduct(int idUser,String title, String content, String body, String made, ArrayList<String> images, int gear, int idCompany, int year, int status, String fuel, float price, int quantity) {
+        String query = "INSERT INTO product(idVendo,content,body,made,yearOfManuFacture,fuel,price,status,title) VALUES (?,?,?,?,?,?,?,?,?); ";
+        int productId = -1;
+        int resultSet = 0;
+        try {
+            PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, idCompany);
-            stmt.setInt(2, quantity);
-            stmt.setString(3, content);
-            stmt.setString(4, body);
-            stmt.setString(5, made);
-            stmt.setInt(6, year);
-            stmt.setString(7, fuel);
-            stmt.setFloat(8, price);
-            stmt.setFloat(9, status);
-            stmt.setString(10, title);
+            stmt.setString(2, content);
+            stmt.setString(3, body);
+            stmt.setString(4, made);
+            stmt.setInt(5, year);
+            stmt.setString(6, fuel);
+            stmt.setFloat(7, price);
+            stmt.setInt(8, status);
+            stmt.setString(9, title);
             int affectedRows = stmt.executeUpdate();
             if (affectedRows > 0) {
                 ResultSet generatedKeys = stmt.getGeneratedKeys();
@@ -205,9 +258,24 @@ public class ProductDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        ImgProduct imgProduct=new ImgProduct(productId,images , 1);
+        ImgProduct imgProduct = new ImgProduct(productId, images, 1);
         newImgProduct(imgProduct);
+        newImportProduct(new ImportProduct(idUser,productId,quantity,1));
         return resultSet;
+    }
+
+    public static void newImportProduct(ImportProduct importProduct) {
+        String query = "INSERT INTO importproduct(idUser,idProduct,quantity,status) VALUES (?,?,?,?); ";
+        try {
+            PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query);
+            stmt.setInt(1, importProduct.getIdUser());
+            stmt.setInt(2, importProduct.getIdProduct());
+            stmt.setInt(3,importProduct.getQuantity());
+            stmt.setInt(4, importProduct.getStatus());
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static int getCountProduct() throws SQLException {
@@ -246,6 +314,32 @@ public class ProductDAO {
 
     }
 
+    public static ArrayList<Product> getAllProduct() {
+        ArrayList<Product> posts = new ArrayList<>();
+        String query = "select * from product";
+        try {
+            PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                posts.add(new Product(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getInt(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getFloat(9),
+                        rs.getDate(10),
+                        rs.getInt(11),
+                        rs.getInt(14)));
+            }
+            return posts;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     public static void main(String[] args) throws SQLException {
 
