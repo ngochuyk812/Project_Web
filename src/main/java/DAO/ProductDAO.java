@@ -11,13 +11,8 @@ import java.util.ArrayList;
 
 public class ProductDAO {
     public static ArrayList<Product> getProduct() {
-<<<<<<< HEAD
         ArrayList<Product> products = new ArrayList<>();
         String query = "SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.id = od.idProduct LEFT JOIN importproduct ip ON p.id = ip.idProduct WHERE COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0)>=0";
-=======
-        ArrayList<Product> posts = new ArrayList<>();
-        String query = "SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.id = od.idProduct LEFT JOIN importproduct ip ON p.id = ip.idProduct>0";
->>>>>>> 33f9bd2 (fix conflict)
         try {
             Statement statement = ConnectDB.getConnect().createStatement();
             PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
