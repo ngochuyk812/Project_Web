@@ -1,8 +1,5 @@
 package Model;
 
-import DAO.CartDAO;
-import DAO.ProductDAO;
-
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.HashMap;
