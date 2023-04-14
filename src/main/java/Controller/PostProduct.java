@@ -42,6 +42,7 @@ public class PostProduct extends HttpServlet {
             String body = req.getParameter("body");
             String made = URLDecoder.decode(req.getParameter("made"), "UTF-8");
             int quantity = Integer.valueOf(req.getParameter("quantity"));
+            System.out.println(listimgs);
             int rs = ProductDAO.insertProduct(user.getIdUser(),title, content, body, made, listimgs, gear, idCompany, year, statusMain, fuel, price, quantity);
             resp.sendError(200);
         } catch (SQLException e) {

@@ -71,7 +71,34 @@ public class UserDAO {
         return null;
 
     }
+    public static User getUserById(int id) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("select * from user where id=?");
+        stmt.setInt(1, id);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            int idUser = rs.getInt("id");
+            String userName = rs.getString("username");
+            String fullName = rs.getString("fullname");
+            String email = rs.getString("email");
+            String pass = rs.getString("password");
+            String phone = rs.getString("phone");
+            String address = rs.getString("address");
+            String avatar = rs.getString("avatar");
+            int role = Integer.valueOf(rs.getString("role"));
+            int status = Integer.valueOf(rs.getString("status"));
+            int statusLogin = rs.getInt("statusLogin");
+            User user = new User(userName, pass, fullName, email, phone, avatar, address, role, status, statusLogin);
+            System.out.println(123123);
+            System.out.println(user.toString());
+            user.setIdUser(idUser);
+            return user;
+        }
+        System.out.println(123123);
+        ;
+        return null;
 
+    }
     public static boolean checkUser(String username, String email) throws SQLException, ClassNotFoundException {
         Connection c = ConnectDB.getConnect();
         PreparedStatement stmt = c.prepareStatement("select * from user where username=? or email=?");

@@ -91,12 +91,12 @@ public class Product extends HttpServlet {
             String fuel= URLDecoder.decode(req.getParameter("fuel"), "UTF-8");
             Float price=Float.parseFloat(req.getParameter("price"));
             String body=req.getParameter("body");
-            String made=URLDecoder.decode(req.getParameter("made"), "UTF-8");
-            int quantity=Integer.valueOf(req.getParameter("quantity"));
+            String made = URLDecoder.decode(req.getParameter("made"), "UTF-8");
+            int quantity = Integer.valueOf(req.getParameter("quantity"));
             int id = Integer.valueOf(idUpdate);
             int rs = 0;
             try {
-                rs = ProductDAO.updateProduct(id,title,content,body,made,gear,idCompany,year,status,fuel,price, quantity);
+                rs = ProductDAO.updateProduct(id, title, content, body, made, gear, idCompany, year, status, fuel, price, quantity);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
