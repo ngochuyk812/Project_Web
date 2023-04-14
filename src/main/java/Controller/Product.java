@@ -73,7 +73,7 @@ public class Product extends HttpServlet {
             String images=req.getParameter("images");
             int idCompany= 0;
             try {
-                idCompany = CompanyDAO.getIdByName(req.getParameter("nameCompany"));
+                idCompany = CompanyDAO.getIdByName(req.getParameter("nameCompany")).getId();
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }

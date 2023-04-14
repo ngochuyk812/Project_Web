@@ -24,6 +24,7 @@ public class ProductDAO {
                         resultSet.getString(3),
                         resultSet.getString(4),
                         resultSet.getString(5),
+
                         resultSet.getInt(6),
                         resultSet.getString(7),
                         resultSet.getDouble(8),
@@ -197,21 +198,25 @@ public class ProductDAO {
         return count;
     }
 
-    public static int insertProduct(int idUser, String title, String content, String body, String made, ArrayList<String> images, int gear, int idCompany, int year, int status, String fuel, float price, int quantity) {
-        String query = "INSERT INTO product(idVendo,content,body,made,yearOfManuFacture,fuel,price,status,name) VALUES (?,?,?,?,?,?,?,?,?); ";
+    public static int insertProduct(int idUser, Product pro, int quantity) {
+        String query = "INSERT INTO product(idVendo,name,content,body,yearOfManuFacture,fuel,price,height, length, width, weight,status) VALUES (?,?,?,?,?,?,?,?,?,?,?,?); ";
         int productId = -1;
         int resultSet = 0;
         try {
             PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-            stmt.setInt(1, idCompany);
-            stmt.setString(2, content);
-            stmt.setString(3, body);
-            stmt.setString(4, made);
-            stmt.setInt(5, year);
-            stmt.setString(6, fuel);
-            stmt.setFloat(7, price);
-            stmt.setInt(8, status);
-            stmt.setString(9, title);
+            stmt.setInt(1, pro.getVendo().getId());
+            stmt.setString(2, pro.getName());
+            stmt.setString(3, pro.getContent());
+            stmt.setString(4, pro.getBody());
+            stmt.setInt(5, pro.getYearOfManuFacture());
+            stmt.setString(6, pro.getFuel());
+            stmt.setDouble(7, pro.getPrice());
+            stmt.setInt(8, pro.getHeight());
+            stmt.setInt(9, pro.getLength());
+            stmt.setInt(10, pro.getWidth());
+            stmt.setInt(11, pro.getWeight());
+
+            stmt.setInt(12, 1);
             int affectedRows = stmt.executeUpdate();
             if (affectedRows > 0) {
                 ResultSet generatedKeys = stmt.getGeneratedKeys();
@@ -222,7 +227,7 @@ public class ProductDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        ImgProduct imgProduct = new ImgProduct(productId, images, 1);
+        ImgProduct imgProduct = new ImgProduct(productId, pro.getImages(), 1);
         newImgProduct(imgProduct);
         newImportProduct(new ImportProduct(idUser, productId, quantity, 1));
         return resultSet;
