@@ -88,7 +88,6 @@ public class ProductDAO {
 
     public static int newImgProduct(ImgProduct tmp) {
         int resultSet = 0;
-        System.out.println(tmp.getArr());
         for (String img : tmp.getArr()) {
             String query = "INSERT INTO imgproduct(idproduct,srcImg, status) VALUES (?,?,?); ";
             try {

@@ -1,69 +1,87 @@
 package Model;
 
-import java.util.Date;
+
+import java.sql.Date;
 
 public class Comment {
-    private String username;
-    private Date time;
-    private float star;
-    private String comment;
-    private int idpost;
+    private int id;
+    private int idProduct;
+    private int idUser;
+    private String userName;
+    private int star;
+    private int status;
+    private Date createAt;
 
-    public Comment(String username, Date time, float star, String comment, int idpost) {
-        this.username = username;
-        this.time = time;
+    public Comment(int idProduct, int idUser, int star, int status) {
+        this.idProduct = idProduct;
+        this.idUser = idUser;
         this.star = star;
-        this.comment = comment;
-        this.idpost = idpost;
-    }
-    public String getUsername() {
-        return username;
+        this.status = status;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getUserName() {
+        return userName;
     }
 
-    public Date getTime() {
-        return time;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setTime(Date time) {
-        this.time = time;
+    public Date getCreateAt() {
+        return createAt;
     }
 
-    public float getStart() {
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
+    }
+
+    public Comment(String userName, int id, int idProduct, int idUser, int star, Date createAt, int status) {
+        this.id = id;
+        this.idProduct = idProduct;
+        this.idUser = idUser;
+        this.star = star;
+        this.userName=userName;
+        this.createAt = createAt;
+        this.status = status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(int idProduct) {
+        this.idProduct = idProduct;
+    }
+
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public int getStar() {
         return star;
     }
 
-    public void setStart(float star) {
+    public void setStar(int star) {
         this.star = star;
     }
 
-    public String getComment() {
-        return comment;
+    public int getStatus() {
+        return status;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public int getIdpost() {
-        return idpost;
-    }
-
-    public void setIdpost(int idpost) {
-        this.idpost = idpost;
-    }
-
-    @Override
-    public String toString() {
-        return "Comment{" +
-                ", username='" + username + '\'' +
-                ", time=" + time +
-                ", star=" + star +
-                ", comment='" + comment + '\'' +
-                ", idpost=" + idpost +
-                '}';
+    public void setStatus(int status) {
+        this.status = status;
     }
 }
