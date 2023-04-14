@@ -38,15 +38,15 @@ public class CompanyDAO {
         return companys;
     }
 
-    public static int getIdByName(String name) throws SQLException {
+    public static Company getIdByName(String name) throws SQLException {
         String query = "select * from vendo where name=?";
         PreparedStatement stmt = ConnectDB.getConnect().prepareStatement(query);
         stmt.setString(1, name);
-        ResultSet rs = stmt.executeQuery();
-        while (rs.next()) {
-            return rs.getInt("id");
+        ResultSet resultSet = stmt.executeQuery();
+        while (resultSet.next()) {
+            return new Company(resultSet.getInt(1), resultSet.getString(2) , resultSet.getString(3));
         }
-        return 0;
+        return null;
 
     }
 

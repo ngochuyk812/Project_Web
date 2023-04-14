@@ -307,7 +307,13 @@
         const price = $("#Price").val()
         const body = $("#body").val()
         const quantity = $("#quantity").val()
-        if (nameCompany && title && content && images && yearofmanufacture && made && gear && fuel && status && price && body && quantity) {
+        const height = $("input[name='height']").val()
+        const length = $("input[name='length']").val()
+        const width = $("input[name='width']").val()
+        const weight = $("input[name='weight']").val()
+
+
+        if (nameCompany && title && content && images && yearofmanufacture && made && gear && fuel && status && price && body && quantity,height, length, width, weight) {
             // if(typeof price==="number"){
             var dataBody = {
                 nameCompany,
@@ -321,7 +327,7 @@
                 status,
                 body,
                 made,
-                quantity
+                quantity,height, length, width, weight
             }
             $.ajax({
                 url: "/postProduct",

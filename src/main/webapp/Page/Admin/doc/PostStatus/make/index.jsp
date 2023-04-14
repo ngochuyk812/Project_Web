@@ -40,11 +40,29 @@
                 Hiển thị thêm
             </div>
         </div>
-        <div class="control"><label class="lbl-form sm-lh">Sản xuất</label>
-            <ul class="status-group">
-                <li><input class="hide" id="nn" name="nn" value="Trong nước" type="radio"><label class="free-label" for="nn">Trong nước</label></li>
-                <li><input class="hide" id="tn" name="tn" value="Ngoài nước" type="radio"><label class="free-label"
-                                                                                             for="tn">Ngoài nước</label></li>
+
+        <div class="control"><label class="lbl-form sm-lh">Kích thước </label>
+            <ul class="status-group listkt">
+                <li><div class="main_kt">
+                    <label>Height(cm)</label>
+                    <input class="select_kt" name="height"  />
+
+                </div> </li>
+                <li><div class="main_kt">
+                    <label>Length(cm)</label>
+                    <input class="select_kt" name="length" />
+
+                </div> </li>
+                <li><div class="main_kt">
+                    <label>Width(cm)</label>
+                    <input class="select_kt"  name="width"/>
+
+                </div> </li>
+                <li><div class="main_kt">
+                    <label>Weight(gram)</label>
+                    <input class="select_kt"  name="weight" />
+
+                </div> </li>
             </ul><!----></div><!---->
         <div class="control"><label class="lbl-form sm-lh">Hộp số</label>
             <ul class="status-group status-group-small">

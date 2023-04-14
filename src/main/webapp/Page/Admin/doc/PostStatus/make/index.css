@@ -36,4 +36,19 @@
 .year-item{
     border-radius: 15px;
 }
+.select_kt{
+    width: 150px;
+    padding: 5px;
+}
+.main_kt{
+    position: relative;
+    margin-bottom: 20px;
 
+}
+.main_kt label{
+    background-color: white;
+    padding: 0 10px;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+}

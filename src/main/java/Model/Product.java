@@ -15,6 +15,11 @@ public class Product {
     private Date createAt;
     private int status;
     private ArrayList<String> images ;
+    private int height;
+    private int length;
+    private int width;
+    private int weight;
+
 
     public Product(int id, Company vendo, String name, String content, String body, int yearOfManuFacture, String fuel, double price, Date createAt, int status) {
         this.id = id;
@@ -22,6 +27,7 @@ public class Product {
         this.name = name;
         this.content = content;
         this.body = body;
+
         this.yearOfManuFacture = yearOfManuFacture;
         this.fuel = fuel;
         this.price = price;
@@ -42,6 +48,60 @@ public class Product {
         this.status = status;
         this.images = images;
     }
+
+    public Product(int id, Company vendo, String name, String content, String body, int yearOfManuFacture, String fuel, double price, Date createAt,  ArrayList<String> images, int height, int length, int width, int weight) {
+        this.id = id;
+        this.vendo = vendo;
+        this.name = name;
+        this.content = content;
+        this.body = body;
+        this.yearOfManuFacture = yearOfManuFacture;
+        this.fuel = fuel;
+        this.price = price;
+        this.createAt = createAt;
+        this.images = images;
+        this.height = height;
+        this.length = length;
+        this.width = width;
+        this.weight = weight;
+    }
+
+    public void setImages(ArrayList<String> images) {
+        this.images = images;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
     public int getId() {
         return id;
     }
