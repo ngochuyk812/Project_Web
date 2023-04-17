@@ -22,8 +22,6 @@
     <style>
         <%@include file="product.css" %>
     </style>
-
-
 </head>
 <body>
 <jsp:include page="../Component/header/Header.jsp"/>
@@ -38,9 +36,6 @@
             <h1 class="heading mb-10" style="margin-top: 20px; margin-left: 20px">Mua bán xe ô tô mới</h1>
 
             <div class="box-list-car" id="box-list-car">
-
-
-
             </div>
             <div class="pagination">
 

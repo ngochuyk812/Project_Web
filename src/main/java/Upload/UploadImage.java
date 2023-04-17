@@ -15,6 +15,9 @@ public class UploadImage
         String[] strings = base64String.split(",");
         String extension;
         switch (strings[0]) {//check image's extension
+            case "data:video/mp4;base64":
+                extension = ".mp4";
+                break;
             case "data:image/jpeg;base64":
                 extension = ".jpeg";
                 break;
@@ -38,8 +41,6 @@ public class UploadImage
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
         return null;
     }
     public static ArrayList<String> uploadAllFile(String listImg, String pathName,String name,String folder){

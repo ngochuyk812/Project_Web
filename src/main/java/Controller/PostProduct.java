@@ -42,8 +42,6 @@ public class PostProduct extends HttpServlet {
             int length = Integer.valueOf(req.getParameter("length"));
             int width = Integer.valueOf(req.getParameter("width"));
             int weight = Integer.valueOf(req.getParameter("weight"));
-
-            System.out.println(listimgs);
             Product pro = new Product(0,idCompany, title, content, body,year, fuel, price,null,listimgs,height, length, width, weight   );
             int rs = ProductDAO.insertProduct(user.getIdUser(),pro, quantity);
             resp.sendError(200);

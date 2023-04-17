@@ -101,6 +101,7 @@
                     <li><i class="icon-ok"></i><span>Ảnh đầu tiên sẽ là ảnh đại diện cho tin của bạn, kéo thả để sắp xếp vị trí ảnh.</span>
                     </li>
                 </ul>
+
                 <div class="upload">
                     <div style="text-align: center" class="swiper-container">
                         <ul class="list-thumb-gallery  default-theme" id="uploadimage"><input style="display: none"
