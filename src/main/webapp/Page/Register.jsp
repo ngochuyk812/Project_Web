@@ -45,7 +45,6 @@
             <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
                 <form id="formRegister">
                     <p class="text-center">Register</p>
-
                     <!-- Name input -->
                     <div class="form-outline mb-4">
                         <input type="text" id="username" class="form-control"/>
@@ -56,7 +55,6 @@
                         <input type="text" id="fullname" class="form-control"/>
                         <label class="form-label" for="fullname">Fullname</label>
                     </div>
-
                     <!-- Email input -->
                     <div class="form-outline mb-4">
                         <input type="email" id="email" class="form-control"/>

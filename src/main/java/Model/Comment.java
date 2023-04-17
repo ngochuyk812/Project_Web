@@ -2,12 +2,18 @@ package Model;
 
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Comment {
     private int id;
     private int idProduct;
     private int idUser;
+    private String avatar;
     private String userName;
+    private List<String> listImg;
+    private List<String> listVideo;
+    private String content;
     private int star;
     private int status;
     private Date createAt;
@@ -19,30 +25,30 @@ public class Comment {
         this.status = status;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public Date getCreateAt() {
-        return createAt;
-    }
-
-    public void setCreateAt(Date createAt) {
-        this.createAt = createAt;
-    }
-
-    public Comment(String userName, int id, int idProduct, int idUser, int star, Date createAt, int status) {
+    public Comment(int id, String content, int idProduct, String userName, List<String> listImg, List<String> listVideo, int star, int status, Date createAt, String avatar) {
         this.id = id;
+        this.avatar = avatar;
+        this.content = content;
         this.idProduct = idProduct;
-        this.idUser = idUser;
+        this.userName = userName;
+        this.listImg = new ArrayList<>();
+        this.listVideo = new ArrayList<>();
         this.star = star;
-        this.userName=userName;
-        this.createAt = createAt;
         this.status = status;
+        this.createAt = createAt;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Comment() {
+        this.listImg = new ArrayList<>();
+        this.listVideo = new ArrayList<>();
     }
 
     public int getId() {
@@ -69,6 +75,38 @@ public class Comment {
         this.idUser = idUser;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public List<String> getListImg() {
+        return listImg;
+    }
+
+    public void setListImg(List<String> listImg) {
+        this.listImg = listImg;
+    }
+
+    public List<String> getListVideo() {
+        return listVideo;
+    }
+
+    public void setListVideo(List<String> listVideo) {
+        this.listVideo = listVideo;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
     public int getStar() {
         return star;
     }
@@ -83,5 +121,13 @@ public class Comment {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Date getCreateAt() {
+        return createAt;
+    }
+
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
 }
