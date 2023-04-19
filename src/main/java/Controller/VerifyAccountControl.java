@@ -33,10 +33,6 @@ public class VerifyAccountControl extends HttpServlet {
             req.getRequestDispatcher("Component/VerifyAccount/VerifyAccountError.jsp").forward(req,res);
             return;
         }
-        System.out.println();
-        System.out.println("Timeout: " +req.getSession().getMaxInactiveInterval());
-        System.out.println("TimeCreate: " +req.getSession().getCreationTime());
-        System.out.println("" +req.getSession().getMaxInactiveInterval());
         int rs = 0;
         try {
             if(UserDAO.checkByUsername(user.getUserName())|| UserDAO.checkByEmail(user.getEmail())){

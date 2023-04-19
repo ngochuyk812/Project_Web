@@ -12,6 +12,7 @@ public class User implements Serializable {
     private String avatar;
     private String address;
     private int role;
+    private String nameRole;
     private int status;
     private int statusLogin;
 
@@ -35,7 +36,6 @@ public class User implements Serializable {
         this.status=status;
         this.statusLogin=statusLogin;
     }
-
     public int getIdUser() {
         return idUser;
     }

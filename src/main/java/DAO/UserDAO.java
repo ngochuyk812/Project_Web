@@ -1,10 +1,8 @@
 package DAO;
 
-import Beans.JWT;
 import Connect.ConnectDB;
+import Model.Role;
 import Model.User;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -199,19 +197,16 @@ public class UserDAO {
         int rs = stmt.executeUpdate();
         return rs;
     }
-
-    public static boolean checkAdmin(String name) throws SQLException {
+    public static boolean checkAdmin(int id) throws SQLException {
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("select * from user where username=?");
-        stmt.setString(1, name);
+        PreparedStatement stmt = c.prepareStatement("select * from user where id=?");
+        stmt.setInt(1, id);
         ResultSet rs = stmt.executeQuery();
         if (rs.next() && rs.getInt("role") == 1) {
             return true;
         }
         return false;
-
     }
-
     public static List<User> getAllUser() throws SQLException {
         List<User> list = new ArrayList<>();
         Connection c = ConnectDB.getConnect();
@@ -221,6 +216,16 @@ public class UserDAO {
             list.add(new User(rs.getString("username"), rs.getString("password"), rs.getString("fullname"), rs.getString("email"), rs.getString("phone"), rs.getString("avatar"), rs.getString("address"), rs.getInt("role"), rs.getInt("status"), rs.getInt("statusLogin")));
         }
         return list;
+    }
+    public Role getNameRole(int idRole) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("select * from role where id=?");
+        stmt.setInt(1,idRole);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()){
+            return new Role(rs.getString(2),rs.getInt(3));
+        }
+        return null;
     }
 
 }

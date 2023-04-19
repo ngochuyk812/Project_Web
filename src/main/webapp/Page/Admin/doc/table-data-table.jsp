@@ -93,7 +93,6 @@
                                             title="Xóa"
                                             onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
                                     </button>
-
                                 </td>
                             </tr>
                         </c:forEach>
@@ -103,14 +102,11 @@
                     </table>
                 </div>
                 <c:forEach begin="1"
-
                            end="${size}"
-
                            step="1" varStatus="loop">
                     <div class="col-sm-2">
                         <a class="btn btn-excel btn-sm" href="/managerUSer?page=${loop.index}" title="In"><i class="fas fa-file-excel"></i> Next</a>
                     </div>
-
                 </c:forEach>
 
             </div>
@@ -186,22 +182,14 @@ MODAL
         </div>
     </div>
 </div>
-<!--
-MODAL
--->
-
-<!-- Essential javascripts for application to work-->
 <script src="jsadmin/jquery-3.2.1.min.js"></script>
 <script src="jsadmin/popper.min.js"></script>
 <script src="jsadmin/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
 <script src="jsadmin/main.js"></script>
-<!-- The javascript plugin to display page loading on top-->
 <script src="jsadmin/plugins/pace.min.js"></script>
-<!-- Page specific javascripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<!-- Data table plugin-->
 <script type="text/javascript" src="jsadmin/plugins/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="jsadmin/plugins/dataTables.bootstrap.min.js"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
@@ -219,7 +207,6 @@ MODAL
       <div></div>
       <div></div>
     </div>
-
   </div>`
     document.querySelectorAll(".trash").forEach((item,index)=>{
         item.addEventListener("click",(e)=>{
@@ -233,16 +220,11 @@ MODAL
                 .catch(()=>{
                     alert("Xóa không thành công")
                 })
-
-
-
         })
     })
-
     jQuery(function () {
         jQuery(".trash").click(function () {
             let username = jQuery(".trash").attr("id")
-            console.log(username)
             let success =
             swal({
                 title: "Cảnh báo",
@@ -261,20 +243,6 @@ MODAL
         $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
         e.stopImmediatePropagation();
     });
-
-    //EXCEL
-    // $(document).ready(function () {
-    //   $('#').DataTable({
-
-    //     dom: 'Bfrtip',
-    //     "buttons": [
-    //       'excel'
-    //     ]
-    //   });
-    // });
-
-
-    //Thời Gian
     function time() {
         var today = new Date();
         var weekday = new Array(7);
