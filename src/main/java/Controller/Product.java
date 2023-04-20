@@ -46,6 +46,7 @@ public class Product extends HttpServlet {
         }
         res.getWriter().write(new Gson().toJson(products));
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         String action = req.getParameter("action");

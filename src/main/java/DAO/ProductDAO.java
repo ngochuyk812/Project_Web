@@ -5,7 +5,13 @@ import Model.Company;
 import Model.ImgProduct;
 import Model.ImportProduct;
 import Model.Product;
+import com.google.gson.Gson;
+import org.springframework.ui.Model;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -38,6 +44,66 @@ public class ProductDAO {
             throw new RuntimeException(e);
         }
         return products;
+    }
+
+    public static ArrayList<Product> getNewProducts() {
+        ArrayList<Product> newProducts = new ArrayList<>();
+        String query = "SELECT * FROM product JOIN importproduct ON product.id = importproduct.idProduct ORDER BY product.yearOfManuFacture DESC LIMIT 12;";
+        try {
+            Statement statement = ConnectDB.getConnect().createStatement();
+            PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Company vendo = CompanyDAO.getVendoById(resultSet.getInt(2));
+                Product prod = new Product(resultSet.getInt(1),
+                        vendo,
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+
+                        resultSet.getInt(6),
+                        resultSet.getString(7),
+                        resultSet.getDouble(8),
+                        resultSet.getDate(9),
+                        resultSet.getInt(10),
+                        getImagesByID(resultSet.getInt(1))
+                );
+                newProducts.add(prod);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return newProducts;
+    }
+
+    public static ArrayList<Product> getTrendProducts() {
+        ArrayList<Product> trendProducts = new ArrayList<>();
+        String query = "SELECT * FROM product JOIN importproduct ON product.id = importproduct.idProduct ORDER BY importproduct.quantity AND importproduct.createAt DESC LIMIT 12;";
+        try {
+            Statement statement = ConnectDB.getConnect().createStatement();
+            PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Company vendo = CompanyDAO.getVendoById(resultSet.getInt(2));
+                Product prod = new Product(resultSet.getInt(1),
+                        vendo,
+                        resultSet.getString(3),
+                        resultSet.getString(4),
+                        resultSet.getString(5),
+
+                        resultSet.getInt(6),
+                        resultSet.getString(7),
+                        resultSet.getDouble(8),
+                        resultSet.getDate(9),
+                        resultSet.getInt(10),
+                        getImagesByID(resultSet.getInt(1))
+                );
+                trendProducts.add(prod);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return trendProducts;
     }
 
     public static ArrayList<String> getImagesByID(int idProduct) {
@@ -281,6 +347,13 @@ public class ProductDAO {
             throw new RuntimeException(e);
         }
     }
+
+    public static void main(String[] args) {
+        ProductDAO productDAO = new ProductDAO();
+        productDAO.getNewProducts();
+    }
 }
+
+
 
 
