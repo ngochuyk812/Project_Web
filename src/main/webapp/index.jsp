@@ -1,3 +1,6 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="Model.Product" %>
+<%@ page import="DAO.ProductDAO" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -8,6 +11,7 @@
     </style>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="https://staticfile.oto.com.vn/dist/web/styles/theme.min.css.gz?v=638029584077979519">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,19 +25,380 @@
 </head>
 <body>
 <jsp:include page="/Component/header/Header.jsp"/>
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="../Img/Ecom%20APVN%20Oto.com%201920x350_73361963282860400.jpg"
-                 class="d-block w-100" alt="Err">
+<%--<style>--%>
+<%--    #carouselExampleSlidesOnly {--%>
+<%--        width: 100%;--%>
+<%--        height: 800px;--%>
+<%--    }--%>
+<%--    #carouselExampleSlidesOnly .carousel-inner{--%>
+<%--        width: 70%;--%>
+<%--        height: 100%;--%>
+<%--        /*display: flex;*/--%>
+<%--        /*flex-direction: row;*/--%>
+<%--        display: grid;--%>
+<%--        grid-column-start: 1;--%>
+<%--        grid-column-end: 4;--%>
+<%--        grid-row-start: 1;--%>
+<%--        grid-row-end: 2;--%>
+<%--        margin: 0 auto;--%>
+<%--    }--%>
+<%--    #carouselExampleSlidesOnly .carousel-inner .carousel-item{--%>
+<%--        margin: 10px;--%>
+<%--        width: 100px;--%>
+<%--        height: 150px;--%>
+<%--        padding: 5px;--%>
+<%--        border: 1px solid gray;--%>
+<%--    }--%>
+<%--    #carouselExampleSlidesOnly .carousel-inner .carousel-item img{--%>
+<%--        width: 60px;--%>
+<%--        height: 60px;--%>
+<%--    }--%>
+<%--</style>--%>
+<%--<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">--%>
+<%--    <div class="carousel-inner">--%>
+<%--        &lt;%&ndash;        <div class="carousel-item active">&ndash;%&gt;--%>
+<%--        &lt;%&ndash;            <img src="Img/BMW X1.jpg"&ndash;%&gt;--%>
+<%--        &lt;%&ndash;                 class="d-block w-100" alt="">&ndash;%&gt;--%>
+<%--        &lt;%&ndash;        </div>&ndash;%&gt;--%>
+<%--        <div class="carousel-item active">--%>
+<%--            <a href="">--%>
+<%--                <img src="Img/BMW X1.jpg" alt="">--%>
+<%--                <p>BMW X1 2021</p>--%>
+<%--            </a>--%>
+<%--        </div>--%>
+<%--        <div class="carousel-item active">--%>
+<%--            <a href="">--%>
+<%--                <img src="Img/Mazda 3 2019.jpg" alt="">--%>
+<%--                <p>Mazda 3 2019</p>--%>
+<%--            </a>--%>
+<%--        </div>--%>
+<%--        <div class="carousel-item active">--%>
+<%--            <a href="">--%>
+<%--                <img src="Img/Ford Fiesta Trend.jpg" alt="">--%>
+<%--                <p>Ford Fiesta</p>--%>
+<%--            </a>--%>
+<%--        </div>--%>
+<%--        <div class="carousel-item active">--%>
+<%--            <a href="">--%>
+<%--                <img src="Img/vinfastLUX A2.0.jpeg" alt="">--%>
+<%--                <p>Vinfast LUX A 2.0</p>--%>
+<%--            </a>--%>
+<%--        </div>--%>
+<%--            <div class="carousel-item active">--%>
+<%--                <a href="">--%>
+<%--                    <img src="Img/BMW X1.jpg" alt="">--%>
+<%--                    <p>BMW X1 2021</p>--%>
+<%--                </a>--%>
+<%--            </div>--%>
+<%--            <div class="carousel-item active">--%>
+<%--                <a href="">--%>
+<%--                    <img src="Img/Mazda 3 2019.jpg" alt="">--%>
+<%--                    <p>Mazda 3 2019</p>--%>
+<%--                </a>--%>
+<%--            </div>--%>
+<%--            <div class="carousel-item active">--%>
+<%--                <a href="">--%>
+<%--                    <img src="Img/Ford Fiesta Trend.jpg" alt="">--%>
+<%--                    <p>Ford Fiesta</p>--%>
+<%--                </a>--%>
+<%--            </div>--%>
+<%--            <div class="carousel-item active">--%>
+<%--                <a href="">--%>
+<%--                    <img src="Img/vinfastLUX A2.0.jpeg" alt="">--%>
+<%--                    <p>Vinfast LUX A 2.0</p>--%>
+<%--                </a>--%>
+<%--            </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+<style>
+    /*Slide Show Begin*/
+    #slideShow {
+        overflow: hidden;
+    }
+
+    #slideShow .mySlides {
+        margin: 0 auto;
+        width: 1400px;
+        height: 600px;
+    }
+
+
+    @keyframes scale-display {
+        0% {
+            opacity: 0;
+            transform: scale(0.9);
+            /*transform: translateX(200px);*/
+            /*-webkit-transform: scale(0);*/
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+            /*transform: translateX(0);*/
+            /*-webkit-transform: scale(1);*/
+        }
+    }
+
+    #slideShow .dotList {
+        position: absolute;
+        bottom: 20px;
+        left: 45%;
+    }
+
+    #slideShow .dotList .dot {
+        font-size: 8px;
+        padding: 0 5px;
+        background-color: #b7abab;
+        border-radius: 50px;
+        margin: 0 10px;
+    }
+
+    /*Slide Show End*/
+    /*Content Main Page Begin*/
+    #content {
+        padding-top: 24px;
+    }
+
+    #content .container .products-new .products-trend{
+        margin-bottom: 70px;
+    }
+    /*Product Content Begin*/
+    #content .product-title {
+        margin: 20px 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #content .product-title .section-title {
+        font-size: 20px;
+        padding: 10px 0;
+        text-transform: uppercase;
+        border-bottom: 3px solid #135EAC;
+        border-radius: 2px;
+        position: relative;
+    }
+
+    #content .product-title .more-product {
+        margin: 10px 0;
+        background: #006fc9;
+        color: #ffffff;
+        font-size: 15px;
+        font-weight: 600;
+        padding: 5px 10px;
+        border-radius: 50px;
+        text-decoration: none;
+    }
+
+    #content .section-title i {
+        color: #fa8c16;
+        margin-right: 10px;
+    }
+
+    #content .products {
+        display: grid;
+        grid-gap: 1rem;
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #content .product-item {
+        border: 1px solid #e5e5e5;
+        border-radius: 10px;
+
+    }
+
+    #content .product-item a {
+        text-decoration: none;
+    }
+
+    #content .product-item .product-image {
+        width: 256px;
+        height: 180px;
+        margin: 5px 8px;
+        border-radius: 10px;
+    }
+
+    #content .product-item .product-type {
+        font-size: 15px;
+        font-weight: bold;
+        opacity: .7;
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+
+    #content .product-item .product-star .number-of-stars {
+        color: #fff200;
+        font-size: 20px;
+    }
+
+    #content .product-item .product-name {
+        font-size: 16px;
+        color: #135EAC;
+        margin-bottom: 10px;
+        margin-left: 10px;
+    }
+
+    #content .product-item .product-price {
+        display: flex;
+        justify-content: space-evenly;
+        font-weight: 700;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+    #content .product-item .product-old-price {
+        color: #b5b5b5;
+    }
+
+    #content .product-item .product-choose {
+        margin: 10px 0 20px 0px;
+        visibility: hidden;
+        padding: 0 20px;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all .25s linear;
+
+    }
+
+    #content .product-item:hover .product-choose {
+        visibility: visible;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    #content .product-item .product-choose > button {
+        width: 100%;
+        margin-left: 50%;
+        transform: translateX(-50%);
+        padding: 5px;
+        /*background: linear-gradient(to right, #00c10c 0%, #fff200 50%, #00c10c 100%);*/
+        background: linear-gradient(to right, #135EAC 0%, #82e1d3 50%, #135EAC 100%);
+        background-size: 300%, 1px;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        transition: all .3s linear;
+    }
+
+    #content .product-item .product-choose > button:hover {
+        /*background: linear-gradient(to left, #00c10c 0%, #fff200 50%, #00c10c 100%) right;*/
+        background: linear-gradient(to left, #135EAC 0%, #82e1d3 50%, #135EAC 100%) right;
+        background-size: 300%, 1px;
+
+    }
+
+    #content .product-item .product-choose .detail {
+        margin-left: 0px;
+    }
+
+    #content .product-item .product-choose .detail a {
+        color: #ffffff;
+    }
+
+    #content .product-item .product-choose .add-to-cart i,
+    #content .product-item .product-choose .detail i {
+        margin: 0 5px;
+    }
+
+    /*Product Content End*/
+    /*Content Main Page End*/
+</style>
+<div id="main">
+    <!--    Begin SlideShow-->
+    <div id="slideShow">
+        <div class="position-relative">
+            <img class="mySlides" src="Img/slide%201.jpg" alt="">
+            <img class="mySlides" src="Img/slide%202.jpg" alt="">
+            <img class="mySlides" src="Img/slide%203.png" alt="">
+            <div class="dotList">
+                <span class="dot" onclick="currentDiv(1)"></span>
+                <span class="dot" onclick="currentDiv(2)"></span>
+                <span class="dot" onclick="currentDiv(3)"></span>
+            </div>
         </div>
-        <div class="carousel-item">
-            <img src="https://secure-ds.serving-sys.com/resources/PROD/asset/1073745238/IMAGE/20220830/Ecom APVN Oto.com 1920x350_73361963282860400.jpg"
-                 class="d-block w-100" alt="Err">
+    </div>
+</div>
+<!--    End SlideShow-->
+<!--    Begin Content-->
+<div id="content">
+    <div class="container">
+        <div class="products-new">
+            <div class="product-title">
+                <h3 class="section-title"><i class="fa-solid fa-bolt"></i>Sản Phẩm Mới</h3>
+                <a class="more-product" href="">Xem thêm</a>
+            </div>
+            <span class="heading_divider"></span>
+            <div class="products">
+                <%  ProductDAO productDAO = new ProductDAO();
+                    ArrayList<Model.Product> newProducts = productDAO.getNewProducts();
+                    for (Product p: newProducts) {
+                %>
+                <div class="product-item">
+                    <a href="details?id=<%= p.getId()%>">
+                        <img class="product-image" src="<%= p.getImages().get(0).toString()%>" alt="">
+                    </a>
+                    <p class="product-type"><%= p.getVendo().getName()%></p>
+                    <a href="details?id=<%= p.getId()%>"><p class="product-name"><%= p.getName()%></p></a>
+                    <div class="product-star text-center">
+                            <span class="number-of-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                    </div>
+                    <div class="product-price">
+                        <del class="product-old-price">80.000<span class="currency">USD</span></del>
+                        <span class="product-new-price"><%= p.getPrice()%><span class="currency">USD</span></span>
+                    </div>
+                    <div class="product-choose">
+                        <button class="add-to-cart">
+                            <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
+                        </button>
+                    </div>
+                </div>
+                <%}%>
+
+
+
+
         </div>
-        <div class="carousel-item">
-            <img src="https://secure-ds.serving-sys.com/resources/PROD/asset/1073745238/IMAGE/20220830/Ecom APVN Oto.com 1920x350_73361963282860400.jpg"
-                 class="d-block w-100" alt="Err">
+        <div class="products-trend">
+            <div class="product-title d-flex justify-content-between">
+                <h3 class="section-title mb-0"><i class="fa-solid fa-arrow-trend-up"></i>Sản Phẩm Thịnh Hành</h3>
+                <a class="more-product" href="">Xem thêm</a>
+            </div>
+            <div class="products">
+                <%
+                    ArrayList<Model.Product> trendProducts = productDAO.getTrendProducts();
+                    for (Product p: trendProducts) {
+                %>
+                <div class="product-item">
+                    <a href="details?id=<%= p.getId()%>">
+                        <img class="product-image" src="<%= p.getImages().get(0).toString()%>" alt="">
+                    </a>
+                    <p class="product-type"><%= p.getVendo().getName()%></p>
+                    <a href="details?id=<%= p.getId()%>"><p class="product-name"><%= p.getName()%></p></a>
+                    <div class="product-star text-center">
+                            <span class="number-of-stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </span>
+                    </div>
+                    <div class="product-price">
+                        <del class="product-old-price">80.000<span class="currency">USD</span></del>
+                        <span class="product-new-price"><%= p.getPrice()%><span class="currency">USD</span></span>
+                    </div>
+                    <div class="product-choose">
+                        <button class="add-to-cart">
+                            <i class="fa-solid fa-cart-plus"></i>Thêm Vào Giỏ
+                        </button>
+                    </div>
+                </div>
+                <%}%>
+
         </div>
     </div>
 </div>
@@ -163,9 +528,60 @@
 </div>
 <jsp:include page="/Component/footer/footer.jsp"/>
 </body>
+<script>
+    // slide show and auto slide show
+    let slideIndex = 1;
+    showDivs(slideIndex);
+    carousel();
 
+
+    function currentDiv(n) {
+        slideIndex = n;
+        showDivs(slideIndex);
+    }
+
+    function showDivs(n) {
+        let x = document.getElementsByClassName('mySlides');
+        let dots = document.getElementsByClassName('dot');
+        if (n > x.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = x.length;
+        }
+        for (let i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+            dots[i].style.background = "";
+            dots[i].style.padding = "0 5px";
+
+
+        }
+        x[slideIndex - 1].style.display = "block";
+        x[slideIndex - 1].style.animation = "scale-display .5s";
+        dots[slideIndex - 1].style.background = "#0f9d58";
+    }
+
+    // Auto next slide
+    function carousel() {
+        let x = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName('dot');
+        for (let i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+            dots[i].style.background = "";
+            dots[i].style.padding = "0 5px";
+        }
+        if (slideIndex > x.length) {
+            slideIndex = 1
+        }
+        ;x[slideIndex - 1].style.display = "block";
+        x[slideIndex - 1].style.animation = "scale-display .7s";
+        dots[slideIndex - 1].style.background = "#0f9d58";
+        setTimeout(carousel, 3000); // Change image every 2 seconds
+        slideIndex++;
+    }
+</script>
+<script src="/jsadmin/bootstrap.min.js"></script>
 <script src="/EventJs/Swipper.js">
-
 </script>
 <script>
     setTimeout(() => {

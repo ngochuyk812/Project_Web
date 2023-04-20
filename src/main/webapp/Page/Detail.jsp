@@ -11,13 +11,13 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
-
+    <link rel="stylesheet" href="src/main/webapp/css/bootstrap.min.css">
 
     <style>
         <%@include file="detail.css" %>
     </style>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"--%>
+<%--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--%>
 </head>
 <body>
 <jsp:include page="../Component/header/Header.jsp"/>
@@ -85,23 +85,58 @@
                     </div>
                     <!-- Nút điều khiển mũi tên-->
                 </div>
-                <div style="text-align:center" class="listdot">
-                    <a class="prev" onclick="plusSlides(-1)"><i class="fa-sharp fa-solid fa-angle-up"></i></a>
-                    <a class="next" onclick="plusSlides(1)"><i class="fa-sharp fa-solid fa-angle-down"></i></a>
+<%--                <div style="text-align:center" class="listdot">--%>
+<%--                    <a class="prev" onclick="plusSlides(-1)"><i class="fa-sharp fa-solid fa-angle-up"></i></a>--%>
+<%--                    <a class="next" onclick="plusSlides(1)"><i class="fa-sharp fa-solid fa-angle-down"></i></a>--%>
 
-                    <div class="dot" onclick="currentSlide(1)"><img
-                            src="https://img1.oto.com.vn/crop/575x430/2022/10/30/20221030182457-cb9a_wm.jpg"
-                            style="width:100%"></div>
-                    <div class="dot" onclick="currentSlide(2)"><img
-                            src="https://img1.oto.com.vn/crop/575x430/2022/10/30/20221030182457-cb9a_wm.jpg"
-                            style="width:100%">
-                    </div>
-                    <div class="dot" onclick="currentSlide(3)"><img
-                            src="https://img1.oto.com.vn/crop/575x430/2022/10/30/20221030182457-cb9a_wm.jpg"
-                            style="width:100%">
+<%--                    <div class="dot" onclick="currentSlide(1)"><img--%>
+<%--                            src="<%= product.getImages().get(1)%>"--%>
+<%--                            style="width:100%"></div>--%>
+<%--                    <div class="dot" onclick="currentSlide(2)"><img--%>
+<%--                            src="<%= product.getImages().get(2)%>"--%>
+<%--                            style="width:100%">--%>
+<%--                    </div>--%>
+<%--                    <div class="dot" onclick="currentSlide(3)"><img--%>
+<%--                            src="<%= product.getImages().get(3)%>g"--%>
+<%--                            style="width:100%">--%>
 
+<%--                    </div>--%>
+<%--                </div>--%>
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="<%= product.getImages().get(1)%>" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="<%= product.getImages().get(2)%>" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="<%= product.getImages().get(3)%>" alt="Third slide">
+                        </div>
                     </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
+                <style>
+                    .listdot{
+                        width: 600px;
+                    }
+                    #carouselExampleIndicators{
+                        width: 600px;
+                        height: 200px;
+                    }
+                </style>
             </section>
             <div class="box-info-detail">
                 <ul class="list-info">

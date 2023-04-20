@@ -46,6 +46,8 @@ public class Login extends HttpServlet {
 
     }
     public void saveSession(User user, HttpServletRequest req){
+
         req.getSession().setAttribute("user",user);
+        req.getSession().setMaxInactiveInterval(999999);
     }
 }
