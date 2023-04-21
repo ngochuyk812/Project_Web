@@ -28,7 +28,7 @@ public class CartControl extends HttpServlet {
         String param = request.getParameter("action");
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        int userName = user.getIdUser();
+        int userName = user.getId();
         if (param != null) {
             if (param.equals("listcart")) {
                 getList(request, response, userName);

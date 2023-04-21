@@ -104,7 +104,6 @@
 
     const checkAccountExist = () => {
         console.log("get User")
-
         $.ajax({
             type: "Get",
             url: "/check/UserIsExist",
@@ -114,11 +113,9 @@
                 profile.classList.add("show")
             }
         });
-
         // if(findCookieByname("isAdmin") !=1){
         //     document.querySelector("#checkIsAdmin").style.display = 'none'
         // }
-
     }
     checkAccountExist()
 </script>

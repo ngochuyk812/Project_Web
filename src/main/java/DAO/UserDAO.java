@@ -1,10 +1,8 @@
 package DAO;
 
-import Beans.JWT;
 import Connect.ConnectDB;
+import Model.Role;
 import Model.User;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -13,7 +11,7 @@ import java.util.List;
 public class UserDAO {
     public static boolean checkLogin(String username, String pass) throws SQLException {
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("select * from user where username=? and password=?");
+        PreparedStatement stmt = c.prepareStatement("select * from user where username=? and password=? and status=1");
         stmt.setString(1, username);
         stmt.setString(2, pass);
         ResultSet rs = stmt.executeQuery();
@@ -64,7 +62,7 @@ public class UserDAO {
             int status = Integer.valueOf(rs.getString("status"));
             int statusLogin = rs.getInt("statusLogin");
             User user = new User(userName, pass, fullName, email, phone, avatar, address, role, status, statusLogin);
-            user.setIdUser(idUser);
+            user.setId(idUser);
             return user;
         }
         ;
@@ -89,13 +87,9 @@ public class UserDAO {
             int status = Integer.valueOf(rs.getString("status"));
             int statusLogin = rs.getInt("statusLogin");
             User user = new User(userName, pass, fullName, email, phone, avatar, address, role, status, statusLogin);
-            System.out.println(123123);
-            System.out.println(user.toString());
-            user.setIdUser(idUser);
+            user.setId(idUser);
             return user;
         }
-        System.out.println(123123);
-        ;
         return null;
 
     }
@@ -124,37 +118,6 @@ public class UserDAO {
         return rs;
     }
 
-    public static int updateUser(String username, String fullname, String email, String phone, String address) throws SQLException, ClassNotFoundException {
-        Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("UPDATE user\n" +
-                "SET  fullname = ?,email = ?, phone = ?, address = ?\n" +
-                "WHERE username = ?");
-        if (fullname.equals("null")) {
-            stmt.setNull(1, Types.INTEGER);
-        } else {
-            stmt.setString(1, fullname);
-        }
-
-        if (email.equals("null")) {
-            stmt.setNull(2, Types.INTEGER);
-        } else {
-            stmt.setString(2, email);
-        }
-
-        if (phone.equals("null")) {
-            stmt.setNull(3, Types.INTEGER);
-        } else {
-            stmt.setString(3, phone);
-        }
-        if (address.equals("null")) {
-            stmt.setNull(4, Types.INTEGER);
-        } else {
-            stmt.setString(4, address);
-        }
-        stmt.setString(5, username);
-        int rs = stmt.executeUpdate();
-        return rs;
-    }
 
     public static int uploadAvatar(String user, String linkAvatar) throws SQLException, ClassNotFoundException {
         Connection c = ConnectDB.getConnect();
@@ -162,11 +125,19 @@ public class UserDAO {
                 "SET avatar = ? WHERE username = ?");
         stmt.setString(1, linkAvatar);
         stmt.setString(2, user);
-
         int rs = stmt.executeUpdate();
         return rs;
     }
-
+    public static int updateUserAdmin(int id,String userName,int phoneNumber, int role ) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("UPDATE user SET  userName = ?, role = ?, phone = ? WHERE id = ?");
+        stmt.setString(1, userName);
+        stmt.setInt(2, role);
+        stmt.setInt(3, phoneNumber);
+        stmt.setInt(4, id);
+        int rs = stmt.executeUpdate();
+        return rs;
+    }
     public static int updateUser(String username, String pass, String fullname, String email, String phone, String address) throws SQLException, ClassNotFoundException {
         Connection c = ConnectDB.getConnect();
         PreparedStatement stmt = c.prepareStatement("UPDATE user\n" +
@@ -199,28 +170,43 @@ public class UserDAO {
         int rs = stmt.executeUpdate();
         return rs;
     }
-
-    public static boolean checkAdmin(String name) throws SQLException {
+    public static boolean checkAdmin(int id) throws SQLException {
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("select * from user where username=?");
-        stmt.setString(1, name);
+        PreparedStatement stmt = c.prepareStatement("select * from user where id=?");
+        stmt.setInt(1, id);
         ResultSet rs = stmt.executeQuery();
         if (rs.next() && rs.getInt("role") == 1) {
             return true;
         }
         return false;
-
     }
-
     public static List<User> getAllUser() throws SQLException {
         List<User> list = new ArrayList<>();
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("select * from user where role=0");
+        PreparedStatement stmt = c.prepareStatement("select * from user where role<3");
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
-            list.add(new User(rs.getString("username"), rs.getString("password"), rs.getString("fullname"), rs.getString("email"), rs.getString("phone"), rs.getString("avatar"), rs.getString("address"), rs.getInt("role"), rs.getInt("status"), rs.getInt("statusLogin")));
+            list.add(new User(rs.getInt("id"),rs.getString("username"), rs.getString("fullname"), rs.getString("email"), rs.getString("phone"), rs.getString("avatar"), rs.getString("address"), rs.getInt("role"), rs.getInt("status"), rs.getInt("statusLogin")));
         }
         return list;
+    }
+    public Role getRole(int idRole) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("select * from role where id=?");
+        stmt.setInt(1,idRole);
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()){
+            return new Role(rs.getString(2),rs.getInt(3));
+        }
+        return null;
+    }
+    public static int delUSer(int id) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("UPDATE user SET status = 0 WHERE id = ?");
+        stmt.setInt(1,id);
+        int rs = stmt.executeUpdate();
+        System.out.println(rs);
+        return rs;
     }
 
 }

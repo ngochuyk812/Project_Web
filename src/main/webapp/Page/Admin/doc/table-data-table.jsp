@@ -7,7 +7,7 @@
 <head>
     <title>Danh sách nhân viên | Quản trị Admin</title>
     <!-- Main CSS-->
-    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- or -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
@@ -18,7 +18,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
@@ -50,14 +49,12 @@
                     <div class="row element-button">
 
 
-
                         <div class="col-sm-2">
                             <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất
                                 Excel</a>
                         </div>
                         <div class="col-sm-2">
-                            <a class="btn btn-delete btn-sm pdf-file" type="button" title="In"
-                               onclick="myFunction(this)"><i
+                            <a class="btn btn-delete btn-sm pdf-file" type="button" title="In"><i
                                     class="fas fa-file-pdf"></i> Xuất PDF</a>
                         </div>
 
@@ -75,40 +72,50 @@
                             <%--                            <th>Ngày sinh</th>--%>
                             <%--                            <th>Giới tính</th>--%>
                             <th>SĐT</th>
+                            <th width="300">Tình trạng</th>
+                            <th width="300">Chức vụ</th>
                             <%--                            <th>Chức vụ</th>--%>
                             <th width="100">Tính năng</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach items="${listUser}" var="item">
-                            <tr>
+                        <c:forEach items="${listUser}" var="item" varStatus="loop">
+                            <tr data-id="${item.id}">
                                 <td width="10"><input type="checkbox" name="check2" value="2"></td>
-                                <td>#SX22837</td>
-                                <td>${item.userName}</td>
+                                <td>#${item.id}</td>
+                                <td id="userName">${item.userName}</td>
                                 <td><img class="img-card-person" src="${item.avatar}" alt=""></td>
                                 <td>${item.address}</td>
-                                <td>${item.phone}</td>
+                                <td id="userPhone">${item.phone}</td>
+                                <c:choose>
+                                    <c:when test="${item.status==1}">
+                                        <td><span class="statusActivity isAction">Hoạt động</span></td>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <td><span class="statusActivity isNotAction">Đã khóa</span></td>
+                                    </c:otherwise>
+                                </c:choose>
+                                <td><span class="statusActivity isAction" id="userRole">${item.getNameRole()}</span>
+                                </td>
                                 <td>
-                                    <button id="${item.userName}" class="btn btn-primary btn-sm trash" type="button"
-                                            title="Xóa"
-                                            onclick="myFunction(this)"><i class="fas fa-trash-alt"></i>
+                                    <button id="${item.id}" class="btn btn-primary btn-sm trash" type="button"
+                                            title="Xóa"><i class="fas fa-trash-alt"></i>
                                     </button>
-
+                                    <button class="btn btn-primary btn-sm edit show-emp" type="submit" title="Sửa"
+                                            id="show-emp||${item.id}" data-toggle="modal" data-target="#ModalUP"><i
+                                            class="fas fa-edit"></i></button>
                                 </td>
                             </tr>
                         </c:forEach>
-
-
                         </tbody>
                     </table>
                 </div>
                 <c:forEach begin="1"
-
                            end="${size}"
-
                            step="1" varStatus="loop">
                     <div class="col-sm-2">
-                        <a class="btn btn-excel btn-sm" href="/managerUSer?page=${loop.index}" title="In"><i class="fas fa-file-excel"></i> Next</a>
+                        <a class="btn btn-excel btn-sm" href="/managerUSer?page=${loop.index}" title="In"><i
+                                class="fas fa-file-excel"></i> Next</a>
                     </div>
 
                 </c:forEach>
@@ -118,7 +125,6 @@
 
     </div>
 </main>
-
 <!--
 MODAL
 -->
@@ -138,44 +144,33 @@ MODAL
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label class="control-label">ID nhân viên</label>
-                        <input class="form-control" type="text" required value="#CD2187" disabled>
+                        <input class="form-control" id="idUser" type="text" required disabled>
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label">Họ và tên</label>
-                        <input class="form-control" type="text" required value="Võ Trường">
+                        <input class="form-control" id="fullName" type="text" required>
                     </div>
                     <div class="form-group  col-md-6">
                         <label class="control-label">Số điện thoại</label>
-                        <input class="form-control" type="number" required value="09267312388">
+                        <input class="form-control" id="phoneNumber" type="number" required>
                     </div>
                     <div class="form-group col-md-6">
                         <label class="control-label">Địa chỉ email</label>
-                        <input class="form-control" type="text" required value="truong.vd2000@gmail.com">
+                        <input class="form-control" id="emailUser" type="text" required disabled>
                     </div>
                     <div class="form-group col-md-6">
-                        <label class="control-label">Ngày sinh</label>
-                        <input class="form-control" type="date" value="15/03/2000">
+                        <label class="control-label">Trạng thái tài khoản</label>
+                        <input class="form-control" id="statusAccount" type="text" required disabled>
                     </div>
                     <div class="form-group  col-md-6">
                         <label for="exampleSelect1" class="control-label">Chức vụ</label>
-                        <select class="form-control" id="exampleSelect1">
-                            <option>Bán hàng</option>
-                            <option>Tư vấn</option>
-                            <option>Dịch vụ</option>
-                            <option>Thu Ngân</option>
-                            <option>Quản kho</option>
-                            <option>Bảo trì</option>
-                            <option>Kiểm hàng</option>
-                            <option>Bảo vệ</option>
-                            <option>Tạp vụ</option>
+                        <select id="allRole" class="form-control" id="exampleSelect1">
+                            <c:forEach items="${listRole}" var="item" varStatus="loop">
+                                <option id="role||${item.id}">${item.name}</option>
+                            </c:forEach>
                         </select>
                     </div>
                 </div>
-                <BR>
-                <a href="#" style="    float: right;
-        font-weight: 600;
-        color: #ea0000;">Chỉnh sửa nâng cao</a>
-                <BR>
                 <BR>
                 <button class="btn btn-save" type="button">Lưu lại</button>
                 <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
@@ -186,95 +181,22 @@ MODAL
         </div>
     </div>
 </div>
-<!--
-MODAL
--->
-
-<!-- Essential javascripts for application to work-->
 <script src="jsadmin/jquery-3.2.1.min.js"></script>
 <script src="jsadmin/popper.min.js"></script>
 <script src="jsadmin/bootstrap.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="src/jquery.table2excel.js"></script>
 <script src="jsadmin/main.js"></script>
-<!-- The javascript plugin to display page loading on top-->
 <script src="jsadmin/plugins/pace.min.js"></script>
-<!-- Page specific javascripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<!-- Data table plugin-->
 <script type="text/javascript" src="jsadmin/plugins/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="jsadmin/plugins/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript">$('#sampleTable').DataTable();</script>
-<script>
-    function deleteRow(r) {
-        var i = r.parentNode.parentNode.rowIndex;
-        document.getElementById("myTable").deleteRow(i);
-    }
-    `<div id="${username}" class="swal-button-container">
-
-    <button class="swal-button swal-button--confirm">Đồng ý</button>
-
-    <div class="swal-button__loader">
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-
-  </div>`
-    document.querySelectorAll(".trash").forEach((item,index)=>{
-        item.addEventListener("click",(e)=>{
-            e.preventDefault();
-            let username=item.getAttribute("id");
-            fetch("/delUser?username="+username)
-                .then((resp)=>{
-                    window.location.href="admin?page=usermanagement"
-                    alert("Xóa thành công")
-                })
-                .catch(()=>{
-                    alert("Xóa không thành công")
-                })
-
-
-
-        })
-    })
-
-    jQuery(function () {
-        jQuery(".trash").click(function () {
-            let username = jQuery(".trash").attr("id")
-            console.log(username)
-            let success =
-            swal({
-                title: "Cảnh báo",
-                text: "Bạn có chắc chắn là muốn xóa nhân viên này?",
-                buttons: ["hủy bỏ", success],
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        swal("Đã xóa thành công.!", {});
-                    }
-                });
-        });
-    });
-    oTable = $('#sampleTable').dataTable();
+<script type="application/javascript">
     $('#all').click(function (e) {
         $('#sampleTable tbody :checkbox').prop('checked', $(this).is(':checked'));
         e.stopImmediatePropagation();
     });
 
-    //EXCEL
-    // $(document).ready(function () {
-    //   $('#').DataTable({
-
-    //     dom: 'Bfrtip',
-    //     "buttons": [
-    //       'excel'
-    //     ]
-    //   });
-    // });
-
-
-    //Thời Gian
     function time() {
         var today = new Date();
         var weekday = new Array(7);
@@ -341,12 +263,81 @@ MODAL
     //     console.log('Oops, unable to copy');
     //   }
     // });
-
-
     //Modal
-    $("#show-emp").on("click", function () {
-        $("#ModalUP").modal({backdrop: false, keyboard: false})
+
+    var oTable = $('#sampleTable').DataTable();
+    oTable.on('click', '.trash', function () {
+        swal({
+            title: "Cảnh báo",
+            text: "Bạn có chắc chắn là muốn khóa tài khoản này?",
+            buttons: ["hủy bỏ", "oke"],
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    let id = $(this).attr('id');
+                    fetch("/user?choose=delUser&id=" + id)
+                        .then((resp) => {
+                            $(this).closest('tr').find(".statusActivity").removeClass('isAction').addClass('isNotAction').text('Đã khóa');
+                            swal("Đã xóa thành công.!", {});
+                        })
+                        .catch(() => {
+                            swal("Xóa không thành công!", {});
+                        })
+                }
+            })
     });
+    oTable.on('click', '.show-emp', function () {
+        var element = $(this).attr("id");
+        var id = (element.split("||")[1])
+        $.ajax({
+            url: "/user?choose=getInfoUser&id=" + id,
+            type: "Get",
+            contentType: 'application/x-www-form-urlencoded',
+            success: function (data) {
+                $(".btn-save").attr("id", element)
+                $("#idUser").val(data.id);
+                $("#fullName").val(data.fullName);
+                $("#phoneNumber").val(data.phone);
+                $("#emailUser").val(data.email);
+                $("#allRole").val(data.role);
+                $("#statusAccount").val(data.status);
+            }
+        })
+        $("#ModalUP").modal({backdrop: false, keyboard: false})
+    })
+    $('.btn-save').on('click', function () {
+        const id = $(this).attr("id").split("||")[1]
+        const button = $(this)
+        $(this).closest().find()
+        var name = $("#fullName").val()
+        var phone = $("#phoneNumber").val()
+        var role = $("#allRole option:selected").attr("id").split("||")[1]
+        var data = {
+            name,
+            phone,
+            role,
+            id
+        };
+        $.ajax({
+            url: "/user",
+            type: "Post",
+            data: data,
+            contentType: 'application/x-www-form-urlencoded',
+            success: function (data) {
+                if (data.status == "ok") {
+                    document.querySelector("tr[data-id=" + "'" + id + "'" + "] #userName").textContent = name
+                    document.querySelector("tr[data-id=" + "'" + id + "'" + "] #userPhone").textContent = phone
+                    document.querySelector("tr[data-id=" + "'" + id + "'" + "] #userRole").textContent = $("#allRole option:selected").text()
+                    swal("Sửa thành công.!", {});
+                } else {
+                    swal("Sửa không thành công.!", {});
+                }
+
+            }
+        })
+    });
+
+
 </script>
 </body>
 

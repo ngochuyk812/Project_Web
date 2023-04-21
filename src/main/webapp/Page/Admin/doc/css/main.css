@@ -15427,6 +15427,10 @@ be a descendant of the grid when it is being dragged.
 .app-menu{
   padding: 5px;
 }
+
+.dataTables_paginate> span{
+  margin: 0px 7px;
+}
 .check-active{
   background: green;
   border: none;
