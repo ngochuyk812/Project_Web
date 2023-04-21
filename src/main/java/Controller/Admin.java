@@ -1,13 +1,9 @@
 package Controller;
 
-import DAO.CompanyDAO;
-import DAO.OderDAO;
-import DAO.ProductDAO;
-import DAO.UserDAO;
-import Model.Company;
+import DAO.*;
+import Model.*;
 import Model.Oder;
 import Model.Product;
-import Model.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,8 +56,11 @@ public class Admin extends HttpServlet {
     protected void userPage(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         setShowProfile(req);
         try {
-            List<User> list = UserDAO.getAllUser();
-            req.setAttribute("listUser", list);
+            List<User> listUser = UserDAO.getAllUser();
+            List<Role> listRole = RoleDAO.getAllRole();
+            System.out.println(listRole.size());
+            req.setAttribute("listUser", listUser);
+            req.setAttribute("listRole", listRole);
             req.getRequestDispatcher("/Page/Admin/doc/table-data-table.jsp").forward(req, res);
         } catch (SQLException e) {
             throw new RuntimeException(e);

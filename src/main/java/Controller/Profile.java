@@ -55,7 +55,6 @@ public class Profile extends HttpServlet {
             }
             res.getWriter().write(new Gson().toJson("Error"));
         }
-
     }
     protected void changeAvatar(HttpServletRequest req, HttpServletResponse res, String user) throws ServletException, IOException, SQLException {
         DiskFileItemFactory fileItemFactory = new DiskFileItemFactory();

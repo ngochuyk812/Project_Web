@@ -167,7 +167,7 @@
                 } else {
                     swal({
                         title: "Thất bại",
-                        text: "Vui lòng đăng nhập lại",
+                        text: "Vui lòng đăng nhập lại( Có thể tài khoản của bạn đã bị khóa hoặc sai thông tin)",
 
                     })
 

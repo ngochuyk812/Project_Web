@@ -3,7 +3,7 @@ package Model;
 import java.io.Serializable;
 
 public class User implements Serializable {
-    private int idUser;
+    private int id;
     private String userName;
     private String passWord;
     private String fullName;
@@ -12,7 +12,6 @@ public class User implements Serializable {
     private String avatar;
     private String address;
     private int role;
-    private String nameRole;
     private int status;
     private int statusLogin;
 
@@ -32,12 +31,31 @@ public class User implements Serializable {
         this.phone = phone;
         this.avatar = avatar;
         this.address = address;
-        this.role=role;
-        this.status=status;
-        this.statusLogin=statusLogin;
+        this.role = role;
+        this.status = status;
+        this.statusLogin = statusLogin;
     }
-    public int getIdUser() {
-        return idUser;
+
+    public User(int id, String userName, String fullName, String email, String phone, String avatar, String address, int role, int status, int statusLogin) {
+        this.userName = userName;
+        this.passWord = passWord;
+        this.fullName = fullName;
+        this.email = email;
+        this.phone = phone;
+        this.avatar = avatar;
+        this.address = address;
+        this.role = role;
+        this.status = status;
+        this.statusLogin = statusLogin;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getRole() {
@@ -46,10 +64,6 @@ public class User implements Serializable {
 
     public int getStatus() {
         return status;
-    }
-
-    public void setIdUser(int idUser) {
-        this.idUser = idUser;
     }
 
     public void setRole(int role) {
@@ -106,7 +120,7 @@ public class User implements Serializable {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
-}
+    }
 
     @Override
     public String toString() {
@@ -118,6 +132,22 @@ public class User implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", avatar='" + avatar + '\'' +
                 '}';
+    }
+
+    public String getNameRole() {
+        System.out.println(12313);
+        if (this.role == 1) {
+            return "Admin";
+        } else {
+            if (this.role == 0) {
+                return "Khách hàng";
+            } else {
+                if (this.role == 3) {
+                    return "Nhân viên";
+                }
+            }
+            return "Quản lý";
+        }
     }
 
     public String getAddress() {

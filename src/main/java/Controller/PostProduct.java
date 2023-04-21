@@ -32,7 +32,7 @@ public class PostProduct extends HttpServlet {
             Company idCompany = CompanyDAO.getIdByName(req.getParameter("nameCompany"));
             int year = Integer.parseInt(req.getParameter("yearofmanufacture"));
             User user = (User) req.getSession().getAttribute("user");
-            String token = JWT.createJWT(String.valueOf(user.getIdUser()), 365);
+            String token = JWT.createJWT(String.valueOf(user.getId()), 365);
             ArrayList<String> listimgs = UploadImage.uploadAllFile(images, pathRoot, "post" + token, "Product");
             String fuel = URLDecoder.decode(req.getParameter("fuel"), "UTF-8");
             Float price = Float.parseFloat(req.getParameter("price"));
@@ -43,7 +43,7 @@ public class PostProduct extends HttpServlet {
             int width = Integer.valueOf(req.getParameter("width"));
             int weight = Integer.valueOf(req.getParameter("weight"));
             Product pro = new Product(0,idCompany, title, content, body,year, fuel, price,null,listimgs,height, length, width, weight   );
-            int rs = ProductDAO.insertProduct(user.getIdUser(),pro, quantity);
+            int rs = ProductDAO.insertProduct(user.getId(),pro, quantity);
             resp.sendError(200);
         } catch (SQLException e) {
             throw new RuntimeException(e);

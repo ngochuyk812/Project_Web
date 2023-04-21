@@ -55,9 +55,9 @@ public class CommentControl extends HttpServlet {
         int idPost = Integer.valueOf(req.getParameter("idPost"));
         int star = Integer.valueOf(req.getParameter("star"));
         if (user != null) {
-            String token = JWT.createJWT(String.valueOf(user.getIdUser()), 365);
+            String token = JWT.createJWT(String.valueOf(user.getId()), 365);
             Map<String, ArrayList<String>> map = this.uploadFileVideo(req, token, getServletContext().getRealPath("/"));
-            Comment comment = new Comment(idPost, user.getIdUser(), star, 1);
+            Comment comment = new Comment(idPost, user.getId(), star, 1);
             comment.setAvatar(user.getAvatar());
             try {
                 if ((CommentDAO.insertComment(comment, content, map.get("listImg"), map.get("listVideo")) != 0)) {

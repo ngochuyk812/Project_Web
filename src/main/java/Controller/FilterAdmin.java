@@ -15,7 +15,7 @@ public class FilterAdmin implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         User user = (User) req.getSession().getAttribute("user");
         if (user != null) {
-            if (user.getRole() == 1) {
+            if (user.getRole() == 3) {
                 chain.doFilter(request, response);
             } else {
                 request.getRequestDispatcher("Page/404.jsp").forward(request, response);
