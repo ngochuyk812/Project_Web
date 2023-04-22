@@ -11,13 +11,14 @@
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
     <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
-    <link rel="stylesheet" href="src/main/webapp/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <style>
         <%@include file="detail.css" %>
     </style>
-<%--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"--%>
-<%--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">--%>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
 <jsp:include page="../Component/header/Header.jsp"/>
@@ -39,10 +40,10 @@
             <div class="price-detail">
                 <div class="box-price">
                     <span class="price-big blueprice"><span style="font-weight: 600">Giá bán:</span> <span
-                            style="font-size: 18px; font-weight: 700; color: #024E9C"> <%=product.getPrice()%> triệu</span> </span>
+                            style="font-size: 18px; font-weight: 700; color: #024E9C"> <%=product.getPrice()%> USD</span> </span>
                     <span>|</span>
                     <span class="price-small" id="chiphilanbanh">Giá lăn bánh: <span
-                            style="color: #4DB848"> <%=product.getPrice() + product.getPrice() * 0.1 %> triệu</span> </span>
+                            style="color: #4DB848"> <%=product.getPrice() + product.getPrice() * 0.1 %> USD</span> </span>
 
                 </div>
                 <div class="share-fbgg">
@@ -69,74 +70,46 @@
             <section id="slide">
                 <div class="slideshow-container">
                     <div class="mySlides fade">
-                        <div class="numbertext">1 / 3</div>
-                        <img src="https://img1.oto.com.vn/crop/575x430/2022/10/30/20221030182457-cb9a_wm.jpg"
+                        <div class="numbertext">1 / 4</div>
+                        <img src="<%= product.getImages().get(0)%>"
                              style="width:100%">
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">2 / 3</div>
-                        <img src="https://img1.oto.com.vn/crop/575x430/2022/10/30/20221030182457-cb9a_wm.jpg"
+                        <div class="numbertext">2 / 4</div>
+                        <img src="<%= product.getImages().get(1)%>"
                              style="width:100%">
                     </div>
                     <div class="mySlides fade">
-                        <div class="numbertext">3 / 3</div>
-                        <img src="https://img1.oto.com.vn/crop/575x430/2022/10/30/20221030182457-cb9a_wm.jpg"
+                        <div class="numbertext">3 / 4</div>
+                        <img src="<%= product.getImages().get(2)%>"
+                             style="width:100%">
+                    </div>
+                    <div class="mySlides fade">
+                        <div class="numbertext">4 / 4</div>
+                        <img src="<%= product.getImages().get(3)%>"
                              style="width:100%">
                     </div>
                     <!-- Nút điều khiển mũi tên-->
                 </div>
-<%--                <div style="text-align:center" class="listdot">--%>
-<%--                    <a class="prev" onclick="plusSlides(-1)"><i class="fa-sharp fa-solid fa-angle-up"></i></a>--%>
-<%--                    <a class="next" onclick="plusSlides(1)"><i class="fa-sharp fa-solid fa-angle-down"></i></a>--%>
+                <div style="text-align:center" class="listdot">
+                    <a class="prev" onclick="plusSlides(-1)"><i class="fa-sharp fa-solid fa-angle-up"></i></a>
+                    <a class="next" onclick="plusSlides(1)"><i class="fa-sharp fa-solid fa-angle-down"></i></a>
 
-<%--                    <div class="dot" onclick="currentSlide(1)"><img--%>
-<%--                            src="<%= product.getImages().get(1)%>"--%>
-<%--                            style="width:100%"></div>--%>
-<%--                    <div class="dot" onclick="currentSlide(2)"><img--%>
-<%--                            src="<%= product.getImages().get(2)%>"--%>
-<%--                            style="width:100%">--%>
-<%--                    </div>--%>
-<%--                    <div class="dot" onclick="currentSlide(3)"><img--%>
-<%--                            src="<%= product.getImages().get(3)%>g"--%>
-<%--                            style="width:100%">--%>
-
-<%--                    </div>--%>
-<%--                </div>--%>
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img class="d-block w-100" src="<%= product.getImages().get(1)%>" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="<%= product.getImages().get(2)%>" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img class="d-block w-100" src="<%= product.getImages().get(3)%>" alt="Third slide">
-                        </div>
+                    <div class="dot" onclick="currentSlide(1)"><img
+                            src="<%= product.getImages().get(0)%>"
+                            style="width:100%"></div>
+                    <div class="dot" onclick="currentSlide(2)"><img
+                            src="<%= product.getImages().get(1)%>"
+                            style="width:100%"></div>
+                    <div class="dot" onclick="currentSlide(3)"><img
+                            src="<%= product.getImages().get(2)%>"
+                            style="width:100%">
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                    <div class="dot" onclick="currentSlide(4)"><img
+                            src="<%= product.getImages().get(3)%>"
+                            style="width:100%">
+                    </div>
                 </div>
-                <style>
-                    .listdot{
-                        width: 600px;
-                    }
-                    #carouselExampleIndicators{
-                        width: 600px;
-                        height: 200px;
-                    }
-                </style>
             </section>
             <div class="box-info-detail">
                 <ul class="list-info">
@@ -150,8 +123,16 @@
                     </li>
                     <%--                    <li><label class="label"><i class="fa-solid fa-flag-checkered"></i></i>Xuất xứ</label><%=product.getma()%>></li>--%>
                     <%--                    <li><label class="label"><i class="fa-solid fa-hashtag"></i>Hộp số</label> <%=(product.getGear() == 0) ? "Số tay": "Số tự dộng"%></li>--%>
+                    <%String fuel = product.getFuel();
+                        String carFuel = null;
+                        if (fuel.equals("1")){
+                            carFuel = "Xăng";
+                        }else {
+                            carFuel = "Điện";
+                        }
+                    %>
                     <li><label class="label"><i class="fa-solid fa-gas-pump"></i>Nhiên
-                        liệu</label> <%=product.getFuel()%>
+                        liệu</label> <%=carFuel%>
                     </li>
                 </ul>
             </div>
@@ -203,7 +184,7 @@
                         <h5 style="text-align: center; font-weight: bold">Nội dung đánh giá</h5>
                         <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea>
 
-                        <div style="display: flex;align-items: center">
+                        <div style="display: flex">
                             <p style="margin-top: 8px"><b>Đánh giá:</b></p>
                             <div class="stars">
                                 <form action="">
@@ -220,17 +201,7 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="upload">
-                            <div class="wrapperUpload">
-                                <label for="imgUploadBtn">Chọn ảnh hay video: </label> <i id="imgUploadBtn"
-                                                                                          class="imgUploadBtn fa-solid fa-image"></i>
-                                <input id="myFileInput" type="file" multiple style="display: none; ">
-                            </div>
-                            <div class="containerImg">
-                            </div>
-                            <div class="containerVideo">
-                            </div>
-                        </div>
+
                         <div class="box-bt">
                             <button style="cursor: pointer" id="${id}" class="bt-comment">Gửi đánh giá</button>
                         </div>
@@ -240,38 +211,17 @@
                 <div class="list-comment">
                     <c:forEach items="${listComment}" var="item">
                         <div class="cmt">
-                            <div class="cmt_h">
-                                <c:if test="${item.avatar!=null}">
-                                    <img src="${item.avatar}" alt="src">
-                                </c:if>
-                                <c:if test="${avatar==null}">
-                                    <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?stp=cp0_dst-png_p40x40&_nc_cat=1&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=4WG6vRsKhfwAX8Bce7J&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfBRz5wLhcd8XP66sUoUweAK2PaU0ABxXKHrhZHXEuUqAg&oe=646409F8"
-                                         alt="src">
-                                </c:if>
-                                <div class="start-cmt">
-                                    <c:forEach begin="1" end="${item.star}">
-                                        <i class="fa-solid fa-star"></i>
-                                    </c:forEach>
-                                </div>
+                            <div class="start-cmt">
+                                <c:forEach begin="1" end="${item.star}">
+                                    <i class="fa-solid fa-star"></i>
+                                </c:forEach>
                             </div>
                             <p>từ <b>${item.userName}</b>, <span class="cl-lg">${item.createAt}</span></p>
-                            <p>${item.content}</p>
-                            <c:if test="${item.listImg.size()>=1}">
-                                <div class="renderListImg">
-                                    <c:forEach items="${item.listImg}" var="tmp">
-                                        <img src="${tmp}" alt="">
-                                    </c:forEach>
-                                </div>
-                            </c:if>
-                            <c:if test="${item.listVideo.size()>=1}">
-                                <div class="renderListVideo">
-                                    <c:forEach items="${item.listVideo}" var="tmp">
-                                        <video src="${tmp}" controls="true"></video>
-                                    </c:forEach>
-                                </div>
-                            </c:if>
+                            <p>${item.status}</p>
                         </div>
                     </c:forEach>
+
+
                 </div>
 
             </div>
@@ -280,24 +230,27 @@
             <jsp:include page="../Component/keyword/keyword.jsp"></jsp:include>
         </div>
     </div>
+
 </div>
+
 <jsp:include page="../Component/footer/footer.jsp"/>
+
 </body>
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script>
     var slideIndex = 1;
-    showSlides(slideIndex);
 
-    function plusSlides(n) {
+    const plusSlides=(n)=> {
         showSlides(slideIndex += n);
     }
 
-    function currentSlide(n) {
+    const currentSlide=(n)=>{
         showSlides(slideIndex = n);
     }
 
-    function showSlides(n) {
+    const showSlides=(n)=> {
+        // console.log('ểwrwerew')
         var i;
         var slides = document.getElementsByClassName("mySlides");
         var dots = document.getElementsByClassName("dot");
@@ -326,101 +279,15 @@
 
             }
         });
-    }
-    const addToCart = (id) => {
-        $.ajax({
-            url: "/cart?action=addtocart&idpost=" + id,
-            type: 'POST',
-            success: function (res) {
+        console.log(id)
 
-            }
-        });
+
     }
+    showSlides(slideIndex);
+
+
 </script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="application/javascript">
-    const containerImg = document.querySelector(".containerImg")
-    const containerVideo = document.querySelector(".containerVideo")
-    document.querySelector(".imgUploadBtn").addEventListener("click", () => {
-        fileInput.click();
-    })
-    const delImg = (e) => {
-        const wrapperImg = e.target.parentNode;
-        wrapperImg.remove();
-    }
-    const createItemImg = (src) => {
-        const newDiv = document.createElement("div");
-        newDiv.setAttribute("id", "your-div-id");
-        newDiv.classList.add("wrapperImg");
-        const deleteIcon = document.createElement("i");
-        deleteIcon.classList.add("imgDel");
-        deleteIcon.classList.add("fa-solid");
-        deleteIcon.classList.add("fa-trash");
-        deleteIcon.addEventListener("click", (e) => delImg(e))
-        newDiv.appendChild(deleteIcon);
-        const newImg = document.createElement("img");
-        newImg.setAttribute("src", src);
-        newImg.classList.add("imgUpload");
-        newDiv.appendChild(newImg);
-        return newDiv;
-    }
-    const createItemVideo = (src) => {
-        const newDiv = document.createElement("div");
-        newDiv.classList.add("wrapperVideo");
-        const deleteIcon = document.createElement("i");
-        deleteIcon.classList.add("videoDel");
-        deleteIcon.classList.add("fa-solid");
-        deleteIcon.classList.add("fa-trash");
-        deleteIcon.addEventListener("click", (e) => delImg(e))
-        newDiv.appendChild(deleteIcon);
-        const newVideo = document.createElement("video");
-        newVideo.setAttribute("src", src);
-        newVideo.classList.add("videoUpload");
-        newVideo.setAttribute("controls", true);
-        newDiv.appendChild(newVideo);
-        const container = document.querySelector(".containerVideo");
-        container.appendChild(newDiv);
-        return newDiv;
-    }
-    var formData = new FormData();
-    const fileInput = document.getElementById("myFileInput");
-    fileInput.addEventListener("change", async () => {
-        const files = fileInput.files;
-        for (let i = 0; i < files.length; i++) {
-            const file = files[i];
-            console.log(file.size)
-            const reader = new FileReader();
-            reader.addEventListener("load", () => {
-                const base64String = reader.result;
-                if (file.type.includes("image")) {
-                    if (formData.getAll("fileImage").length + 1 > 5) {
-                        swal({
-                            title: "Thất bại",
-                            text: "Chỉ được chọn 5 image",
-                        })
-                    } else {
-                        formData.append("fileImage", file)
-                        const div = createItemImg(base64String)
-                        containerImg.appendChild(div)
-                    }
-                } else if (file.type.includes("video/mp4")) {
-                    if (formData.getAll("fileVideo").length + 1 > 2) {
-                        swal({
-                            title: "Thất bại",
-                            text: "Chỉ được chọn 2 video",
-                        })
-                    } else {
-                        formData.append(`fileVideo`, file)
-                        const div = createItemVideo(base64String)
-                        containerVideo.appendChild(div)
-                    }
-                }
-            });
-            await reader.readAsDataURL(file);
-        }
-    });
-
-    // Thêm các tệp trong mảng fileArray vào FormData
     var star = 0;
     document.querySelectorAll(".stars input").forEach((item, index) => {
         item.addEventListener("click", () => {
@@ -430,17 +297,24 @@
     document.querySelector(".bt-comment").addEventListener("click", (e) => {
         e.preventDefault()
         let content = $("#w3review").val();
+        let dateObj = new Date();
+        let month = dateObj.getUTCMonth() + 1; //months from 1-12
+        let day = dateObj.getUTCDate();
+        let year = dateObj.getUTCFullYear();
+        let newdate = year + "-" + month + "-" + day
         let idPost = $(".bt-comment").attr('id')
-        formData.append("content", content)
-        formData.append("star", star)
-        formData.append("idPost", idPost)
         if (idPost && star && content) {
+            const dataBody = {
+                content,
+                idPost,
+                star,
+            }
+            console.log(dataBody)
             $.ajax({
                 url: "/postComment",
                 type: "POST",
-                data: formData,
-                contentType: false,
-                processData: false,
+                data: dataBody,
+                contentType: 'application/x-www-form-urlencoded',
                 success: function (data) {
                     console.log(data)
                     if (data.message == "ok") {
@@ -465,6 +339,7 @@
                 text: "Vui lòng nhập đầy đủ thông tin",
             })
         }
+
     })
 </script>
 </html>
