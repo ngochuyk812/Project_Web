@@ -124,7 +124,7 @@
                         <c:forEach items="${map.get('managesAccount')}" var="item" varStatus="loop">
                             <tr data-id="${item.id}">
                                 <td>#${item.id}</td>
-                                <td id="userName">${item.userName}</td>
+                                <td id="userName">${item.fullName}</td>
                                 <td><img class="img-card-person" src="${item.avatar}" alt=""></td>
                                 <td>${item.address}</td>
                                 <td id="userPhone">${item.phone}</td>

@@ -131,7 +131,7 @@ public class UserDAO {
     }
     public static int updateUserAdmin(int id,String userName,int phoneNumber, int role ) throws SQLException {
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("UPDATE user SET  userName = ?, role = ?, phone = ? WHERE id = ?");
+        PreparedStatement stmt = c.prepareStatement("UPDATE user SET  fullname = ?, role = ?, phone = ? WHERE id = ?");
         stmt.setString(1, userName);
         stmt.setInt(2, role);
         stmt.setInt(3, phoneNumber);

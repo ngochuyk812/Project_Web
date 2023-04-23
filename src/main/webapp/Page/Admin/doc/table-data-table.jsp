@@ -46,11 +46,6 @@
             <div class="tile">
                 <div class="tile-body">
                     <div class="row element-button">
-<<<<<<< HEAD
-=======
-
-
->>>>>>> fda9de175ec97ec134ab29402c6e2e1fa4d46c3e
                         <div class="col-sm-2">
                             <a class="btn btn-excel btn-sm" href="" title="In"><i class="fas fa-file-excel"></i> Xuất
                                 Excel</a>
@@ -85,7 +80,7 @@
                             <tr data-id="${item.id}">
                                 <td width="10"><input type="checkbox" name="check2" value="2"></td>
                                 <td>#${item.id}</td>
-                                <td id="userName">${item.userName}</td>
+                                <td id="userName">${item.fullName}</td>
                                 <td><img class="img-card-person" src="${item.avatar}" alt=""></td>
                                 <td>${item.address}</td>
                                 <td id="userPhone">${item.phone}</td>
@@ -97,11 +92,8 @@
                                         <td><span class="statusActivity isNotAction">Đã khóa</span></td>
                                     </c:otherwise>
                                 </c:choose>
-<<<<<<< HEAD
                                 <td><span class="roleUser isAction" id="userRole">${item.getNameRole()}</span>
-=======
-                                <td><span class="statusActivity isAction" id="userRole">${item.getNameRole()}</span>
->>>>>>> fda9de175ec97ec134ab29402c6e2e1fa4d46c3e
+
                                 </td>
                                 <td>
                                     <button id="${item.id}" class="btn btn-primary btn-sm trash" type="button"
