@@ -7,6 +7,7 @@ import Model.User;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class UserDAO {
     public static boolean checkLogin(String username, String pass) throws SQLException {
@@ -208,5 +209,4 @@ public class UserDAO {
         System.out.println(rs);
         return rs;
     }
-
 }

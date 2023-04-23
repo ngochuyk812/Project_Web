@@ -25,8 +25,9 @@
                 class='app-menu__icon bx bx-cart-alt'></i>
             <span class="app-menu__label">POST Bán Hàng</span></a></li>
         <li><a class="app-menu__item " href="admin?page=userManagement"><i class='app-menu__icon bx bx-id-card'></i>
-            <span class="app-menu__label">Quản lý khách hàng</span></a></li>
-
+            <span class="app-menu__label">Quản lý tài khoản</span></a></li>
+        <li><a class="app-menu__item" href="admin?page=userstatistic"><i class='app-menu__icon bx bx-task'></i><span
+                class="app-menu__label">Thống kê tài khoản</span></a></li>
         <li><a class="app-menu__item" href="admin?page=productManagement"><i
                 class='app-menu__icon bx bx-purchase-tag-alt'></i><span class="app-menu__label">Quản lý sản phẩm</span></a>
         </li>

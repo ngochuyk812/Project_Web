@@ -135,18 +135,18 @@ public class User implements Serializable {
     }
 
     public String getNameRole() {
-        System.out.println(12313);
-        if (this.role == 1) {
-            return "Admin";
+        if (this.role == 0) {
+            return "Khách hàng";
         } else {
-            if (this.role == 0) {
-                return "Khách hàng";
+            if (this.role == 1) {
+                return "Nhân viên";
             } else {
-                if (this.role == 3) {
-                    return "Nhân viên";
+                if (this.role == 2) {
+                    return "Quản lý";
                 }
             }
-            return "Quản lý";
+            return "Admin";
+
         }
     }
 
