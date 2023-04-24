@@ -1,26 +1,30 @@
 var arrCart = []
+document.querySelector("#loading").style.display = "block";
 
 const USDollar = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
 });
-
-const render =(data)=>{
-
+const getPriceTransport = (data)=>{
+}
+const render =(data, feeTransport = 0)=>{
+    let tableComfrimOrder = ``
     let tableBody = ``
     let bill = ``
     let total = 0
     let checkNowPay = true;
     if(data.length === 0) checkNowPay = false;
+    console.log(data)
     data.map((tmp, index)=>{
         console.log(tmp)
         if(tmp.status === 1 || tmp.status === 2){
             checkNowPay = false;
         }
+
         total += tmp.product.price * tmp.quantity
         tableBody += ` <tr class="rem0" id="item-cart-${tmp.product.id}">
                             <td class="invert">${index + 1}</td>
-                            <td class="invert-image"><a href="#" ><img src="https://img1.oto.com.vn/crop/575x430/2022/10/21/20221021114014-e7ea_wm.jpeg" alt=" " class="img-responsive"></a></td>
+                            <td class="invert-image"><a href="#" ><img src="${tmp.product.images[0]}" alt=" " class="img-responsive"></a></td>
                             <td class="invert">
                                 <div class="quantity">
                                     <div class="quantity-select">
@@ -44,13 +48,25 @@ const render =(data)=>{
                             </td>
                         </tr>`
         bill += `                            
-           <li >${tmp.product.name} <i>-</i> <span>${USDollar.format(tmp.product.price * tmp.quantity)}</span></li>
+           <li>${tmp.product.name} <i>-</i> <span>${USDollar.format(tmp.product.price * tmp.quantity)}</span></li>
             `
-                           
+        tableComfrimOrder += `<tr>
+                        <th scope="row">${index+1}</th>
+                        <td>${tmp.product.name}</td>
+                        <td>${tmp.quantity}</td>
+                        <td>${USDollar.format(tmp.product.price * tmp.quantity)}</td>
+                    </tr>`
+
     })
+
     bill += `<hr>
           <li>Tổng cộng <i>-</i> <span>${USDollar.format(total)}</span></li>`
     document.getElementById("table-item").innerHTML = tableBody
+    document.querySelector(".body_table_confirm").innerHTML = tableComfrimOrder
+
+    document.querySelector(".total_price").innerHTML = USDollar.format(total)
+
+
     document.getElementById("list-bill").innerHTML = bill
     if(checkNowPay){
         document.querySelector(".nowpay").style.opacity = 1;
@@ -64,11 +80,13 @@ const render =(data)=>{
 
 }
 const getCart = ()=>{
+
     $.ajax({
         url: "/cart?action=listcart",
         type: 'GET',
         success: function(res) {
             arrCart = JSON.parse(res);
+            document.querySelector("#loading").style.display = "none";
             render(arrCart)
         }
     });
@@ -153,4 +171,6 @@ const removeCart = (idCart)=>{
     });
 }
 
-
+document.querySelector(".note_text").addEventListener("input",(e)=>{
+    document.querySelector(".note").value =encodeURI(e.target.value)
+})

@@ -201,6 +201,10 @@ public class Product {
                 ", createAt=" + createAt +
                 ", status=" + status +
                 ", images=" + images +
+                ", height=" + height +
+                ", length=" + length +
+                ", width=" + width +
+                ", weight=" + weight +
                 '}';
     }
 }

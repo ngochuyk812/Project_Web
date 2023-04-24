@@ -46,7 +46,7 @@ const showData = (arr) =>{
       
     </ul>
     <ul class="info-car">
-      <li>Nhiên liệu: <b>${decodeURI(tmp.fuel)}</b></li>
+      <li>Nhiên liệu: <b>${tmp.fuel == 1 ? "Xăng" : "Điện"  }</b></li>
       
     </ul>   
       
@@ -59,17 +59,30 @@ const showData = (arr) =>{
     document.querySelector("#box-list-car").innerHTML = rs
     document.querySelector(".pagination").innerHTML =numberPage
 }
+document.querySelector(".box-search-head2").addEventListener("input", (e)=>{
+    handleFilter()
+})
 const handleFilter = ()=>{
+    console.log(dataAll)
     indexNumber = 1
     let companySel =  document.querySelector("#company").value
     let year =  document.querySelector("#year").value
+    let name =  document.querySelector(".box-search-head2").value
+    console.log(name)
     dataFilter = dataAll
 
     if(companySel === "all"){
         dataFilter = dataAll
     }else{
         dataFilter = dataAll.filter((tmp)=>{
-            return Number(companySel) === tmp.idCompany
+            return Number(companySel) === tmp.vendo.id
+        })
+    }
+    if(name.length == 0){
+        dataFilter = dataAll
+    }else{
+        dataFilter = dataFilter.filter((tmp)=>{
+            return tmp.name.toLowerCase().includes(name.toLowerCase())
         })
     }
     let priceMin = document.querySelector(".text-min").textContent.replace(",","").replace(".","")
@@ -89,8 +102,7 @@ const handleFilter = ()=>{
     }
 
     let xang = document.querySelector('#xang')
-    let dau = document.querySelector('#dau')
-
+    let dien = document.querySelector('#dau')
     if(xang.checked){
 
         console.log(xang.checked, xang.value)
@@ -98,15 +110,15 @@ const handleFilter = ()=>{
             console.log(
                 decodeURI(tmp.fuel)
             )
-            return decodeURI(tmp.fuel) === xang.value
+            return decodeURI(tmp.fuel) == xang.value
         })
     }
-    if(dau.checked){
+    if(dien.checked){
 
         xang.checked = false
 
         dataFilter = dataFilter.filter((tmp)=>{
-            return decodeURIComponent(tmp.fuel) === dau.value
+            return decodeURIComponent(tmp.fuel) == dien.value
         })
     }
     console.log(year, companySel,Number(priceMin),priceMin, priceMax, Number(priceMax))
@@ -171,13 +183,26 @@ const addToCart = (id)=>{
         type: 'POST',
         success: function(res) {
             console.log(res)
-            swal("Đã thêm sản phẩm vào giỏ hàng", {
-                buttons: false,
-                timer: 500,
-            });
-            if(JSON.parse(res) === 0){
-                window.location = "../Page/Login.jsp"
+            console.log(typeof  res)
+            if(res =='1' || res =='0'){
+                if(res !='1'){
+                    swal("Sản phẩm đã hết", {
+                        buttons: false,
+                        timer: 500,
+                    });
+                }else{
+                    console.log(res)
+                    swal("Đã thêm sản phẩm vào giỏ hàng", {
+                        buttons: false,
+                        timer: 500,
+                    });
+                }
+            }else{
+                window.location = '/login'
             }
+
+
+
 
 
         }

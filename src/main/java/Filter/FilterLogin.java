@@ -19,12 +19,15 @@ public class FilterLogin implements Filter {
         HttpServletRequest httpReq = (HttpServletRequest) servletRequest;
         HttpServletResponse httpResp = (HttpServletResponse) servletResponse;
         HttpSession session = httpReq.getSession();
-        System.out.println("Filter Login: ");
         if(session.getAttribute("user") != null){
             filterChain.doFilter(httpReq, httpResp);
+            System.out.println("Filter Login: OK ");
 
         }else{
-            httpReq.getRequestDispatcher("/Page/Login.jsp").forward(httpReq, httpResp);
+            System.out.println("Filter Login:Not OK ");
+
+            String contextPath = httpReq.getContextPath();
+            httpResp.sendRedirect(contextPath + "/login");
 
         }
     }

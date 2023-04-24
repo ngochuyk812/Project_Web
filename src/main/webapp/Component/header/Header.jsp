@@ -21,18 +21,8 @@
         <div class="header-top">
             <div class="container">
                 <div class="left-head"> Hotline: 09793459242</div>
-                <div class="head-right">
-                    <div class="box-search-head">
-                        <div class="box-search-head-element"><label for="txtKeyword"></label> <input
-                                style="vertical-align: center" id="txtKeyword"
-                                class="input-text ui-autocomplete-input"
-                                maxlength="100"
-                                autocomplete="off"
-                                placeholder="Tìm kiếm theo hãng xe, dòng xe"
-                                type="text">
-                            <ul class="sub-search" id="sub-search"></ul>
-                        </div>
-                    </div>
+                <div class="head-right" style="height: 100%">
+
                     <div class="noti" id="auto_save"><a rel="nofollow" id="showautosaved" href="cart"
                                                         title="Xe đã lưu"><i class="fa-solid fa-cart-shopping"></i></a>
                         <span
@@ -46,7 +36,7 @@
         </a>
     </span>
                         <div style="display: none" id="profile">
-                            <a href="/profile"><i class="fa-solid fa-user"></i></a>
+                            <a href="/profile"><i class="fa-solid fa-user"></i><span class="name_user" style="margin-left: 10px"></span></a>
                         </div>
 
                     </div>
@@ -109,8 +99,14 @@
             url: "/check/UserIsExist",
             contentType: "application/x-www-form-urlencoded",
             success: function (data) {
-                Login_Res.classList.add("hidden")
-                profile.classList.add("show")
+                console.log( data)
+                if( data.includes("not ok")){
+
+                }else{
+                    document.querySelector(".name_user").textContent = JSON.parse(data).name
+                    Login_Res.classList.add("hidden")
+                    profile.classList.add("show")
+                }
             }
         });
         // if(findCookieByname("isAdmin") !=1){

@@ -63,21 +63,23 @@ public class CartDAO {
         return rs;
     }
 
-    public static Cart getCart(String username, int idPost) throws SQLException {
+    public static Cart getCart(int idUser, int idPost) throws SQLException {
 
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("SELECT * FROM cart where cart.username = ? and cart.idpost = ? ");
-        stmt.setString(1,username);
+        PreparedStatement stmt = c.prepareStatement("SELECT * FROM cart where cart.idUser = ? and cart.idProduct = ? ");
+        stmt.setInt(1,idUser);
         stmt.setInt(2,idPost);
         ResultSet resultSet = stmt.executeQuery();
         ProductDAO ps = new ProductDAO();
         Cart cart = null;
         while (resultSet.next()) {
             cart = new Cart();
-            cart.setIdUser(resultSet.getInt(1));
-            Product product = ps.getProductById(resultSet.getInt(2));
+            cart.setId(resultSet.getInt(1));
+            cart.setIdUser(resultSet.getInt(2));
+            Product product = ps.getProductById(resultSet.getInt(3));
             cart.setProduct(product);
-            cart.setQuantity( resultSet.getInt(3));
+            cart.setQuantity( resultSet.getInt(4));
+
 
         }
         return cart;
@@ -122,6 +124,15 @@ public class CartDAO {
         int rowAffected = pstmt.executeUpdate();
         return rowAffected;
     }
+    public static int removeCartByUser(int idUser) throws SQLException {
+        String sqlUpdate = "DELETE FROM cart "
+                + "WHERE idUser = ?";
+        Connection conn = ConnectDB.getConnect();
+        PreparedStatement pstmt = conn.prepareStatement(sqlUpdate);
+        pstmt.setInt(1, idUser);
+        int rowAffected = pstmt.executeUpdate();
+        return rowAffected;
+    }
     public static int removeCart( int idPost) throws SQLException {
         String sqlUpdate = "DELETE FROM cart "
                 + "WHERE username = ?";
@@ -132,12 +143,12 @@ public class CartDAO {
         return rowAffected;
     }
 
-    public static int addToCart(String username, int idPost) throws SQLException {
-        String sqlUpdate = "INSERT INTO cart (username, idpost, amount) values(?,?, 1)";
+    public static int addToCart(int idUser, int idProduct) throws SQLException {
+        String sqlUpdate = "INSERT INTO cart (idUser, idProduct, quantity, status) values(?,?, 1, 0)";
         Connection conn = ConnectDB.getConnect();
         PreparedStatement pstmt = conn.prepareStatement(sqlUpdate);
-        pstmt.setString(1, username);
-        pstmt.setInt(2, idPost);
+        pstmt.setInt(1, idUser);
+        pstmt.setInt(2, idProduct);
         int rowAffected = pstmt.executeUpdate();
         return rowAffected;
 

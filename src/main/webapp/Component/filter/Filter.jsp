@@ -26,6 +26,24 @@
         <article class="filter-group">
           <header class="card-header">
             <a  class="collapsed" >
+              <h6 class="title">Theo tên</h6>
+            </a>
+          </header>
+          <div class="filter-content collapse show" id="collapse_aside0" style="">
+
+              <input  class="box-search-head2"
+                      style="vertical-align: center"
+                      class="input-text ui-autocomplete-input"
+
+                      placeholder="Tìm kiếm theo hãng xe, dòng xe"
+                      type="text">
+
+          </div>
+        </article>
+
+        <article class="filter-group">
+          <header class="card-header">
+            <a  class="collapsed" >
               <h6 class="title">Hãng xe </h6>
             </a>
           </header>
@@ -81,13 +99,13 @@
           <div class="filter-content collapse show" id="collapse_aside4" style="">
             <div class="card-body">
               <label class="custom-control">
-                <input type="checkbox" id="xang"  value="Xăng" class="custom-control-input">
+                <input type="checkbox" id="xang"  value="1" class="custom-control-input">
                 <div class="custom-control-label">Xăng  </div>
               </label>
 
               <label class="custom-control">
-                <input type="checkbox"  id="dau" value="Dầu" class="custom-control-input">
-                <div class="custom-control-label">Dầu </div>
+                <input type="checkbox"  id="dau" value="2" class="custom-control-input">
+                <div class="custom-control-label">Điện </div>
               </label>
 
 

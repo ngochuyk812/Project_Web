@@ -35,22 +35,12 @@ public class VerifyAccountControl extends HttpServlet {
         }
         int rs = 0;
         try {
-            if(UserDAO.checkByUsername(user.getUserName())|| UserDAO.checkByEmail(user.getEmail())){
-                req.getRequestDispatcher("Component/VerifyAccount/ErrorUserOrEmailExist.jsp").forward(req,res);
-                req.getSession().removeAttribute("verifyAccount_" + body.trim());
 
-                return;
+            if(UserDAO.updateStatus(user.getUserName(), 1) == 1){
+                rs = 1;
+                req.getSession().removeAttribute("verifyAccount_" + body.trim());
             }
         } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        try {
-
-            rs = UserDAO.insertUser(user);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         if(rs ==1 ){

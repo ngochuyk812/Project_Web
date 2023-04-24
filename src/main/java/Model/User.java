@@ -49,7 +49,9 @@ public class User implements Serializable {
         this.statusLogin = statusLogin;
         this.id = id;
     }
+    public User() {
 
+    }
     public int getId() {
         return id;
     }
@@ -122,18 +124,16 @@ public class User implements Serializable {
         this.avatar = avatar;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
-                ", fullName='" + fullName + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", avatar='" + avatar + '\'' +
-                '}';
+
+
+
+    public String getAddress() {
+        return address;
     }
 
+    public void setAddress(String address) {
+        this.address = address;
+    }
     public String getNameRole() {
         if (this.role == 0) {
             return "Khách hàng";
@@ -149,12 +149,20 @@ public class User implements Serializable {
 
         }
     }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
+    @Override
+    public String toString() {
+        return "User{" +
+                "idUser=" + id +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", address='" + address + '\'' +
+                ", role=" + role +
+                ", status=" + status +
+                ", statusLogin=" + statusLogin +
+                '}';
     }
 }

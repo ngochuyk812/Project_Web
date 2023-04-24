@@ -68,9 +68,16 @@ public class Register extends HttpServlet {
             }
             data.put(entry.getKey().trim(), URLDecoder.decode(entry.getValue()[0], "UTF-8"));
         }
-
+        System.out.println("sdsds " + req.getParameter("address"));
         User user = null;
-        user = new User(data.get("username"), HashSHA216.hash(data.get("password")), data.get("fullname"), data.get("email"), data.get("phone"), "", data.get("address"),0,1,0);
+        user = new User(data.get("username"), HashSHA216.hash(data.get("password")), data.get("fullname"), data.get("email"), data.get("phone"), "", data.get("address"),0,0,0);
+        try {
+            UserDAO.insertUser(user);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         String tokenUser = JWT.createJWT(user.getUserName(),6);
         SendEmail.getInstance().sendTokenVerify(user.getEmail(), "http://" + req.getHeader("host") + "/verifyAccount?token=" + tokenUser);
         req.getSession().setAttribute("verifyAccount_" + user.getUserName(), user);

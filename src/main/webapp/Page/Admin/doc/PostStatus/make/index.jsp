@@ -27,7 +27,6 @@
                 <c:forEach items="${listCompany}" var="item">
                     <option class="${item.id}">${item.name}</option>
                 </c:forEach>
-                <%System.out.println(request.getSession().getAttribute("listCompany"));%>
             </select>
 
 

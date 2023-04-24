@@ -37,7 +37,7 @@ public class Admin extends HttpServlet {
         req.setAttribute("getPriceRevenue", getPriceRevenue);
         ArrayList<Product> products = ProductDAO.getProduct();
         req.setAttribute("products", products);
-        ArrayList<Oder> oders = OderDAO.getOrderOut();
+        ArrayList<Oder> oders = OderDAO.getOrder();
         req.setAttribute("oders", oders);
         req.getRequestDispatcher("/Page/Admin/doc/quan-ly-bao-cao.jsp").forward(req, res);
         res.setStatus(200);
