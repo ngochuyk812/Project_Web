@@ -7,7 +7,21 @@
 ul {
     list-style: none;
 }
-
+@keyframes item_cart_animation {
+    from{
+        opacity: 0;
+    }to{
+             opacity: 1;
+         }
+}
+.item-car{
+    animation: item_cart_animation 1s ;
+}
+.box-list-car{
+    transition: height;
+    transform-style: initial;
+    transition-duration: 1s;
+}
 .box-fillter {
     margin-top: 30px;
     width: 100%;

@@ -175,7 +175,7 @@ public class ProductDAO {
     public static Product getProductById(int id) {
         System.out.println("ID Post ================ " + id);
         Product product = null;
-        String query = "SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.id = od.idProduct LEFT JOIN importproduct ip ON p.id = ip.idProduct WHERE p.id=?";
+            String query = "SELECT p.*, COALESCE(ip.quantity, 0) - COALESCE(od.quantity, 0) AS quantity_on_hand FROM product p LEFT JOIN orderdetail od ON p.id = od.idProduct LEFT JOIN importproduct ip ON p.id = ip.idProduct WHERE p.id=?";
         try {
             Statement statement = ConnectDB.getConnect().createStatement();
             PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
@@ -192,9 +192,13 @@ public class ProductDAO {
                         resultSet.getString(7),
                         resultSet.getDouble(8),
                         resultSet.getDate(9),
-                        resultSet.getInt(10),
+                        resultSet.getInt(14),
                         getImagesByID(resultSet.getInt(1))
                 );
+                product.setHeight(resultSet.getInt("height"));
+                product.setWidth(resultSet.getInt("width"));
+                product.setLength(resultSet.getInt("length"));
+                product.setWeight(resultSet.getInt("weight"));
 
             }
 
@@ -203,7 +207,9 @@ public class ProductDAO {
         }
         return product;
     }
+    public void getProductByID(int id){
 
+    }
     public static int getQuantityProduct(int idProduct) throws SQLException {
         Connection c = ConnectDB.getConnect();
         PreparedStatement stmt = c.prepareStatement("SELECT (SELECT  SUM(orderdetail.quantity) FROM (`order` JOIN orderdetail on `order`.id = orderdetail.idOrder) WHERE orderdetail.idProduct = ? ) as SLB, (SELECT  SUM(importproduct.quantity) FROM importproduct WHERE importproduct.idProduct = ?) AS SLN");

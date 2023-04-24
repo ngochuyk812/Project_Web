@@ -38,7 +38,8 @@
         <!-- Pills navs -->
 
         <!-- Pills content -->
-        <div class="tab-content">
+        <div class="tab-content" style="margin: auto;
+    width: 700px;">
             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
                 <form  class="form-forgot">
                     <div class="text-center mb-3">

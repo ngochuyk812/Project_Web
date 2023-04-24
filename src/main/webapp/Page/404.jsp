@@ -236,6 +236,7 @@
   /*--------------------------------------------FrameWork------------------------*/
 </style>
 <body>
+<jsp:include page="../Component/header/Header.jsp" />
 
 <!-- Error Page -->
 <div class="error">
@@ -251,6 +252,8 @@
     </div>
   </div>
 </div>
+<jsp:include page="../Component/footer/footer.jsp" />
+
 <!-- Error Page -->
 </body>
 <script>

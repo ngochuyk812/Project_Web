@@ -12,9 +12,11 @@ import java.util.Map;
 public class UserDAO {
     public static boolean checkLogin(String username, String pass) throws SQLException {
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("select * from user where username=? and password=? and status=1");
+        PreparedStatement stmt = c.prepareStatement("select * from user where username=? and password=? and status=?");
         stmt.setString(1, username);
         stmt.setString(2, pass);
+        stmt.setInt(3, 1);
+
         ResultSet rs = stmt.executeQuery();
         return rs.next();
     }
@@ -70,6 +72,30 @@ public class UserDAO {
         return null;
 
     }
+    public static User getInfoByUserName(String username) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("select userName,fullname,email,phone,address  from user where userName=?");
+        stmt.setString(1, username);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            String userName = rs.getString("userName");
+            String fullName = rs.getString("fullname");
+            String email = rs.getString("email");
+            String phone = rs.getString("phone");
+            String address = rs.getString("address");
+            User user = new User();
+            user.setUserName(userName);
+            user.setFullName(fullName);
+            user.setEmail(email);
+            user.setPhone(phone);
+            user.setAddress(address);
+
+            return user;
+        }
+        ;
+        return null;
+
+    }
     public static User getUserById(int id) throws SQLException {
         Connection c = ConnectDB.getConnect();
         PreparedStatement stmt = c.prepareStatement("select * from user where id=?");
@@ -94,6 +120,20 @@ public class UserDAO {
         return null;
 
     }
+    public static int getUserIdByUsename(String username) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("select id from user where username=?");
+        stmt.setString(1, username);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            int idUser = rs.getInt("id");
+
+            return idUser;
+        }
+
+        return -1;
+
+    }
     public static boolean checkUser(String username, String email) throws SQLException, ClassNotFoundException {
         Connection c = ConnectDB.getConnect();
         PreparedStatement stmt = c.prepareStatement("select * from user where username=? or email=?");
@@ -113,8 +153,18 @@ public class UserDAO {
         stmt.setString(5, user.getPhone());
         stmt.setString(6, user.getAddress());
         stmt.setInt(7, 0);
-        stmt.setInt(8, 1);
+        stmt.setInt(8, user.getStatus());
         stmt.setInt(9, user.getStatusLogin());
+        int rs = stmt.executeUpdate();
+        return rs;
+    }
+    public static int updateStatus(String username, int status) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("UPDATE user\n" +
+                "SET  status = ? " +
+                "WHERE username = ?");
+        stmt.setInt(1, status);
+        stmt.setString(2,username);
         int rs = stmt.executeUpdate();
         return rs;
     }
@@ -209,4 +259,45 @@ public class UserDAO {
         System.out.println(rs);
         return rs;
     }
+    public static int updateColUser( String username, String col, String value, String type) throws SQLException {
+
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("UPDATE user\n" +
+                "SET  "+col+" = ? " +
+                "WHERE username = ?");
+        if(type.toLowerCase().trim().equals("int")){
+            stmt.setInt(1, Integer.valueOf(value));
+        }
+        if(type.toLowerCase().trim().equals("string")){
+            stmt.setString(1, value);
+        }
+        stmt.setString(2, username);
+
+        int rs = stmt.executeUpdate();
+        return rs;
+    }
+    public static int updateName(String name, String username) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("UPDATE user\n" +
+                "SET  fullname = ? " +
+                "WHERE username = ?");
+        stmt.setString(1, name);
+        stmt.setString(2, username);
+
+        int rs = stmt.executeUpdate();
+        return rs;
+    }
+    public static int updateAddress(String address, String username) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("UPDATE user\n" +
+                "SET  address = ? " +
+                "WHERE username = ?");
+        stmt.setString(1, address);
+        stmt.setString(2, username);
+
+        int rs = stmt.executeUpdate();
+        return rs;
+    }
+
+
 }

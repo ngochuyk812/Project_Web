@@ -91,7 +91,21 @@ public class Profile extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.setContentType("text/html;charset=UTF-8");
+        req.setCharacterEncoding("utf-8");
+        String action = req.getParameter("action");
         User user = (User) req.getSession().getAttribute("user");
+
+        if(action != null && action.equals("info")){
+            System.out.println(user);
+            try {
+                User userReq = UserDAO.getInfoByUserName(user.getUserName());
+                res.getWriter().println(new Gson().toJson(userReq));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            return;
+        }
         if (user != null) {
             req.setAttribute("userInfo", user);
             req.setAttribute("statusLogin", user);
@@ -103,6 +117,8 @@ public class Profile extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        res.setContentType("text/html;charset=UTF-8");
+        req.setCharacterEncoding("utf-8");
         User user = (User) req.getSession().getAttribute("user");
         String action = req.getParameter("action");
         if (action != null && action.equals("changeProfile")) {
@@ -123,8 +139,53 @@ public class Profile extends HttpServlet {
                 throw new RuntimeException(e);
             }
         }
+        if(action != null && action.equals("updatePhone")){
+            try {
+                updatePhone(req, res, user);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        if(action != null && action.equals("updateAddress")){
+            try {
+                updateAddress(req, res, user);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        if(action != null && action.equals("updateName")){
+            try {
+                updateName(req, res, user);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+    }
+    private void updatePhone(HttpServletRequest req, HttpServletResponse res, User user) throws IOException, SQLException {
+        if(UserDAO.updateColUser( user.getUserName(),"phone", req.getParameter("phone"), "int") == 1){
+            res.getWriter().println(new Gson().toJson(UserDAO.getInfoByUserName(user.getUserName())));
+            return;
+        }
+        res.getWriter().println("Error!!");
+
     }
 
+    private void updateName(HttpServletRequest req, HttpServletResponse res, User user) throws IOException, SQLException {
+        if(UserDAO.updateColUser( user.getUserName(),"fullname", req.getParameter("name"), "string") == 1){
+            res.getWriter().println(new Gson().toJson(UserDAO.getInfoByUserName(user.getUserName())));
+            return;
+        }
+        res.getWriter().println("Error!!");
+    }
+    private void updateAddress(HttpServletRequest req, HttpServletResponse res, User user) throws IOException, SQLException {
+        System.out.println(req.getParameter("address"));
+        if(UserDAO.updateColUser( user.getUserName(),"address", req.getParameter("address"), "string") == 1){
+            res.getWriter().println(new Gson().toJson(UserDAO.getInfoByUserName(user.getUserName())));
+            return;
+        }
+        res.getWriter().println("Error!!");
+    }
     public void saveSession(User user, HttpServletRequest req) {
         req.getSession().setAttribute("user", user);
     }

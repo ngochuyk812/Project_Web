@@ -28,7 +28,7 @@
 }
 
 #cartPage .timetable_sub th {
-    background: #212121;
+    background: #135EAC;
     color: #fff !important;
     text-transform: capitalize;
     font-size: 13px;
@@ -50,7 +50,6 @@
 }
 
 #cartPage td.invert-image a img {
-    width: 30%;
     margin: 0 auto;
 }
 
@@ -149,7 +148,7 @@
 }
 #cartPage .checkout-left-basket h4 {
     padding: 1em;
-    background: #fb383b;
+    background: #135EAC;
     font-size: 1em;
     color: #fff;
     text-transform: uppercase;
@@ -182,16 +181,26 @@
 #cartPage .checkout-left-basket ul li span {
     float: right;
 }
-
-#cartPage .checkout-left-basket ul li:nth-child(5) {
-    font-size: 1em;
-    color: #212121;
-    font-weight: 600;
-    padding: 1em 0;
-    border-top: 1px solid #DDD;
-    border-bottom: 1px solid #DDD;
-    margin: 2em 0 0;
+@keyframes item_cart_animation {
+    from{
+        opacity: 0;
+    }to{
+         opacity: 1;
+     }
 }
+#table-item {
+    animation: item_cart_animation 1s ;
+}
+
+/*#cartPage .checkout-left-basket ul li:nth-child(5) {*/
+/*    font-size: 1em;*/
+/*    color: #212121;*/
+/*    font-weight: 600;*/
+/*    padding: 1em 0;*/
+/*    border-top: 1px solid #DDD;*/
+/*    border-bottom: 1px solid #DDD;*/
+/*    margin: 2em 0 0;*/
+/*}*/
 
 #cartPage .checkout-right-basket a {
     padding: 10px 20px;
@@ -202,7 +211,7 @@
 }
 
 #cartPage .checkout-right-basket a:hover {
-    background: #fb383b;
+    background: #135EAC;
 }
 
 #cartPage .checkout-right-basket a span {
@@ -395,8 +404,8 @@
 }
 
 #cartPage .pay_info input[type="submit"]:hover {
-    background: #fb383b;
-    border: 1px solid #fb383b;
+    background:#135EAC;
+    border: 1px solid #135EAC;
 }
 
 #cartPage .agileinfo_main_grid_left_grid h3 {
@@ -677,5 +686,129 @@
 #cartPage .s2 h2{
     margin-top: 0;
     text-align: center;
+}
+
+.address{
+    width: 100%;
+    height: 35.81px;
+    padding: 0 10px;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.events_none{
+    pointer-events: none;
+    opacity: 0.7;
+}
+.edit_name input, .edit_phone input{
+    padding: 3px;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+}
+.address{
+    width: 100%;
+    height: 35.81px;
+    padding: 0 10px;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.events_none{
+    pointer-events: none;
+    opacity: 0.7;
+}
+.hide{
+    display: none;
+}
+@keyframes animation_edit {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+.form_edit_address{
+    animation: animation_edit 1s ;
+}
+.save_address{
+    margin-top: 5px;
+    text-align: right;
+
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+@keyframes openopacity {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 20px;
+    box-shadow: 10px 20px 20px lightgray;
+    animation: openopacity 1s ;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.title_modal{
+    background-color: #135EAC;
+    position: relative;
+    height: 15px;
+}
+.title_modal h5{
+    position: absolute;
+    background-color: white;
+    display: inline;
+    padding: 0 12px ;
+    top: -5px;
+    right: 30px;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+}
+.info_modal{
+    padding: 20px;
+    padding-bottom: 0;
+
+}
+.item_info_modal{
+    margin-bottom: 5px;
+}
+.sp_modal,.total_modal{
+    padding: 20px;
+    padding-bottom: 0;
 }
 

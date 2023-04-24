@@ -19,6 +19,18 @@
         .hidden{
             display: none !important;
         }
+            .address{
+                width: 100%;
+                height: 35.81px;
+                padding: 0 10px;
+                border: 1px solid #bdbdbd;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+            .events_none{
+                pointer-events: none;
+                opacity: 0.7;
+            }
     </style>
 </head>
 
@@ -41,7 +53,8 @@
         <!-- Pills navs -->
 
         <!-- Pills content -->
-        <div class="tab-content">
+        <div class="tab-content" style="margin: auto;
+    width: 700px;">
             <div class="tab-pane fade show active" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
                 <form id="formRegister">
                     <p class="text-center">Register</p>
@@ -66,18 +79,32 @@
                         <label class="form-label" for="phone">Phone Number</label>
                     </div>
                     <div class="form-outline mb-4">
-                        <input type="text" id="address" class="form-control"/>
+
+
                         <label class="form-label" for="address">Address</label>
+                        <div id="address" style="display: flex;    flex-direction: column;">
+                            <select class="address province">
+                                <option value="0">Tỉnh</option>
+                            </select>
+                            <select class="address district events_none" >
+                                <option value="0">Huyện</option>
+                            </select>
+                            <select class="address ward events_none" style="    margin-bottom: 0;">
+                                <option value="0">Xã</option>
+                            </select>
+
+                        </div>
                     </div>
+
                     <!-- Password input -->
                     <div class="form-outline mb-4">
-                        <input type="password" id="password" class="form-control"/>
+                        <input type="password" id="password" class="form-control" style="border: 1px solid #bdbdbd;"/>
                         <label class="form-label" for="password">Password</label>
                     </div>
 
                     <!-- Repeat Password input -->
                     <div class="form-outline mb-4">
-                        <input type="password" id="repeatPassword" class="form-control"/>
+                        <input type="password" id="repeatPassword" class="form-control" style="border: 1px solid #bdbdbd;"/>
                         <label class="form-label" for="repeatPassword">Repeat password</label>
                     </div>
                     <%@include file="../Component/Captcha/Captcha.jsp" %>

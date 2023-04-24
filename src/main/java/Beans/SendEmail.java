@@ -36,7 +36,7 @@ public class SendEmail {
             MimeMessage mimeMessage = mailSender.createMimeMessage();
             MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, false, "utf-8");
             mimeMessage.setSubject("Verify Account");
-            mimeMessage.setContent("<p>Nhấn vào đường dẫn bên dươi để hoàn thành đăng ký: </p> </br> <b>Đường dẫn chỉ có tác dụng trong "+JWT.TIMEOUT+" phút</b> </br> <a href = \""+linkVerify+"\">Truy cập hoàn thành</a> ", "text/html; charset=utf-8");
+            mimeMessage.setContent("<p>Nhấn vào đường dẫn bên dươi để hoàn thành đăng ký: </p> </br> <b>Đường dẫn chỉ có tác dụng trong "+JWT.TIMEOUT+" phút</b> </br> <a href = \""+linkVerify+"\">"+linkVerify+"</a> ", "text/html; charset=utf-8");
 
             helper.setFrom("nguyenhauxmvt@gmail.com");
             helper.setTo(email);

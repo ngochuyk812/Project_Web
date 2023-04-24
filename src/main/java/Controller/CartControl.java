@@ -3,6 +3,7 @@ package Controller;
 
 import DAO.CartDAO;
 import DAO.ProductDAO;
+import DAO.UserDAO;
 import Model.Cart;
 import Model.User;
 import com.google.gson.Gson;
@@ -72,14 +73,7 @@ public class CartControl extends HttpServlet {
 
     protected void setQuantity(HttpServletRequest request, HttpServletResponse response, String action) throws ServletException, IOException, SQLException {
         int idCart = Integer.valueOf(request.getParameter("idCart"));
-        Cookie[] arrCookie = request.getCookies();
-        String user = null;
-        for (Cookie tmp : arrCookie) {
-            if (tmp.getName().equals("user")) {
-                user = tmp.getValue();
-                break;
-            }
-        }
+
         Cart cart = CartDAO.getCartById(idCart);
 
         try {
@@ -195,26 +189,57 @@ public class CartControl extends HttpServlet {
     }
 
     private void addToCart(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        String user = null;
-        for (int i = 0; i < request.getCookies().length; i++) {
-            if (request.getCookies()[i].getName().equals("user")) {
-                user = request.getCookies()[i].getValue();
-                break;
-            }
-        }
+        User user = (User) request.getSession().getAttribute("user");
+
 
         String id = request.getParameter("idpost");
-        if(id != null && user != null){
-            Cart cart = CartDAO.getCart(user,Integer.valueOf(id));
+        int userId = UserDAO.getUserIdByUsename(user.getUserName());
+        System.out.println(id + "||" + userId);
+        if(id != null && userId != -1){
+            Cart cart = CartDAO.getCart(userId,Integer.valueOf(id));
+
             if(cart != null){
-                setQuantity(request,response, "increase");
+                cart.setQuantity(cart.getQuantity()  + 1);
+                int quantityProduct = ProductDAO.getQuantityProduct(Integer.valueOf(id));
+                System.out.println(quantityProduct + "-----" );
+                if(quantityProduct == 0){
+                    cart.setStatus(1);
+                }else{
+                    if(cart.getQuantity() > quantityProduct){
+
+                        cart.setStatus(2);
+                    }else if(cart.getQuantity() == quantityProduct){
+                        cart.setStatus(4);
+                    }else if(cart.getQuantity() < 1){
+                        cart.setQuantity( cart.getQuantity() + 1);
+                        cart.setStatus(3);
+                    }else{
+                        cart.setStatus(0);
+
+                    }
+
+
+                }
+
+                CartDAO.updateCartById(cart);
                 response.getWriter().write(new Gson().toJson(1));
                 return;
 
             }else{
-                CartDAO.addToCart(user, Integer.valueOf(id));
-                response.getWriter().write(new Gson().toJson(1));
-                return;
+
+                int quantityProduct = ProductDAO.getQuantityProduct(Integer.valueOf(id));
+                System.out.println(quantityProduct);
+
+                if(quantityProduct > 0){
+                    CartDAO.addToCart(userId, Integer.valueOf(id));
+
+                    response.getWriter().write(new Gson().toJson(1));
+                    return;
+                }else{
+                    response.getWriter().write(new Gson().toJson(0));
+
+                }
+
 
             }
         }else{

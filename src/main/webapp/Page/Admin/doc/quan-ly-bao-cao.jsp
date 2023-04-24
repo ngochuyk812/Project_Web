@@ -191,8 +191,6 @@
                         <%ArrayList<Oder> oders = (ArrayList<Oder>) request.getAttribute("oders");%>
                         <tbody>
                         <%
-                            System.out.println(oders.size());
-                            Locale localeVN1 = new Locale("vi", "VN");
                             NumberFormat vn1 = NumberFormat.getInstance(localeVN);
                             for (int i = 0; i < oders.size(); i++) {
                                 Oder tmp = oders.get(i);

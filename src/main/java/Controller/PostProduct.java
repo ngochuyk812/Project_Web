@@ -25,7 +25,6 @@ public class PostProduct extends HttpServlet {
         String pathRoot = (this.getServletContext().getRealPath("/"));
         resp.setContentType("application/json");
         try {
-
             String title = URLDecoder.decode(req.getParameter("title"), "UTF-8");
             String content = URLDecoder.decode(req.getParameter("content"), "UTF-8");
             String images = req.getParameter("images");

@@ -20,14 +20,16 @@ public class CheckUserIsExist extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("application/json");
+        response.setContentType("text/html");
+        response.setCharacterEncoding("utf-8");
         PrintWriter pw= response.getWriter();
         User user= (User) request.getSession().getAttribute("user");
         if (user != null) {
             try {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("userName", user.getUserName());
+                jsonObject.put("name", user.getFullName());
                 jsonObject.put("statusLogin",user.getStatusLogin());
-                jsonObject.put("pass",user.getPassWord());
                 pw.println(jsonObject);
                 response.setStatus(200);
             } catch (JSONException e) {

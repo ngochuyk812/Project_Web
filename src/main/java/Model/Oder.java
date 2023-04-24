@@ -1,67 +1,29 @@
 package Model;
 
+import java.sql.Date;
+
 public class Oder {
-    private int id;
-    private String fullName;
-    private String username;
-    private String phone;
+    private long id;
+    private int idUser;
     private String address;
-    private String productName;
-    private int quantity;
-    private  double total;
+    private String idTransport ;
+    private Date createAt;
+    private String note;
     private int status;
+    private double total_price;
 
-    public Oder(int id, String username, String fullName, String phone, String address, String productName, int quantity, double total, int status) {
+    public Oder(long id, int idUser,String address, String idTransport, Date createAt, String note, int status, double total_price) {
         this.id = id;
-        this.username = username;
-        this.fullName = fullName;
-        this.phone = phone;
+        this.idUser = idUser;
+        this.idTransport = idTransport;
         this.address = address;
-        this.productName = productName;
-        this.quantity = quantity;
-        this.total = total;
+        this.createAt = createAt;
+        this.note = note;
         this.status = status;
+        this.total_price = total_price;
     }
-    public Oder(String username, String fullName, String phone, String address, String productName, int quantity, double total, int status) {
-        this.username = username;
-        this.fullName = fullName;
-        this.phone = phone;
-        this.address = address;
-        this.productName = productName;
-        this.quantity = quantity;
-        this.total = total;
-        this.status = status;
-    }
-    public int getId() {
-        return id;
-    }
+    public Oder() {
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
     }
 
     public String getAddress() {
@@ -72,28 +34,54 @@ public class Oder {
         this.address = address;
     }
 
-    public String getProductName() {
-        return productName;
+    public long getId() {
+        return id;
     }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public Date getCreateAt() {
+        return createAt;
     }
 
-    public double getTotal() {
-        return total;
+    public void setCreateAt(Date createAt) {
+        this.createAt = createAt;
     }
 
-    public void setTotal(double total) {
-        this.total = total;
+    public double getTotal_price() {
+        return total_price;
+    }
+
+    public void setTotal_price(double total_price) {
+        this.total_price = total_price;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public String getIdTransport() {
+        return idTransport;
+    }
+
+    public void setIdTransport(String idTransport) {
+        this.idTransport = idTransport;
+    }
+
+
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public int getStatus() {
@@ -102,5 +90,19 @@ public class Oder {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Oder{" +
+                "id=" + id +
+                ", idUser=" + idUser +
+                ", address='" + address + '\'' +
+                ", idTransport='" + idTransport + '\'' +
+                ", createAt=" + createAt +
+                ", note='" + note + '\'' +
+                ", status=" + status +
+                ", total_price=" + total_price +
+                '}';
     }
 }
