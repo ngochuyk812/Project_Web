@@ -72,7 +72,7 @@
 <body onload="time()" class="app sidebar-mini rtl">
 <%Product product = (Product) request.getAttribute("product");%>
 <!-- Navbar-->
-<input id="idpost" hidden value="<%=product.getIdPost()%>"/>
+<input id="idpost" hidden value="<%=product.getId()%>"/>
 <header class="app-header">
     <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
                                     aria-label="Hide Sidebar"></a>
@@ -86,7 +86,7 @@
         <div class="col-md-12">
             <div class="app-title">
                 <ul class="app-breadcrumb breadcrumb">
-                    <li class="breadcrumb-item"><a href="#"><b>Cập nhập thông tin sản phẩm ID: <%=product.getIdPost()%></b></a></li>
+                    <li class="breadcrumb-item"><a href="#"><b>Cập nhập thông tin sản phẩm ID: <%=product.getId()%></b></a></li>
                 </ul>
                 <div id="clock"></div>
             </div>
@@ -138,12 +138,9 @@
                 <div class="control mt-20" style="margin-top: 20px">
                     <label class="lbl-form">Hãng xe</label>
                     <select class="form-select form-select-company" aria-label="Default select example">
-
-                                            <c:forEach items="${listCompany}" var="item">
+                        <c:forEach items="${listCompany}" var="item">
                             <option ${(item.getId() == product.getIdCompany()) ? 'selected' : ''} value="${item.getId()}">${item.getName()}</option>
                         </c:forEach>
-
-
                     </select>
 
 

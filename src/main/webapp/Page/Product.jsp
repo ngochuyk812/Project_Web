@@ -30,7 +30,6 @@
     <div class="container-content">
         <div class="Container-right">
             <jsp:include page="/Component/filter/Filter.jsp"/>
-
         </div>
         <div class="Container-left">
             <h1 class="heading mb-10" style="margin-top: 20px; margin-left: 20px">Mua bán xe ô tô mới</h1>
@@ -49,8 +48,6 @@
 
 <jsp:include page="../Component/footer/footer.jsp"/>
 </body>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

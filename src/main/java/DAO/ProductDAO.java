@@ -16,6 +16,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class ProductDAO {
+//    int quantity;
     public static ArrayList<Product> getProduct() {
         ArrayList<Product> products = new ArrayList<>();
         String query = "SELECT product.*, sum(quantity) as quantity FROM importproduct join product on importproduct.idProduct = product.id GROUP by product.id HAVING quantity >0;\n";
@@ -24,6 +25,7 @@ public class ProductDAO {
             PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
+//                int quantity = getQuantityByID(resultSet.getInt(1));
                 Company vendo = CompanyDAO.getVendoById(resultSet.getInt(2));
                 Product prod = new Product(resultSet.getInt(1),
                         vendo,
@@ -123,6 +125,24 @@ public class ProductDAO {
         }
         return images;
     }
+
+//    public static ArrayList<String> getImportByID(int idProduct) {
+//        ArrayList<String> imports = new ArrayList<>();
+//        String query = "SELECT importproduct.quantity FROM importproduct where idProduct = ?";
+//
+//        try {
+//            Statement statement = ConnectDB.getConnect().createStatement();
+//            PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
+//            preparedStatement.setInt(1, idProduct);
+//            ResultSet resultSet = preparedStatement.executeQuery();
+//            while (resultSet.next()) {
+//                imports.add(resultSet.getInt(1));
+//            }
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//        return imports;
+//    }
 
 
     public static ArrayList<Product> getProductOut() {
