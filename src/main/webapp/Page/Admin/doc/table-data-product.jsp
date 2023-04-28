@@ -38,7 +38,7 @@
   <!-- Sidebar menu-->
   <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
 <jsp:include page="SideBar.jsp">
-    <jsp:param name="page" value="4"/>
+    <jsp:param name="page" value="5"/>
 </jsp:include>
     <main class="app-content">
         <div class="app-title">

@@ -14,7 +14,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet("/admin")
 public class Admin extends HttpServlet {
@@ -150,12 +152,16 @@ public class Admin extends HttpServlet {
                 case "usermanagement":
                     userPage(req, res);
                     break;
+                case "userstatistic":
+                    getAllUser(req, res);
+                    break;
                 case "productmanagement":
                     productPage(req, res);
                     break;
                 case "odermanagement":
                     oderPage(req, res);
                     break;
+
 
                 default:
                     indexPage(req, res);
@@ -164,6 +170,90 @@ public class Admin extends HttpServlet {
             throw new RuntimeException(e);
         }
 
+    }
+    public void getAllUser(HttpServletRequest req, HttpServletResponse resp) throws SQLException, ServletException, IOException {
+        List<User> list = UserDAO.getAllUser();
+        Map<String, List<User>> map = new HashMap<>();
+        map.put("sizeAllUser", list);
+        for (User tmp : list) {
+            if (tmp.getStatus() == 0) {
+                if (!map.containsKey("blockAccount")) {
+                    List<User> array = new ArrayList<>();
+                    array.add(tmp);
+                    map.put("blockAccount", array);
+
+                } else {
+                    map.get("blockAccount").add(tmp);
+                }
+                addMap(map, tmp);
+
+            } else {
+                if (tmp.getStatus()  == 1) {
+                    if (!map.containsKey("activeAccount")) {
+                        List<User> array = new ArrayList<>();
+                        array.add(tmp);
+                        map.put("activeAccount", array);
+
+                    } else {
+                        map.get("activeAccount").add(tmp);
+                    }
+                    addMap(map, tmp);
+                }
+            }
+
+        }
+        System.out.println(map.get("sizeAllUser").size());
+        req.setAttribute("map",map);
+        req.getRequestDispatcher("/Page/Admin/doc/thong-ke-tai-khoan.jsp").forward(req,resp);
+    }
+
+    public void addMap(Map<String, List<User>> map, User tmp) {
+        if (tmp.getRole() == 0) {
+            if (!map.containsKey("customersAccount")) {
+                List<User> list = new ArrayList<>();
+                list.add(tmp);
+                map.put("customersAccount", list);
+
+            } else {
+                map.get("customersAccount").add(tmp);
+            }
+
+        } else {
+            if (tmp.getRole() == 1) {
+                if (!map.containsKey("employeesAccount")) {
+                    List<User> list = new ArrayList<>();
+                    list.add(tmp);
+                    map.put("employeesAccount", list);
+
+                } else {
+                    map.get("employeesAccount").add(tmp);
+                }
+
+            } else {
+                if (tmp.getRole() == 2) {
+                    if (!map.containsKey("managesAccount")) {
+                        List<User> list = new ArrayList<>();
+                        list.add(tmp);
+                        map.put("managesAccount", list);
+
+                    } else {
+                        map.get("managesAccount").add(tmp);
+                    }
+
+                } else {
+                    if (tmp.getRole() == 3) {
+                        if (!map.containsKey("adminsAccount")) {
+                            List<User> list = new ArrayList<>();
+                            list.add(tmp);
+                            map.put("adminsAccount", list);
+
+                        } else {
+                            map.get("adminsAccount").add(tmp);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

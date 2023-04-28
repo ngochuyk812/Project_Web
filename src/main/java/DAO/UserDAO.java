@@ -7,6 +7,7 @@ import Model.User;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class UserDAO {
     public static boolean checkLogin(String username, String pass) throws SQLException {
@@ -130,7 +131,7 @@ public class UserDAO {
     }
     public static int updateUserAdmin(int id,String userName,int phoneNumber, int role ) throws SQLException {
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("UPDATE user SET  userName = ?, role = ?, phone = ? WHERE id = ?");
+        PreparedStatement stmt = c.prepareStatement("UPDATE user SET  fullname = ?, role = ?, phone = ? WHERE id = ?");
         stmt.setString(1, userName);
         stmt.setInt(2, role);
         stmt.setInt(3, phoneNumber);
@@ -208,5 +209,4 @@ public class UserDAO {
         System.out.println(rs);
         return rs;
     }
-
 }
