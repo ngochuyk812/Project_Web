@@ -201,7 +201,17 @@
                                 </form>
                             </div>
                         </div>
-
+                        <div class="upload">
+                            <div class="wrapperUpload">
+                                <label for="imgUploadBtn">Chọn ảnh hay video: </label> <i id="imgUploadBtn"
+                                                                                          class="imgUploadBtn fa-solid fa-image"></i>
+                                <input id="myFileInput" type="file" multiple style="display: none; ">
+                            </div>
+                            <div class="containerImg">
+                            </div>
+                            <div class="containerVideo">
+                            </div>
+                        </div>
                         <div class="box-bt">
                             <button style="cursor: pointer" id="${id}" class="bt-comment">Gửi đánh giá</button>
                         </div>
@@ -211,13 +221,38 @@
                 <div class="list-comment">
                     <c:forEach items="${listComment}" var="item">
                         <div class="cmt">
-                            <div class="start-cmt">
-                                <c:forEach begin="1" end="${item.star}">
-                                    <i class="fa-solid fa-star"></i>
-                                </c:forEach>
+                            <div class="cmt_h">
+                                <c:choose>
+                                    <c:when test="${item.avatar!=null}">
+                                        <img src="${item.avatar}" alt="src">
+                                    </c:when>
+                                    <c:otherwise>
+                                        <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.30497-1/143086968_2856368904622192_1959732218791162458_n.png?stp=cp0_dst-png_p40x40&_nc_cat=1&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=4WG6vRsKhfwAX8Bce7J&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfBRz5wLhcd8XP66sUoUweAK2PaU0ABxXKHrhZHXEuUqAg&oe=646409F8"
+                                             alt="src">
+                                    </c:otherwise>
+                                </c:choose>
+                                <div class="start-cmt">
+                                    <c:forEach begin="1" end="${item.star}">
+                                        <i class="fa-solid fa-star"></i>
+                                    </c:forEach>
+                                </div>
                             </div>
                             <p>từ <b>${item.userName}</b>, <span class="cl-lg">${item.createAt}</span></p>
-                            <p>${item.status}</p>
+                            <p>${item.content}</p>
+                            <c:if test="${item.listImg.size()>=1}">
+                                <div class="renderListImg">
+                                    <c:forEach items="${item.listImg}" var="tmp">
+                                        <img src="${tmp}" alt="">
+                                    </c:forEach>
+                                </div>
+                            </c:if>
+                            <c:if test="${item.listVideo.size()>=1}">
+                                <div class="renderListVideo">
+                                    <c:forEach items="${item.listVideo}" var="tmp">
+                                        <video src="${tmp}" controls="true"></video>
+                                    </c:forEach>
+                                </div>
+                            </c:if>
                         </div>
                     </c:forEach>
 
@@ -240,7 +275,128 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     var slideIndex = 1;
-
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="application/javascript">
+    const containerImg = document.querySelector(".containerImg")
+    const containerVideo = document.querySelector(".containerVideo")
+    document.querySelector(".imgUploadBtn").addEventListener("click", () => {
+        fileInput.click();
+    })
+    const delImg = (e) => {
+        const wrapperImg = e.target.parentNode;
+        wrapperImg.remove();
+    }
+    const createItemImg = (src) => {
+        const newDiv = document.createElement("div");
+        newDiv.setAttribute("id", "your-div-id");
+        newDiv.classList.add("wrapperImg");
+        const deleteIcon = document.createElement("i");
+        deleteIcon.classList.add("imgDel");
+        deleteIcon.classList.add("fa-solid");
+        deleteIcon.classList.add("fa-trash");
+        deleteIcon.addEventListener("click", (e) => delImg(e))
+        newDiv.appendChild(deleteIcon);
+        const newImg = document.createElement("img");
+        newImg.setAttribute("src", src);
+        newImg.classList.add("imgUpload");
+        newDiv.appendChild(newImg);
+        return newDiv;
+    }
+    const createItemVideo = (src) => {
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("wrapperVideo");
+        const deleteIcon = document.createElement("i");
+        deleteIcon.classList.add("videoDel");
+        deleteIcon.classList.add("fa-solid");
+        deleteIcon.classList.add("fa-trash");
+        deleteIcon.addEventListener("click", (e) => delImg(e))
+        newDiv.appendChild(deleteIcon);
+        const newVideo = document.createElement("video");
+        newVideo.setAttribute("src", src);
+        newVideo.classList.add("videoUpload");
+        newVideo.setAttribute("controls", true);
+        newDiv.appendChild(newVideo);
+        const container = document.querySelector(".containerVideo");
+        container.appendChild(newDiv);
+        return newDiv;
+    }
+    var formData = new FormData();
+    const fileInput = document.getElementById("myFileInput");
+    fileInput.addEventListener("change", async () => {
+        const files = fileInput.files;
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            console.log(file.size)
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                const base64String = reader.result;
+                if (file.type.includes("image")) {
+                    if (formData.getAll("fileImage").length + 1 > 5) {
+                        swal({
+                            title: "Thất bại",
+                            text: "Chỉ được chọn 5 image",
+                        })
+                    } else {
+                        formData.append("fileImage", file)
+                        const div = createItemImg(base64String)
+                        containerImg.appendChild(div)
+                    }
+                } else if (file.type.includes("video/mp4")) {
+                    if (formData.getAll("fileVideo").length + 1 > 2) {
+                        swal({
+                            title: "Thất bại",
+                            text: "Chỉ được chọn 2 video",
+                        })
+                    } else {
+                        formData.append(`fileVideo`, file)
+                        const div = createItemVideo(base64String)
+                        containerVideo.appendChild(div)
+                    }
+                }
+            });
+            await reader.readAsDataURL(file);
+        }
+    });
+    document.querySelector(".bt-comment").addEventListener("click", (e) => {
+        e.preventDefault()
+        let content = $("#w3review").val();
+        let idPost = $(".bt-comment").attr('id')
+        formData.append("content", content)
+        formData.append("star", star)
+        formData.append("idPost", idPost)
+        if (idPost && star && content) {
+            $.ajax({
+                url: "/postComment",
+                type: "POST",
+                contentType: 'application/x-www-form-urlencoded',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data)
+                    if (data.message == "ok") {
+                        swal({
+                            title: "Thành công",
+                            text: "Thêm comment thành công",
+                        })
+                        window.location.href = window.location.href
+                    } else {
+                        if (data.message == "no user") {
+                            swal({
+                                title: "Thất bại",
+                                text: "Vui lòng đăng nhập",
+                            })
+                        }
+                    }
+                }
+            });
+        } else {
+            swal({
+                title: "Thất bại",
+                text: "Vui lòng nhập đầy đủ thông tin",
+            })
+        }
+    })
     const plusSlides=(n)=> {
         showSlides(slideIndex += n);
     }
