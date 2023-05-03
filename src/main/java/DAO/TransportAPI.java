@@ -266,7 +266,6 @@ public class TransportAPI {
         return Integer.valueOf((int) money/2350);
     }
     public static void main(String[] args) throws JSONException {
-        System.out.println( (double) TransportAPI.convertMoney("3036",true));
 //        // -2 = "2323"
 //        int money =TransportAPI.getInstance().calculateFee(2270, 231013, 1630,4140,1120,1044);
 //        System.out.println( money);
@@ -278,16 +277,10 @@ public class TransportAPI {
 //                System.out.println();
 //        }
 //
-//        String data =TransportAPI.getInstance().registerTransport(2270, 231013, 1630,4140,1120,1044);
+        String data =TransportAPI.getInstance().registerTransport(2270, 231013, 1630,4140,1120,1044);
+        System.out.println(data);
 //        JSONObject object = new JSONObject(data);
 //        System.out.println(object.getJSONObject("Transport").getLong("leadTime"));
 
-//        System.out.println(TransportAPI.getInstance().getDistrict(260));
-//        System.out.println(TransportAPI.getInstance().getWard(3278));
-     //   System.out.println(TransportAPI.getInstance().getWardId(3278,"Thị trấn Tây Hòa" ));
-//       String as  = "Xã Phúc Thắng - Huyện Sơn Động - Bắc Giang";
-//       for (int tmp: TransportAPI.getInstance().getIdAddress(as)){
-//           System.out.println(tmp);
-//       }
     }
 }

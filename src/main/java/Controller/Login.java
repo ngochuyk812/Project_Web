@@ -29,6 +29,7 @@ public class Login extends HttpServlet {
         PrintWriter pw;
         String name= req.getParameter("username");
         String pass= HashSHA216.hash(req.getParameter("password"));
+
         try {
             if(UserDAO.checkLogin(name,pass)){
                 User user= UserDAO.getUserByName(name);

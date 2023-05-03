@@ -1,3 +1,4 @@
+<%@ page import="Model.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -5,12 +6,13 @@
 <head>
     <title>Title</title>
 </head>
+<% User user = (User) request.getAttribute("userInfo") ;%>
 
 <aside class="app-sidebar">
-    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="${img}" width="50px"
+    <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="<%=user.getAvatar()%>" width="50px"
                                         alt="User Image">
         <div>
-            <p class="app-sidebar__user-name"><b>${username}
+            <p class="app-sidebar__user-name"><b><%=user.getFullName()%>
             </b></p>
             <p class="app-sidebar__user-designation">Chào mừng bạn trở lại</p>
         </div>

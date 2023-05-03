@@ -135,4 +135,5 @@ public class Log implements AbBean {
         int rowAffected = pstmt.executeUpdate();
         return rowAffected==1;
     }
+
 }

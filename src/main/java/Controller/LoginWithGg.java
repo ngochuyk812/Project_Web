@@ -3,6 +3,7 @@ package Controller;
 import Beans.HashSHA216;
 import Beans.JWT;
 import DAO.UserDAO;
+import Model.Role;
 import Model.User;
 import Model.UserGoogleDto;
 import com.google.gson.Gson;
@@ -74,7 +75,7 @@ public class LoginWithGg extends HttpServlet {
                 user=UserDAO.getUserByName(userId);
                 req.getSession().setAttribute("user",user);
             }else {
-                user=new User(userId, null,null,null,null,null,null,0,1,1);
+                user=new User(userId, null,null,null,null,null,null, new Role(0),1,1);
                 UserDAO.insertUser(user);
                 req.getSession().setAttribute("user",user);
             }

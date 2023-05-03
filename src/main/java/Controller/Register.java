@@ -4,6 +4,7 @@ import Beans.HashSHA216;
 import Beans.JWT;
 import Beans.SendEmail;
 import DAO.UserDAO;
+import Model.Role;
 import Model.User;
 import Model.VerifyRecaptcha;
 
@@ -70,7 +71,7 @@ public class Register extends HttpServlet {
         }
         System.out.println("sdsds " + req.getParameter("address"));
         User user = null;
-        user = new User(data.get("username"), HashSHA216.hash(data.get("password")), data.get("fullname"), data.get("email"), data.get("phone"), "", data.get("address"),0,0,0);
+        user = new User(data.get("username"), HashSHA216.hash(data.get("password")), data.get("fullname"), data.get("email"), data.get("phone"), "", data.get("address"),new Role(0),0,0);
         try {
             UserDAO.insertUser(user);
         } catch (SQLException e) {

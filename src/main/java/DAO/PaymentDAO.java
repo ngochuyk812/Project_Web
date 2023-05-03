@@ -21,6 +21,12 @@ public class PaymentDAO {
         pstmt.setInt(5, payment.getStatus());
         return pstmt.executeUpdate();
     }
-
+    public static int deletePaymentByIdOrder(long id) throws SQLException {
+        Connection c= ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("DELETE from `payment` where id_order=?");
+        stmt.setLong(1,id);
+        int rs= stmt.executeUpdate();
+        return rs;
+    }
 
 }

@@ -47,7 +47,22 @@ public class ProductDAO {
         }
         return products;
     }
+    public static int getQuantityProductById(int id) {
+        String query = "SELECT product.*, sum(quantity) as quantity FROM importproduct join product on importproduct.idProduct = product.id GROUP by product.id HAVING quantity > 0 AND id = ?";
+        try {
+            Statement statement = ConnectDB.getConnect().createStatement();
+            PreparedStatement preparedStatement = statement.getConnection().prepareStatement(query);
+            preparedStatement.setInt(1,id);
 
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                return  resultSet.getInt("quantity");
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return  -1;
+    }
     public static ArrayList<Product> getNewProducts() {
         ArrayList<Product> newProducts = new ArrayList<>();
         String query = "SELECT * FROM product JOIN importproduct ON product.id = importproduct.idProduct ORDER BY product.yearOfManuFacture DESC LIMIT 12;";

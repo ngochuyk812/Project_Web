@@ -11,7 +11,7 @@ public class User implements Serializable {
     private String phone;
     private String avatar;
     private String address;
-    private int role;
+    private Role role;
     private int status;
     private int statusLogin;
 
@@ -23,7 +23,7 @@ public class User implements Serializable {
         this.statusLogin = statusLogin;
     }
 
-    public User(String userName, String passWord, String fullName, String email, String phone, String avatar, String address, int role, int status, int statusLogin) {
+    public User(String userName, String passWord, String fullName, String email, String phone, String avatar, String address, Role role, int status, int statusLogin) {
         this.userName = userName;
         this.passWord = passWord;
         this.fullName = fullName;
@@ -36,7 +36,7 @@ public class User implements Serializable {
         this.statusLogin = statusLogin;
     }
 
-    public User(int id, String userName, String fullName, String email, String phone, String avatar, String address, int role, int status, int statusLogin) {
+    public User(int id, String userName, String fullName, String email, String phone, String avatar, String address, Role role, int status, int statusLogin) {
         this.userName = userName;
         this.passWord = passWord;
         this.fullName = fullName;
@@ -60,7 +60,7 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public int getRole() {
+    public Role getRole() {
         return role;
     }
 
@@ -68,7 +68,7 @@ public class User implements Serializable {
         return status;
     }
 
-    public void setRole(int role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 
@@ -135,19 +135,9 @@ public class User implements Serializable {
         this.address = address;
     }
     public String getNameRole() {
-        if (this.role == 0) {
-            return "Khách hàng";
-        } else {
-            if (this.role == 1) {
-                return "Nhân viên";
-            } else {
-                if (this.role == 2) {
-                    return "Quản lý";
-                }
-            }
-            return "Admin";
 
-        }
+            return "getNameRole_Clas_User_Model";
+
     }
     @Override
     public String toString() {

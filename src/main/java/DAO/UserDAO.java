@@ -16,7 +16,6 @@ public class UserDAO {
         stmt.setString(1, username);
         stmt.setString(2, pass);
         stmt.setInt(3, 1);
-
         ResultSet rs = stmt.executeQuery();
         return rs.next();
     }
@@ -64,7 +63,8 @@ public class UserDAO {
             int role = Integer.valueOf(rs.getString("role"));
             int status = Integer.valueOf(rs.getString("status"));
             int statusLogin = rs.getInt("statusLogin");
-            User user = new User(userName, pass, fullName, email, phone, avatar, address, role, status, statusLogin);
+
+            User user = new User(userName, pass, fullName, email, phone, avatar, address, RoleDAO.getRole(role), status, statusLogin);
             user.setId(idUser);
             return user;
         }
@@ -113,7 +113,7 @@ public class UserDAO {
             int role = Integer.valueOf(rs.getString("role"));
             int status = Integer.valueOf(rs.getString("status"));
             int statusLogin = rs.getInt("statusLogin");
-            User user = new User(userName, pass, fullName, email, phone, avatar, address, role, status, statusLogin);
+            User user = new User(userName, pass, fullName, email, phone, avatar, address, RoleDAO.getRole(role), status, statusLogin);
             user.setId(idUser);
             return user;
         }
@@ -237,10 +237,31 @@ public class UserDAO {
         PreparedStatement stmt = c.prepareStatement("select * from user where role<3");
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
-            list.add(new User(rs.getInt("id"),rs.getString("username"), rs.getString("fullname"), rs.getString("email"), rs.getString("phone"), rs.getString("avatar"), rs.getString("address"), rs.getInt("role"), rs.getInt("status"), rs.getInt("statusLogin")));
+
+            list.add(new User(rs.getInt("id"),rs.getString("username"), rs.getString("fullname"), rs.getString("email"), rs.getString("phone"), rs.getString("avatar"), rs.getString("address"), RoleDAO.getRole(rs.getInt("role")), rs.getInt("status"), rs.getInt("statusLogin")));
         }
         return list;
     }
+
+    public static User getUserAuthenticated(String userName) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("select * from user where username=?");
+        stmt.setString(1, userName);
+        ResultSet rs = stmt.executeQuery();
+//        if (rs.next()) {
+//            int idUser = rs.getInt("id");
+//            String userName = rs.getString("username");
+//            int role = Integer.valueOf(rs.getString("role"));
+//            int status = Integer.valueOf(rs.getString("status"));
+//            int statusLogin = rs.getInt("statusLogin");
+////            User user = new User(userName, pass, fullName, email, phone, avatar, address, role, status, statusLogin);
+////            user.setId(idUser);
+////            return user;
+//        }
+        return null;
+
+    }
+
     public Role getRole(int idRole) throws SQLException {
         Connection c = ConnectDB.getConnect();
         PreparedStatement stmt = c.prepareStatement("select * from role where id=?");

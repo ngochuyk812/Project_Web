@@ -3,6 +3,7 @@ package Controller;
 import Beans.HashSHA216;
 import Beans.JWT;
 import DAO.UserDAO;
+import Model.Role;
 import Model.User;
 import io.jsonwebtoken.Jws;
 
@@ -27,7 +28,7 @@ public class LoginWithFb extends HttpServlet {
                 req.getSession().setAttribute("user",user);
 
             }else {
-                user=new User(username, null,null,null,null,null,null,0,1,1);
+                user=new User(username, null,null,null,null,null,null,new Role(0),1,1);
                 UserDAO.insertUser(user);
                 req.getSession().setAttribute("user",user);
 

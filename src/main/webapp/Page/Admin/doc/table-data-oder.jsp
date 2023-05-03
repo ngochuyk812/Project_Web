@@ -10,17 +10,52 @@
     <title>Danh sách đơn hàng | Quản trị Admin</title>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <style>
+        .table-details {
+            position: relative;
+            max-height: 300px;
+            overflow: auto;
+        }
+        .address {
+            padding: 4px ;
+            border-radius:5px ;
+        }
+        .table-details table {
+            width: 100%;
+            border-collapse: separate;
+        }
+
+        .table-details th {
+            position: sticky;
+            top: -1px;
+            background-color: white;
+            z-index: 1;
+            border: 1px solid #ddd;
+        }
+        .hide{
+            display: none;
+        }
+        .table-details td,.table-details th {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <!-- or -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-
+    <style>
+        .action_order{
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body onload="time()" class="app sidebar-mini rtl">
@@ -65,225 +100,176 @@
                     <table class="table table-hover table-bordered" id="myTable">
                         <thead>
                         <tr>
-                            <th width="10"><input type="checkbox" id="all"></th>
-                            <th>ID đơn hàng</th>
+                            <th>ID</th>
                             <th>Khách hàng</th>
-                            <th>Đơn hàng</th>
-                            <th>Số lượng</th>
                             <th>Tổng tiền</th>
+                            <th>Địa chỉ</th>
                             <th>Tình trạng</th>
                             <th>Tính năng</th>
+
                         </tr>
                         </thead>
-                        <%ArrayList<Oder> oders = (ArrayList<Oder>) request.getAttribute("oders");%>
-                        <tbody>
-                        <%
-                            System.out.println(oders.size());
-                            Locale localeVN = new Locale("vi", "VN");
-                            NumberFormat vn = NumberFormat.getInstance(localeVN);
-                            for (int i = 0; i < oders.size(); i++) {
-                                Oder tmp = oders.get(i);
-                        %>
-                        <tr>
-                            <td width="10"><input type="checkbox" name="check<%=tmp.getId()%>" value="<%=i%>"></td>
-                            <td><%=tmp.getId()%>
-                            </td>
-                            <td><%=tmp.getFullName()%>
-                            </td>
-                            <td><%=tmp.getProductName()%>
-                            </td>
-                            <td><%=tmp.getQuantity()%>
-                            </td>
-                            <td><%=vn.format(tmp.getTotal())%> đ</td>
-                            <%
-                                String status = "";
-                                String badge = "";
-                                if (tmp.getStatus() == 0) {
-                                    status = "Đang xử lý";
-                                    badge = "badge bg-info";
-                                }
-                                if (tmp.getStatus() == 1) {
-                                    status = "Đã hoàn thành";
-                                    badge = "badge bg-success";
-                                }
-                                if (tmp.getStatus() == 2) {
-                                    status = "Đã hủy";
-                                    badge = "badge badge-danger";
-                                }
-                            %>
-                            <td><span class="<%=badge%>"><%=status%></span></td>
-                            <td>
-                                <button class="btn btn-primary btn-sm trash" type="button"
-                                        onclick="deleteRow(this, <%=tmp.getId()%>)" title="Xóa"><i
-                                        class="fas fa-trash-alt"><input hidden value="<%=tmp.getId()%>"/> </i></button>
-                                <button class="btn btn-primary btn-sm edit" type="button" data-toggle="modal"
-                                        data-target="#ModalUP<%=tmp.getId()%>" title="Sửa"><i class="fa fa-edit"></i>
-                                </button>
-                                <button class="btn btn-primary btn-sm edit"
-                                        style="background-color: #1e7e34; color:white;" type="button"
-                                        data-toggle="modal"
-                                        data-target="#ModalView<%=tmp.getId()%>" title="Sửa"><i class="fa fa-info"></i>
-                                </button>
-                            </td>
-
-                        </tr>
-                        <div class="modal fade" id="ModalUP<%=tmp.getId()%>" tabindex="-1" role="dialog"
-                             aria-hidden="true"
-                        >
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="form-group  col-md-12">
-          <span class="thong-tin-thanh-toan">
-            <h5>Chỉnh sửa thông tin đơn hàng</h5>
-          </span>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label" name="idpost">Mã đơn hàng </label>
-                                                <input class="form-control" disabled value="<%=tmp.getId()%>"
-                                                       type="number">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label">Tên khách hàng</label>
-                                                <input class="form-control" value="<%=tmp.getFullName()%>"
-                                                       name="fullname" type="text"/>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label">Tên sản phẩm</label>
-                                                <input class="form-control" disabled value="<%=tmp.getProductName()%>"
-                                                       name="title" type="text"/>
-                                            </div>
-                                            <div class="form-group  col-md-6">
-                                                <label class="control-label">Số lượng</label>
-                                                <input class="form-control" name="quantity"
-                                                       value="<%=tmp.getQuantity()%>" type="number" required>
-                                            </div>
-
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label">Địa chỉ</label>
-                                                <input class="form-control" name="address" value="<%=tmp.getAddress()%>"
-                                                       type="text">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label">Phone</label>
-                                                <input class="form-control" name="phone" value="<%=tmp.getPhone()%>"
-                                                       type="text">
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label class="control-label">Trạng thái</label>
-                                                <select class="form-control" name="status">
-                                                    <option value="0" <%=tmp.getStatus() == 0 ? "selected" : ""%>>Đang
-                                                        xử lý
-                                                    </option>
-                                                    <option value="1" <%=tmp.getStatus() == 1 ? "selected" : ""%>>Đã
-                                                        hoàn thành
-                                                    </option>
-                                                    <option value="2" <%=tmp.getStatus() == 2 ? "selected" : ""%>>Đã
-                                                        hủy
-                                                    </option>
-
-                                                </select>
-                                            </div>
-
-
-                                        </div>
-                                        <BR>
-                                        <BR>
-                                        <button class="btn btn-save" type="button" onclick="updateOder(this)">Lưu lại
-                                        </button>
-                                        <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                                        <BR>
-                                    </div>
-                                    <div class="modal-footer">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal fade" id="ModalView<%=tmp.getId()%>" tabindex="-1" role="dialog"
-                             aria-hidden="true"
-                        >
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-
-                                    <div class="modal-body">
-                                        <div class="row">
-                                            <div class="form-group  col-md-12">
-          <span class="thong-tin-thanh-toan">
-            <h5>Thông tin chi tiết đơn hàng</h5>
-          </span>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label" name="idpost">Mã đơn hàng </label>
-                                                <input class="form-control" disabled value="<%=tmp.getId()%>"
-                                                       type="number">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label">Tên khách hàng</label>
-                                                <input class="form-control" value="<%=tmp.getFullName()%>" disabled
-                                                       name="fullname" type="text"/>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label">Địa chỉ</label>
-                                                <input class="form-control" name="address" disabled
-                                                       value="<%=tmp.getAddress()%>" type="text">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label">Phone</label>
-                                                <input class="form-control" name="phone" disabled
-                                                       value="<%=tmp.getPhone()%>" type="text">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label">Username</label>
-                                                <input class="form-control" name="Username" disabled
-                                                       value="<%=tmp.getUsername()%>" type="text">
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label">Tên sản phẩm</label>
-                                                <input class="form-control" disabled value="<%=tmp.getProductName()%>"
-                                                       name="title" type="text"/>
-                                            </div>
-
-                                            <div class="form-group  col-md-6">
-                                                <label class="control-label">Số lượng</label>
-                                                <input class="form-control" name="quantity" disabled
-                                                       value="<%=tmp.getQuantity()%>" type="number" required>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label class="control-label">Tổng tiền</label>
-                                                <input class="form-control" disabled value="<%=tmp.getTotal()%>"
-                                                       name="total" type="text"/>
-                                            </div>
-
-                                            <div class="form-group col-md-12">
-                                                <label class="control-label">Trạng thái</label>
-                                                <input class="form-control" name="status" disabled value="<%=status%>"
-                                                       type="text">
-
-                                            </div>
-
-
-                                        </div>
-                                        <BR>
-                                        <BR>
-                                        <a class="btn btn-cancel" data-dismiss="modal" href="#">Hủy bỏ</a>
-                                        <BR>
-                                    </div>
-                                    <div class="modal-footer">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <%}%>
+                        <tbody id="body_table_orders">
 
                         </tbody>
 
+
+
+                        <%--                            <%--%>
+<%--                                String status = "";--%>
+<%--                                String badge = "";--%>
+<%--                                if (tmp.getStatus() == 0) {--%>
+<%--                                    status = "Đang xử lý";--%>
+<%--                                    badge = "badge bg-info";--%>
+<%--                                }--%>
+<%--                                if (tmp.getStatus() == 1) {--%>
+<%--                                    status = "Đã hoàn thành";--%>
+<%--                                    badge = "badge bg-success";--%>
+<%--                                }--%>
+<%--                                if (tmp.getStatus() == 2) {--%>
+<%--                                    status = "Đã hủy";--%>
+<%--                                    badge = "badge badge-danger";--%>
+<%--                                }--%>
+<%--                            %>--%>
+<%--                            <td><span class="badge bg-info">Đang xử lý</span></td>--%>
+<%--                            --%>
+
+
+                        </tbody>
+
+
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editOrderDetailsModal" tabindex="-1" role="dialog" aria-labelledby="editOrderDetailsModal" aria-hidden="true">
+        <div class="outside_modal" style="position: fixed; top: 0; left: 0;right: 0; bottom: 0; z-index: 998">
+
+        </div>
+        <div class="modal-dialog modal-dialog-centered modal-xl" style="z-index: 999" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderDetailsModalLabel">Order Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <p><strong>Tên khách hàng: </strong><span type="text" class="show_detail_orders_name"></span></p>
+                        <p class="showAddress"><strong>Địa chỉ: </strong><span type="text" class="show_detail_orders_address"></span></p>
+
+                        <div class="form_edit_address hide">
+                            <label class="form-label" for="address"><strong>Địa chỉ: </strong></label>
+                            <div id="order" style="display: flex; flex-direction: column;     gap: 10px">
+                                <select class="address province">
+                                    <option value="0">Tỉnh</option>
+                                </select>
+                                <select class="address district events_none" >
+                                    <option value="0">Huyện</option>
+                                </select>
+                                <select class="address ward events_none" style="    margin-bottom: 0;">
+                                    <option value="0">Xã</option>
+                                </select>
+                                <a  class="save_address" style="color: #3399cc; font-weight: 600; cursor: pointer;">Xác nhân</a>
+                                <a  class="close_address" style="color: #3399cc; font-weight: 600; cursor: pointer;">Hủy</a>
+
+                            </div>
+                        </div>
+                    </p>
+                        <p><strong>Số điện thoại: </strong><span type="text" class="show_detail_orders_phone"></span></p>
+                        <p><strong>Email: </strong><span type="text" class="show_detail_orders_email"></span></p>
+
+
+                    </div>
+                    <div class="table-details">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Hình ảnh</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Giá tiền</th>
+                                <th>Thao tác</th>
+
+                            </tr>
+                            </thead>
+                            <tbody class="table_orders_detail_edit">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <table class="table">
+
+                    </table>
+                    <p><strong>Thêm sản phẩm cho đơn hàng</strong></p>
+                    <div>
+                        <select oninput='select_add_product()' class="address add_prodcut" style="width: 100%">
+                            <option value="0">Chọn sản phẩm thêm vào đơn hàng</option>
+                        </select>
+
+                        <button style="margin-top: 10px; opacity: 0.6; pointer-events: none" type="button" onclick="add_product_order()" class="btn btn-success bt_add_product " data-dismiss="modal">Thêm sản phẩm</button>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input hidden="" value="" id="id_order_update"/>
+                    <button type="button" class="btn btn-secondary saveEdit" onclick="saveUpdate()" data-dismiss="modal">Lưu</button>
+                    <button type="button" class="btn btn-secondary exitModal" data-dismiss="modal">Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="orderDetailsModal" tabindex="-1" role="dialog" aria-labelledby="orderDetailsModalLabel" aria-hidden="true">
+        <div id="outside_modal" style="position: fixed; top: 0; left: 0;right: 0; bottom: 0; z-index: 998">
+
+        </div>
+        <div class="modal-dialog modal-dialog-centered modal-xl" style="z-index: 999" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="orderDetailsModalLabel">Order Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <p><strong>Tên khách hàng: </strong><span class="show_detail_orders_name"></span></p>
+                        <p><strong>Địa chỉ: </strong><span class="show_detail_orders_address"></span></p>
+                        <p><strong>Số điện thoại: </strong><span class="show_detail_orders_phone"></span></p>
+                        <p><strong>Email: </strong><span class="show_detail_orders_email"></span></p>
+
+                        <p><strong>Tổng tiền: </strong><span class="show_detail_orders_total"></span></p>
+                        <p><strong>Trạng thái: </strong><span class="show_detail_orders_status"></span></p>
+
+                    </div>
+                    <div class="table-details">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>Hình ảnh</th>
+                                <th>Giá</th>
+                                <th>Số lượng</th>
+                                <th>Thành tiền</th>
+                            </tr>
+                            </thead>
+                            <tbody id="table_orders_detail">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <table class="table">
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -353,8 +339,10 @@
 <!-- Page specific javascripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <!-- Data table plugin-->
-<script type="text/javascript" src="jsadmin/plugins/jquery.dataTables.min.js"></script>
+
 <script type="text/javascript" src="jsadmin/plugins/dataTables.bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 <script type="text/javascript">$('#sampleTable').DataTable();</script>
 <script>
     const exportExel = (name) => {
@@ -366,50 +354,10 @@
         })
 
     }
-    const updateOder = (e) => {
-        let inputs = e.parentElement.querySelectorAll("input")
-        let id = inputs[0].value
-        let fullName = encodeURI(inputs[1].value)
-        let quantity = inputs[3].value
-        let address = encodeURI(inputs[4].value)
-        let phone = inputs[5].value
-        let status = e.parentElement.querySelector("select").value
-        let obj = {
-            fullName, quantity, address, phone, status
-        }
-        $.ajax({
-            url: "/oder?update=" + id,
-            type: "POST",
-            contentType: 'application/x-www-form-urlencoded',
-            data: obj,
-            success: function (data) {
-                console.log(data)
-                if (JSON.parse(data) === 1)
-                    swal("Cập nhập thành công.!", {
-                        timer: 1000
-                    }).then(() => {
-                        window.location = "admin?page=oderManagement"
-                    });
 
-
-            }
-        });
-
-        console.log(tr)
-        // let arrtd = tr.querySelectorAll("td");
-        // console.log(arrtd)
-        // let inputs = document.querySelectorAll("#ModalUP input")
-        // inputs[0].setAttribute("value", arrtd[1].textContent)
-        // inputs[1].setAttribute("value", arrtd[2].textContent)
-        // inputs[2].setAttribute("value", arrtd[3].textContent)
-        // inputs[3].setAttribute("value", arrtd[4].textContent)
-        let timerInterval
-
-
-    }
 
     function deleteRow(r, id) {
-        var i = r.parentNode.parentNode.rowIndex;
+
         swal({
             title: "Cảnh báo",
             text: "Bạn có chắc chắn là muốn xóa đơn hàng này?",
@@ -417,13 +365,13 @@
         }).then((willDelete) => {
             if (willDelete) {
                 $.ajax({
-                    url: "/oder?delete=" + id,
+                    url: "/api/order?action=delete&id=" + id,
                     type: "POST",
                     contentType: 'application/x-www-form-urlencoded',
                     success: function (data) {
                         console.log(data)
                         if (JSON.parse(data) === 1)
-                            document.getElementById("myTable").deleteRow(i);
+                            r.parentNode.parentNode.parentNode.remove()
                         swal("Đã xóa thành công.!", {});
                     }
                 });
@@ -524,6 +472,7 @@
         $("#ModalUP").modal({backdrop: false, keyboard: false})
     });
 </script>
+<script src="javascrip/ordersAdmin.js"></script>
 </body>
 
 </html>

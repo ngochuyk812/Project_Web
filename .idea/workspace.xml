@@ -10,284 +10,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc76f0f4-b08a-497a-865d-c4883f45e10a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTMzMn0.rZDRYig6kqEsMiDAY6uM0BT7gVCBNSvascjRJ1uhjfM_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTMzMn0.rZDRYig6kqEsMiDAY6uM0BT7gVCBNSvascjRJ1uhjfM_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTMzMn0.rZDRYig6kqEsMiDAY6uM0BT7gVCBNSvascjRJ1uhjfM_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTMzMn0.rZDRYig6kqEsMiDAY6uM0BT7gVCBNSvascjRJ1uhjfM_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTg2OX0.Nn6j23J-Uh-vQhJ79Noqw42NBbKj5-hvk-C64oZ6O5A_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTg2OX0.Nn6j23J-Uh-vQhJ79Noqw42NBbKj5-hvk-C64oZ6O5A_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTg2OX0.Nn6j23J-Uh-vQhJ79Noqw42NBbKj5-hvk-C64oZ6O5A_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTg2OX0.Nn6j23J-Uh-vQhJ79Noqw42NBbKj5-hvk-C64oZ6O5A_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTg3NH0.edcDEHmQeO2kzQ9ehNgIa4B6we9JPsFWAx6F_q4RyS8_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTg3NH0.edcDEHmQeO2kzQ9ehNgIa4B6we9JPsFWAx6F_q4RyS8_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTg3NH0.edcDEHmQeO2kzQ9ehNgIa4B6we9JPsFWAx6F_q4RyS8_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NTg3NH0.edcDEHmQeO2kzQ9ehNgIa4B6we9JPsFWAx6F_q4RyS8_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjA5MH0.Y_oX0hNdtN5V09hYNT9i35zI7xWSOGk0GCGIs8Ioo-4_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjA5MH0.Y_oX0hNdtN5V09hYNT9i35zI7xWSOGk0GCGIs8Ioo-4_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjA5MH0.Y_oX0hNdtN5V09hYNT9i35zI7xWSOGk0GCGIs8Ioo-4_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjA5MH0.Y_oX0hNdtN5V09hYNT9i35zI7xWSOGk0GCGIs8Ioo-4_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjQ2NX0.CB10CWA3-mlaAOSJWDufAGLeYNePpgGkLxhd-_pn-Y8_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjQ2NX0.CB10CWA3-mlaAOSJWDufAGLeYNePpgGkLxhd-_pn-Y8_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjQ2NX0.CB10CWA3-mlaAOSJWDufAGLeYNePpgGkLxhd-_pn-Y8_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjQ2NX0.CB10CWA3-mlaAOSJWDufAGLeYNePpgGkLxhd-_pn-Y8_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjY3MH0.V6bVxAU1TAqUpVUMq_b-WEhm9Izi9W4C3DWreeyRDns_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjY3MH0.V6bVxAU1TAqUpVUMq_b-WEhm9Izi9W4C3DWreeyRDns_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjY3MH0.V6bVxAU1TAqUpVUMq_b-WEhm9Izi9W4C3DWreeyRDns_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjY3MH0.V6bVxAU1TAqUpVUMq_b-WEhm9Izi9W4C3DWreeyRDns_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjgzMH0.uLtXrJSILF2RH5T_YuatZ353X48ArX0HV9F1-B0oYp0_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjgzMH0.uLtXrJSILF2RH5T_YuatZ353X48ArX0HV9F1-B0oYp0_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjgzMH0.uLtXrJSILF2RH5T_YuatZ353X48ArX0HV9F1-B0oYp0_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NjgzMH0.uLtXrJSILF2RH5T_YuatZ353X48ArX0HV9F1-B0oYp0_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzAzMn0.ByCDmsumozIS6jrifq0XndMjnK1iI1WjDgN7c1up7c4_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzAzMn0.ByCDmsumozIS6jrifq0XndMjnK1iI1WjDgN7c1up7c4_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzAzMn0.ByCDmsumozIS6jrifq0XndMjnK1iI1WjDgN7c1up7c4_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzAzMn0.ByCDmsumozIS6jrifq0XndMjnK1iI1WjDgN7c1up7c4_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzIzNn0.I1wRnYGi8cjuIHNnbmK8A7362nbx0aFYuFzykClyBR0_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzIzNn0.I1wRnYGi8cjuIHNnbmK8A7362nbx0aFYuFzykClyBR0_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzIzNn0.I1wRnYGi8cjuIHNnbmK8A7362nbx0aFYuFzykClyBR0_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzIzNn0.I1wRnYGi8cjuIHNnbmK8A7362nbx0aFYuFzykClyBR0_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzM2Nn0.N6_PYq8Erv7KTy4LV6dFjXzoAqlKHxk2jj4zQlNOvxo_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzM2Nn0.N6_PYq8Erv7KTy4LV6dFjXzoAqlKHxk2jj4zQlNOvxo_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzM2Nn0.N6_PYq8Erv7KTy4LV6dFjXzoAqlKHxk2jj4zQlNOvxo_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzM2Nn0.N6_PYq8Erv7KTy4LV6dFjXzoAqlKHxk2jj4zQlNOvxo_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2NzYzN30.Ke-vnRKiMbK1eiS1EnjB63pjM4F3rJ92tWDXXS8jWUs_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2Nzg1N30.02JL2bL0NLTBV2hvMt_TdrINeyl47tGb704VBTm6PAQ_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2Nzg1N30.02JL2bL0NLTBV2hvMt_TdrINeyl47tGb704VBTm6PAQ_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2Nzg1N30.02JL2bL0NLTBV2hvMt_TdrINeyl47tGb704VBTm6PAQ_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2Nzg1N30.02JL2bL0NLTBV2hvMt_TdrINeyl47tGb704VBTm6PAQ_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODQzMH0.zFh-P5mLs0P70HRXNEQOdTZD-I_d04hRZFSYAIv1eKY_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODQzMH0.zFh-P5mLs0P70HRXNEQOdTZD-I_d04hRZFSYAIv1eKY_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODQzMH0.zFh-P5mLs0P70HRXNEQOdTZD-I_d04hRZFSYAIv1eKY_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODQzMH0.zFh-P5mLs0P70HRXNEQOdTZD-I_d04hRZFSYAIv1eKY_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODYxMn0.-Ch_jHum-WBs4SPTb6y2C2w2OMKEpOm7CBga4sG1c2c_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODYxMn0.-Ch_jHum-WBs4SPTb6y2C2w2OMKEpOm7CBga4sG1c2c_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODYxMn0.-Ch_jHum-WBs4SPTb6y2C2w2OMKEpOm7CBga4sG1c2c_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODYxMn0.-Ch_jHum-WBs4SPTb6y2C2w2OMKEpOm7CBga4sG1c2c_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODc2Nn0.G_woeWfVgcW6Gr7KGRRtQevUqQoqbEH29povy7r64yI_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODc2Nn0.G_woeWfVgcW6Gr7KGRRtQevUqQoqbEH29povy7r64yI_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODc2Nn0.G_woeWfVgcW6Gr7KGRRtQevUqQoqbEH29povy7r64yI_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODc2Nn0.G_woeWfVgcW6Gr7KGRRtQevUqQoqbEH29povy7r64yI_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODk3M30.xu_jFC46UJ8mc6KOd55-rBFfCayIUkv1FzZz7F0wrpg_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODk3M30.xu_jFC46UJ8mc6KOd55-rBFfCayIUkv1FzZz7F0wrpg_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODk3M30.xu_jFC46UJ8mc6KOd55-rBFfCayIUkv1FzZz7F0wrpg_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2ODk3M30.xu_jFC46UJ8mc6KOd55-rBFfCayIUkv1FzZz7F0wrpg_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2OTE4M30.6i78BLIvvByv2nCO88GWQw-mf0ubtGwMg44Z36vob2A_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2OTE4M30.6i78BLIvvByv2nCO88GWQw-mf0ubtGwMg44Z36vob2A_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2OTE4M30.6i78BLIvvByv2nCO88GWQw-mf0ubtGwMg44Z36vob2A_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2OTE4M30.6i78BLIvvByv2nCO88GWQw-mf0ubtGwMg44Z36vob2A_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2OTYwNH0.A4C3M0qbNkLUBonidZfrN1yrnyWIXfh_maQca5OlW9Q_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2OTYwNH0.A4C3M0qbNkLUBonidZfrN1yrnyWIXfh_maQca5OlW9Q_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2OTYwNH0.A4C3M0qbNkLUBonidZfrN1yrnyWIXfh_maQca5OlW9Q_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMSIsImV4cCI6MTY4MTg2OTYwNH0.A4C3M0qbNkLUBonidZfrN1yrnyWIXfh_maQca5OlW9Q_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg2OTg2N30.yWeQVQ7eKoB1mHYocPS1fGs46NtkRY_9_D8M5dO4Yvc_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg2OTg2N30.yWeQVQ7eKoB1mHYocPS1fGs46NtkRY_9_D8M5dO4Yvc_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg2OTg2N30.yWeQVQ7eKoB1mHYocPS1fGs46NtkRY_9_D8M5dO4Yvc_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg2OTg2N30.yWeQVQ7eKoB1mHYocPS1fGs46NtkRY_9_D8M5dO4Yvc_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDAwOX0.7SPdytQRjP8jPKyiRNsLrKsRcGMv1XSm3IU2kh-sxFs_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDAwOX0.7SPdytQRjP8jPKyiRNsLrKsRcGMv1XSm3IU2kh-sxFs_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDAwOX0.7SPdytQRjP8jPKyiRNsLrKsRcGMv1XSm3IU2kh-sxFs_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDAwOX0.7SPdytQRjP8jPKyiRNsLrKsRcGMv1XSm3IU2kh-sxFs_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDE1OH0._F9wKtEF4jXPBv_VSZyxZAyHdTyUYLZAB9mqdCi8uHw_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDE1OH0._F9wKtEF4jXPBv_VSZyxZAyHdTyUYLZAB9mqdCi8uHw_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDE1OH0._F9wKtEF4jXPBv_VSZyxZAyHdTyUYLZAB9mqdCi8uHw_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDE1OH0._F9wKtEF4jXPBv_VSZyxZAyHdTyUYLZAB9mqdCi8uHw_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDMwOX0.JFwZ4jYTusgBO0JxLTPgd-80jcjJM6Qthp7mITlFeYQ_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDMwOX0.JFwZ4jYTusgBO0JxLTPgd-80jcjJM6Qthp7mITlFeYQ_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDMwOX0.JFwZ4jYTusgBO0JxLTPgd-80jcjJM6Qthp7mITlFeYQ_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDMwOX0.JFwZ4jYTusgBO0JxLTPgd-80jcjJM6Qthp7mITlFeYQ_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDUyM30.LQlIou5cBjfv55MBd3DWIYTbYZyGoeh-yBbFIHzB9NY_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDUyM30.LQlIou5cBjfv55MBd3DWIYTbYZyGoeh-yBbFIHzB9NY_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDUyM30.LQlIou5cBjfv55MBd3DWIYTbYZyGoeh-yBbFIHzB9NY_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDUyM30.LQlIou5cBjfv55MBd3DWIYTbYZyGoeh-yBbFIHzB9NY_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDY2N30.e2ypW7UWKvnH3Hu2f0-9kYQMX-uF32qIaIz4dzA7a5E_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDY2N30.e2ypW7UWKvnH3Hu2f0-9kYQMX-uF32qIaIz4dzA7a5E_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDY2N30.e2ypW7UWKvnH3Hu2f0-9kYQMX-uF32qIaIz4dzA7a5E_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDY2N30.e2ypW7UWKvnH3Hu2f0-9kYQMX-uF32qIaIz4dzA7a5E_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDg0Mn0.hGjIbKcyjOQ6-Tgfcu450DOiN4uwLc8fBpvpDMe82MM_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDg0Mn0.hGjIbKcyjOQ6-Tgfcu450DOiN4uwLc8fBpvpDMe82MM_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDg0Mn0.hGjIbKcyjOQ6-Tgfcu450DOiN4uwLc8fBpvpDMe82MM_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MDg0Mn0.hGjIbKcyjOQ6-Tgfcu450DOiN4uwLc8fBpvpDMe82MM_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTE2OH0.UbBCVLCTQah0FAPHoqaRS9XAFJI5WPte5gUZsqEMjn4_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTE2OH0.UbBCVLCTQah0FAPHoqaRS9XAFJI5WPte5gUZsqEMjn4_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTE2OH0.UbBCVLCTQah0FAPHoqaRS9XAFJI5WPte5gUZsqEMjn4_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTE2OH0.UbBCVLCTQah0FAPHoqaRS9XAFJI5WPte5gUZsqEMjn4_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTM1Nn0.XTIoMesh4VTJbrjO3pcYej4IeHVpoeKYYTtHRvCAaks_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTM1Nn0.XTIoMesh4VTJbrjO3pcYej4IeHVpoeKYYTtHRvCAaks_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTM1Nn0.XTIoMesh4VTJbrjO3pcYej4IeHVpoeKYYTtHRvCAaks_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTM1Nn0.XTIoMesh4VTJbrjO3pcYej4IeHVpoeKYYTtHRvCAaks_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTkyMn0.emCDFNRMmlEHWG4o8TbvSlS9RrfKLrazCbmSNJuxYp4_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTkyMn0.emCDFNRMmlEHWG4o8TbvSlS9RrfKLrazCbmSNJuxYp4_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTkyMn0.emCDFNRMmlEHWG4o8TbvSlS9RrfKLrazCbmSNJuxYp4_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MTkyMn0.emCDFNRMmlEHWG4o8TbvSlS9RrfKLrazCbmSNJuxYp4_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjM4MX0.mP_a_1hz0npNleHvEXzz5AbUiB79zyvrjMxLkIQXbBs_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjM4MX0.mP_a_1hz0npNleHvEXzz5AbUiB79zyvrjMxLkIQXbBs_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjM4MX0.mP_a_1hz0npNleHvEXzz5AbUiB79zyvrjMxLkIQXbBs_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjM4MX0.mP_a_1hz0npNleHvEXzz5AbUiB79zyvrjMxLkIQXbBs_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjU2MH0.0Q2ktl2CQ_Yg-Q6IyxEkaJkvwAcGWQ0SLaYjglrNWkQ_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjU2MH0.0Q2ktl2CQ_Yg-Q6IyxEkaJkvwAcGWQ0SLaYjglrNWkQ_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjU2MH0.0Q2ktl2CQ_Yg-Q6IyxEkaJkvwAcGWQ0SLaYjglrNWkQ_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjU2MH0.0Q2ktl2CQ_Yg-Q6IyxEkaJkvwAcGWQ0SLaYjglrNWkQ_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjY5NX0.-i0uJ2Ixcs22SyodJdbuCu-ZEYBFvciWTjNQferruEg_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjY5NX0.-i0uJ2Ixcs22SyodJdbuCu-ZEYBFvciWTjNQferruEg_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjY5NX0.-i0uJ2Ixcs22SyodJdbuCu-ZEYBFvciWTjNQferruEg_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MjY5NX0.-i0uJ2Ixcs22SyodJdbuCu-ZEYBFvciWTjNQferruEg_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3Mjg2N30.3qUF1yaEtHroucW3uJKNL6yKawMUIVAGlpOt7FQZLB8_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3Mjg2N30.3qUF1yaEtHroucW3uJKNL6yKawMUIVAGlpOt7FQZLB8_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3Mjg2N30.3qUF1yaEtHroucW3uJKNL6yKawMUIVAGlpOt7FQZLB8_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3Mjg2N30.3qUF1yaEtHroucW3uJKNL6yKawMUIVAGlpOt7FQZLB8_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3Mjk3Nn0.D7r8JUJ4rQu_85SgP_qirVJTEGBCN7HHGt0ZpuAExTM_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3Mjk3Nn0.D7r8JUJ4rQu_85SgP_qirVJTEGBCN7HHGt0ZpuAExTM_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3Mjk3Nn0.D7r8JUJ4rQu_85SgP_qirVJTEGBCN7HHGt0ZpuAExTM_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3Mjk3Nn0.D7r8JUJ4rQu_85SgP_qirVJTEGBCN7HHGt0ZpuAExTM_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MzEzN30.aKFF_pSDjXk3D6yt3J2-zL8pJhf3qo8ZJvr4J8dD2Uk_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MzEzN30.aKFF_pSDjXk3D6yt3J2-zL8pJhf3qo8ZJvr4J8dD2Uk_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MzEzN30.aKFF_pSDjXk3D6yt3J2-zL8pJhf3qo8ZJvr4J8dD2Uk_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MzEzN30.aKFF_pSDjXk3D6yt3J2-zL8pJhf3qo8ZJvr4J8dD2Uk_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MzM1M30.wTfwzo8445EcATitrTf3LW866jETScPAwM0pRuEio4k_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MzM1M30.wTfwzo8445EcATitrTf3LW866jETScPAwM0pRuEio4k_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MzM1M30.wTfwzo8445EcATitrTf3LW866jETScPAwM0pRuEio4k_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTg3MzM1M30.wTfwzo8445EcATitrTf3LW866jETScPAwM0pRuEio4k_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjMxN30.PBwremSBBkykxD2nbp06izmvBjTSC0Qcqrwt6NyHqG0_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjMxN30.PBwremSBBkykxD2nbp06izmvBjTSC0Qcqrwt6NyHqG0_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjMxN30.PBwremSBBkykxD2nbp06izmvBjTSC0Qcqrwt6NyHqG0_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjMxN30.PBwremSBBkykxD2nbp06izmvBjTSC0Qcqrwt6NyHqG0_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjUwN30.AwEtasQ18kkWTPT5wxKjOIRliMZ2fZ6fOvJeQ6IfUuk_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjUwN30.AwEtasQ18kkWTPT5wxKjOIRliMZ2fZ6fOvJeQ6IfUuk_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjUwN30.AwEtasQ18kkWTPT5wxKjOIRliMZ2fZ6fOvJeQ6IfUuk_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjUwN30.AwEtasQ18kkWTPT5wxKjOIRliMZ2fZ6fOvJeQ6IfUuk_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjc2NX0.-BaL_nS4lY_y7YwWHCVFmjJnDEeCwsClBt9mMDeJMJg_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjc2NX0.-BaL_nS4lY_y7YwWHCVFmjJnDEeCwsClBt9mMDeJMJg_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjc2NX0.-BaL_nS4lY_y7YwWHCVFmjJnDEeCwsClBt9mMDeJMJg_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjc2NX0.-BaL_nS4lY_y7YwWHCVFmjJnDEeCwsClBt9mMDeJMJg_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjkxOX0.z8DEEjLt0-GotN4jJR0hLHZH8fmf2yY51AjdoS_d09E_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjkxOX0.z8DEEjLt0-GotN4jJR0hLHZH8fmf2yY51AjdoS_d09E_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjkxOX0.z8DEEjLt0-GotN4jJR0hLHZH8fmf2yY51AjdoS_d09E_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMjkxOX0.z8DEEjLt0-GotN4jJR0hLHZH8fmf2yY51AjdoS_d09E_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzEyNn0.wGNnPnwrK2Yy5pftc9LdPquEd8RPwzb_x8D7U_N49Oo_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzEyNn0.wGNnPnwrK2Yy5pftc9LdPquEd8RPwzb_x8D7U_N49Oo_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzEyNn0.wGNnPnwrK2Yy5pftc9LdPquEd8RPwzb_x8D7U_N49Oo_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzEyNn0.wGNnPnwrK2Yy5pftc9LdPquEd8RPwzb_x8D7U_N49Oo_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzMwNn0.gp_Hi1jJp-H93dwCUZdyIzU46pqIrC3Q11lr_NX39bA_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzMwNn0.gp_Hi1jJp-H93dwCUZdyIzU46pqIrC3Q11lr_NX39bA_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzMwNn0.gp_Hi1jJp-H93dwCUZdyIzU46pqIrC3Q11lr_NX39bA_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzMwNn0.gp_Hi1jJp-H93dwCUZdyIzU46pqIrC3Q11lr_NX39bA_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzQ1NH0.NM_0d_dxPGHgG1sTXZg1GfXlVW7hZZVBXq6omrHZWkw_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzQ1NH0.NM_0d_dxPGHgG1sTXZg1GfXlVW7hZZVBXq6omrHZWkw_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzQ1NH0.NM_0d_dxPGHgG1sTXZg1GfXlVW7hZZVBXq6omrHZWkw_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzQ1NH0.NM_0d_dxPGHgG1sTXZg1GfXlVW7hZZVBXq6omrHZWkw_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzY4N30.k3GutJVr2U7fhlQJZgNCm053Um6dolqtcFWnhX-SZZY_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzY4N30.k3GutJVr2U7fhlQJZgNCm053Um6dolqtcFWnhX-SZZY_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzY4N30.k3GutJVr2U7fhlQJZgNCm053Um6dolqtcFWnhX-SZZY_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzY4N30.k3GutJVr2U7fhlQJZgNCm053Um6dolqtcFWnhX-SZZY_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzg3MX0.O-6Jw06wZFRqbyUe9vYA0RZKXHSzpqALeIb69NVmE7s_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzg3MX0.O-6Jw06wZFRqbyUe9vYA0RZKXHSzpqALeIb69NVmE7s_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzg3MX0.O-6Jw06wZFRqbyUe9vYA0RZKXHSzpqALeIb69NVmE7s_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxMzg3MX0.O-6Jw06wZFRqbyUe9vYA0RZKXHSzpqALeIb69NVmE7s_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDExM30.A6Jj-2KThMhShfO09au6lDZ8mf7wkWYGoa3NqMQ7d7g_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDExM30.A6Jj-2KThMhShfO09au6lDZ8mf7wkWYGoa3NqMQ7d7g_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDExM30.A6Jj-2KThMhShfO09au6lDZ8mf7wkWYGoa3NqMQ7d7g_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDExM30.A6Jj-2KThMhShfO09au6lDZ8mf7wkWYGoa3NqMQ7d7g_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDMxM30.wjDdNQP0TjHe0HgkDrDCIAo9rsm4FbPqo1GKirPaivo_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDMxM30.wjDdNQP0TjHe0HgkDrDCIAo9rsm4FbPqo1GKirPaivo_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDMxM30.wjDdNQP0TjHe0HgkDrDCIAo9rsm4FbPqo1GKirPaivo_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDMxM30.wjDdNQP0TjHe0HgkDrDCIAo9rsm4FbPqo1GKirPaivo_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDY4Nn0.9652-NokiIDrrIP54qN03ZC3XMvePuKPYLLKDNVKt_o_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDY4Nn0.9652-NokiIDrrIP54qN03ZC3XMvePuKPYLLKDNVKt_o_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDY4Nn0.9652-NokiIDrrIP54qN03ZC3XMvePuKPYLLKDNVKt_o_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDY4Nn0.9652-NokiIDrrIP54qN03ZC3XMvePuKPYLLKDNVKt_o_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDg2MH0.FCNCOn4yJSuPcg099VJya7K--LbfLw_kPcA2M7JwnhA_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDg2MH0.FCNCOn4yJSuPcg099VJya7K--LbfLw_kPcA2M7JwnhA_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDg2MH0.FCNCOn4yJSuPcg099VJya7K--LbfLw_kPcA2M7JwnhA_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNDg2MH0.FCNCOn4yJSuPcg099VJya7K--LbfLw_kPcA2M7JwnhA_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTAwM30.b9HFWJz8t_MzIKoMhruOWmeDWk4cXvZZIqx9CPmkP8g_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTAwM30.b9HFWJz8t_MzIKoMhruOWmeDWk4cXvZZIqx9CPmkP8g_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTAwM30.b9HFWJz8t_MzIKoMhruOWmeDWk4cXvZZIqx9CPmkP8g_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTAwM30.b9HFWJz8t_MzIKoMhruOWmeDWk4cXvZZIqx9CPmkP8g_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTQwNH0._rgpBGq0lgNBXSnOXi1mzhTcGi7-PdOYkTpnqA5NA04_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTQwNH0._rgpBGq0lgNBXSnOXi1mzhTcGi7-PdOYkTpnqA5NA04_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTQwNH0._rgpBGq0lgNBXSnOXi1mzhTcGi7-PdOYkTpnqA5NA04_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTQwNH0._rgpBGq0lgNBXSnOXi1mzhTcGi7-PdOYkTpnqA5NA04_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTUwNX0.0ITWZvwnG9p3EXiTgoWRKCf82wHWbeWvP4SC_ORor9M_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTUwNX0.0ITWZvwnG9p3EXiTgoWRKCf82wHWbeWvP4SC_ORor9M_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTUwNX0.0ITWZvwnG9p3EXiTgoWRKCf82wHWbeWvP4SC_ORor9M_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNTUwNX0.0ITWZvwnG9p3EXiTgoWRKCf82wHWbeWvP4SC_ORor9M_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNjI2OX0.QcNVn2xnM5FfaB2nFrwDmjIaCjCWQ2e7X5m0qPumDTg_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNjI2OX0.QcNVn2xnM5FfaB2nFrwDmjIaCjCWQ2e7X5m0qPumDTg_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNjI2OX0.QcNVn2xnM5FfaB2nFrwDmjIaCjCWQ2e7X5m0qPumDTg_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNjI2OX0.QcNVn2xnM5FfaB2nFrwDmjIaCjCWQ2e7X5m0qPumDTg_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNjg2Nn0.7ZoQ-AWdkWViIi97-G6CyMTVg_8FYeD_ZdU98CRr8Rk_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNjg2Nn0.7ZoQ-AWdkWViIi97-G6CyMTVg_8FYeD_ZdU98CRr8Rk_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNjg2Nn0.7ZoQ-AWdkWViIi97-G6CyMTVg_8FYeD_ZdU98CRr8Rk_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNjg2Nn0.7ZoQ-AWdkWViIi97-G6CyMTVg_8FYeD_ZdU98CRr8Rk_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzAwM30.vTXrVE7aXZFIg8j8OQwZKC_TFXZh0VMa4lX6CBAXxtI_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzAwM30.vTXrVE7aXZFIg8j8OQwZKC_TFXZh0VMa4lX6CBAXxtI_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzAwM30.vTXrVE7aXZFIg8j8OQwZKC_TFXZh0VMa4lX6CBAXxtI_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzAwM30.vTXrVE7aXZFIg8j8OQwZKC_TFXZh0VMa4lX6CBAXxtI_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzI3Mn0.QWZmPzOAqOFBYBvd6-sqke1SnkIoIMcJRewfpW-WYFQ_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzI3Mn0.QWZmPzOAqOFBYBvd6-sqke1SnkIoIMcJRewfpW-WYFQ_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzI3Mn0.QWZmPzOAqOFBYBvd6-sqke1SnkIoIMcJRewfpW-WYFQ_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzI3Mn0.QWZmPzOAqOFBYBvd6-sqke1SnkIoIMcJRewfpW-WYFQ_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzUzN30.cZBKXdykC7h_bVvx6rse3JFsXbfMx4MsObs1Eg7mMrk_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzY1OX0.0akEXVivy9N_nRS56D2_MhuL3YPE2Ckst1kyIvHD7CE_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzY1OX0.0akEXVivy9N_nRS56D2_MhuL3YPE2Ckst1kyIvHD7CE_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzY1OX0.0akEXVivy9N_nRS56D2_MhuL3YPE2Ckst1kyIvHD7CE_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzY1OX0.0akEXVivy9N_nRS56D2_MhuL3YPE2Ckst1kyIvHD7CE_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzc3Mn0.3QTDIhnol5yuSutNJID6NHbis4vAnaPY0yznCt7eypc_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzc3Mn0.3QTDIhnol5yuSutNJID6NHbis4vAnaPY0yznCt7eypc_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzc3Mn0.3QTDIhnol5yuSutNJID6NHbis4vAnaPY0yznCt7eypc_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkxNzc3Mn0.3QTDIhnol5yuSutNJID6NHbis4vAnaPY0yznCt7eypc_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyNzc0NH0.XIkxrEjkDDyuq2Q6WsMw2X77deD1Fwpf7vQqMDNuB5g_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyNzc0NH0.XIkxrEjkDDyuq2Q6WsMw2X77deD1Fwpf7vQqMDNuB5g_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyNzc0NH0.XIkxrEjkDDyuq2Q6WsMw2X77deD1Fwpf7vQqMDNuB5g_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyNzc0NH0.XIkxrEjkDDyuq2Q6WsMw2X77deD1Fwpf7vQqMDNuB5g_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyNzk1Nn0.I77AiAa2EqEpktbYeV4pMVInd6aa9vP1nXxeSuPQ_Xc_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyNzk1Nn0.I77AiAa2EqEpktbYeV4pMVInd6aa9vP1nXxeSuPQ_Xc_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyNzk1Nn0.I77AiAa2EqEpktbYeV4pMVInd6aa9vP1nXxeSuPQ_Xc_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyNzk1Nn0.I77AiAa2EqEpktbYeV4pMVInd6aa9vP1nXxeSuPQ_Xc_3.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyODEyN30.pO5q9YGmqwh5A13j-uUwl3qzw04a0KD4F7Sf3Yhlz8A_0.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyODEyN30.pO5q9YGmqwh5A13j-uUwl3qzw04a0KD4F7Sf3Yhlz8A_1.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyODEyN30.pO5q9YGmqwh5A13j-uUwl3qzw04a0KD4F7Sf3Yhlz8A_2.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/Img/Product/posteyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIyMiIsImV4cCI6MTY4MTkyODEyN30.pO5q9YGmqwh5A13j-uUwl3qzw04a0KD4F7Sf3Yhlz8A_3.jpeg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Beans/SendEmail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Beans/SendEmail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CartControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CartControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/CheckUserIsExist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/CheckUserIsExist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/GetAllProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/GetAllProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Oder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PostProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PostProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Profile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Profile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/FilterAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/FilterAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LoginWithFb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginWithFb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LoginWithGg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginWithGg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/OrderControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/OrderControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/PriceCart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/PriceCart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/VerifyAccountControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/VerifyAccountControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/CartDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/CartDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/LogDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/LogDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/OderDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/OderDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/PaymentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/PaymentDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ProductDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ProductDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/RoleDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/RoleDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/TransportAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/TransportAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Filter/FilterLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Filter/FilterLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Log.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Log.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Oder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Oder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Upload/UploadImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Upload/UploadImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Component/filter/Filter.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Component/filter/Filter.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Component/header/Header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Component/header/Header.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Component/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Component/header/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Component/loading/Loading.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Component/loading/Loading.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/404.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/404.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/Admin/doc/PostStatus/make/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/Admin/doc/PostStatus/make/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/Admin/doc/SideBar.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/Admin/doc/SideBar.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/Admin/doc/quan-ly-bao-cao.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/Admin/doc/quan-ly-bao-cao.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/Cart.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/Cart.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/ForgotPass.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/ForgotPass.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/Login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/Login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/Register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/Register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/cart.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/cart.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/product.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/product.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/Page/Admin/doc/table-data-oder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Page/Admin/doc/table-data-oder.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascrip/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascrip/cart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascrip/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascrip/product.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/javascrip/register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/javascrip/register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/css/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,6 +49,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="module-info" />
+        <option value="AnnotationType" />
+        <option value="JavaScript File" />
         <option value="Class" />
       </list>
     </option>
@@ -324,27 +77,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/HOC/TTW/Project",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "spring.configuration.checksum": "9e727fdd3aec8274f46685441900280d",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/HOC/TTW/Project&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;9e727fdd3aec8274f46685441900280d&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\HOC\TTW\Project\src\main\webapp\javascrip" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Security" />
+    </key>
+  </component>
   <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.68">
-    <configuration name="PaymentVNPay" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DAO.PaymentVNPay" />
+    <configuration name="LogDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DAO.LogDAO" />
       <module name="Project" />
       <extension name="coverage">
         <pattern>
@@ -356,8 +122,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="DAO.ProductDAO" />
+    <configuration name="OderDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DAO.OderDAO" />
+      <module name="Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="DAO.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Security.ReLogin" />
+      <module name="Project" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Security.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RoleDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="DAO.RoleDAO" />
       <module name="Project" />
       <extension name="coverage">
         <pattern>
@@ -383,7 +175,7 @@
       </method>
     </configuration>
     <configuration name="Tomcat 9.0.68" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.68" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <deployment>
         <artifact name="Project:war exploded">
           <settings>
@@ -392,7 +184,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="1f7f5b19-ffc0-46e5-89a9-5463ddacda2c" />
+        <option name="BASE_DIRECTORY_NAME" value="7801ac42-2878-4c96-989e-d3cb12204fc4" />
         <option name="HTTP_PORT" value="3000" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
@@ -401,7 +193,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="49608" />
+        <option name="DEBUG_PORT" value="58608" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -471,16 +263,20 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.PaymentVNPay" />
+      <item itemvalue="Application.LogDAO" />
+      <item itemvalue="Application.ReLogin" />
+      <item itemvalue="Application.RoleDAO" />
+      <item itemvalue="Application.OderDAO" />
       <item itemvalue="Application.TransportAPI" />
-      <item itemvalue="Application.ProductDAO" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.68" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TransportAPI" />
-        <item itemvalue="Application.PaymentVNPay" />
-        <item itemvalue="Application.ProductDAO" />
+        <item itemvalue="Application.ReLogin" />
+        <item itemvalue="Application.RoleDAO" />
+        <item itemvalue="Application.LogDAO" />
+        <item itemvalue="Application.OderDAO" />
       </list>
     </recent_temporary>
   </component>
@@ -499,6 +295,14 @@
       <workItem from="1681905451168" duration="12191000" />
       <workItem from="1681970834614" duration="2183000" />
       <workItem from="1682325346327" duration="7437000" />
+      <workItem from="1682501129698" duration="1047000" />
+      <workItem from="1682507877446" duration="2370000" />
+      <workItem from="1682514124303" duration="10449000" />
+      <workItem from="1682592940036" duration="36472000" />
+      <workItem from="1682754577732" duration="2525000" />
+      <workItem from="1682786218436" duration="893000" />
+      <workItem from="1682940967146" duration="17902000" />
+      <workItem from="1683048129137" duration="25564000" />
     </task>
     <servers />
   </component>

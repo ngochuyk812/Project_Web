@@ -63,6 +63,9 @@ public class OrderControl extends HttpServlet {
                     String data =TransportAPI.getInstance().registerTransport(address[1],address[2], 1630,4140,1120,1044);
                     JSONObject object = new JSONObject(data);
                     String idTransport = object.getJSONObject("Transport").getString("id");
+                    long leadTime =object.getJSONObject("Transport").getLong("leadTime");
+                    Date date = new Date(new Date().getTime() + leadTime);
+                    oder.setLeadTime(new java.sql.Date(date.getTime()));
                     oder.setIdTransport(idTransport);
                     oder.setStatus(1);
                     OderDAO.updateById(oder);
@@ -80,7 +83,7 @@ public class OrderControl extends HttpServlet {
                     req.getSession().removeAttribute("token");
                     CartDAO.removeCartByUser(user.getId());
                     req.getSession().setAttribute("address", oder.getAddress());
-                    long leadTime =object.getJSONObject("Transport").getLong("leadTime");
+
                     req.getSession().setAttribute("leadTime", new Date(new Date().getTime()+ leadTime));
                     req.getSession().setAttribute("code", oder.getIdTransport());
                     req.getSession().setAttribute("total",(double) TransportAPI.convertMoney(vnp_Amount,false));
@@ -134,6 +137,7 @@ public class OrderControl extends HttpServlet {
                 order.setNote(note);
                 order.setStatus(1);
                 order.setId(idOrder);
+                OderDAO.addOrder(order);
 
             int totalPrice = 0;
             int h = 0;
@@ -164,12 +168,14 @@ public class OrderControl extends HttpServlet {
             payment.setPaymentDate(new java.sql.Date(new Date().getTime()));
             payment.setType(0);
             payment.setStatus(0);
-            OderDAO.addOrder(order);
+            long leadTime =object.getJSONObject("Transport").getLong("leadTime");
+            Date date = new Date(new Date().getTime() + leadTime);
+            order.setLeadTime(new java.sql.Date(date.getTime()));
+            OderDAO.updateById(order);
             int rsPayment = PaymentDAO.insertPayment(payment);
             CartDAO.removeCartByUser(user.getId());
             String domain = req.getRequestURL().toString();
             long dateTime = new Date().getTime();
-            long leadTime =object.getJSONObject("Transport").getLong("leadTime");
             req.getSession().setAttribute("leadTime", new Date(new Date().getTime()+ leadTime));
             req.getSession().setAttribute("order", order);
 
