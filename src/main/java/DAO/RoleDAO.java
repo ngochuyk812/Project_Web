@@ -21,4 +21,21 @@ public class RoleDAO {
         }
         return list;
     }
+
+    public static Role getRole(int id) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("select * from role_permission where role_id = ?");
+        stmt.setInt(1,id);
+        ResultSet rs = stmt.executeQuery();
+        Role role = new Role();
+        while  (rs.next()) {
+            role.setId(rs.getInt(1));
+            role.addPermission(rs.getInt(2));
+        }
+        return role;
+    }
+
+    public static void main(String[] args) throws SQLException {
+        System.out.println(RoleDAO.getRole(3));
+    }
 }

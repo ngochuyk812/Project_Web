@@ -125,8 +125,8 @@
                         <%ArrayList<Product> products = (ArrayList<Product>) request.getAttribute("products"); %>
 
                         <%
-                            Locale localeVN = new Locale("vi", "VN");
-                            NumberFormat vn = NumberFormat.getInstance(localeVN);
+                            Locale localeUSD = new Locale("US", "US");
+                            NumberFormat usd = NumberFormat.getInstance(localeUSD);
                             double doubleNumber1 = 10.17d;
 
                             for (int i = 0; i < products.size(); i++) {
@@ -144,7 +144,7 @@
                             <td><span
                                     class="badge bg-info">Hết hàng</span>
                             </td>
-                            <td><%=vn.format(tmp.getPrice())%> đ</td>
+                            <td><%=usd.format(tmp.getPrice())%> đ</td>
 
                             <td>
                                 <button class="btn btn-primary btn-sm trash" type="button" title="Xóa"
@@ -191,7 +191,7 @@
                         <%ArrayList<Oder> oders = (ArrayList<Oder>) request.getAttribute("oders");%>
                         <tbody>
                         <%
-                            NumberFormat vn1 = NumberFormat.getInstance(localeVN);
+                            NumberFormat vn1 = NumberFormat.getInstance(localeUSD);
                             for (int i = 0; i < oders.size(); i++) {
                                 Oder tmp = oders.get(i);
                         %>
@@ -199,13 +199,13 @@
                             <td width="10"><input type="checkbox" name="check<%=tmp.getId()%>" value="<%=i%>"></td>
                             <td><%=tmp.getId()%>
                             </td>
-                            <td><%=tmp.getFullName()%>
+                            <td><%=tmp.getIdTransport()%>
                             </td>
-                            <td><%=tmp.getProductName()%>
+                            <td><%=tmp.getNote()%>
                             </td>
-                            <td><%=tmp.getQuantity()%>
+                            <td><%=tmp.getIdUser()%>
                             </td>
-                            <td><%=vn1.format(tmp.getTotal())%> đ</td>
+                            <td><%=vn1.format(tmp.getTotal_price())%></td>
                             <%
                                 String status = "Đã hủy";
                                 String badge = "badge badge-danger";
@@ -248,18 +248,18 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Tên khách hàng</label>
-                                                <input class="form-control" value="<%=tmp.getFullName()%>"
+                                                <input class="form-control" value="<%=tmp.getIdUser()%>"
                                                        name="fullname" type="text"/>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Tên sản phẩm</label>
-                                                <input class="form-control" disabled value="<%=tmp.getProductName()%>"
+                                                <input class="form-control" disabled value="<%=tmp.getIdTransport()%>"
                                                        name="title" type="text"/>
                                             </div>
                                             <div class="form-group  col-md-6">
                                                 <label class="control-label">Số lượng</label>
                                                 <input class="form-control" name="quantity"
-                                                       value="<%=tmp.getQuantity()%>" type="number" required>
+                                                       value="<%=tmp.getTotal_price()%>" type="number" required>
                                             </div>
 
                                             <div class="form-group col-md-6">
@@ -269,7 +269,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Phone</label>
-                                                <input class="form-control" name="phone" value="<%=tmp.getPhone()%>"
+                                                <input class="form-control" name="phone" value="<%=tmp.getAddress()%>"
                                                        type="text">
                                             </div>
                                             <div class="form-group col-md-12">
@@ -324,7 +324,7 @@
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Tên khách hàng</label>
-                                                <input class="form-control" value="<%=tmp.getFullName()%>" disabled
+                                                <input class="form-control" value="<%=tmp.getTotal_price()%>" disabled
                                                        name="fullname" type="text"/>
                                             </div>
                                             <div class="form-group col-md-6">
@@ -335,27 +335,27 @@
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Phone</label>
                                                 <input class="form-control" name="phone" disabled
-                                                       value="<%=tmp.getPhone()%>" type="text">
+                                                       value="<%=tmp.getAddress()%>" type="text">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Username</label>
                                                 <input class="form-control" name="Username" disabled
-                                                       value="<%=tmp.getUsername()%>" type="text">
+                                                       value="<%=tmp.getNote()%>" type="text">
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Tên sản phẩm</label>
-                                                <input class="form-control" disabled value="<%=tmp.getProductName()%>"
+                                                <input class="form-control" disabled value="<%=tmp.getIdTransport()%>"
                                                        name="title" type="text"/>
                                             </div>
 
                                             <div class="form-group  col-md-6">
                                                 <label class="control-label">Số lượng</label>
                                                 <input class="form-control" name="quantity" disabled
-                                                       value="<%=tmp.getQuantity()%>" type="number" required>
+                                                       value="<%=tmp.getStatus()%>" type="number" required>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label class="control-label">Tổng tiền</label>
-                                                <input class="form-control" disabled value="<%=tmp.getTotal()%>"
+                                                <input class="form-control" disabled value="<%=tmp.getIdTransport()%>"
                                                        name="total" type="text"/>
                                             </div>
 

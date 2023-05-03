@@ -88,6 +88,7 @@ public class Admin extends HttpServlet {
         ArrayList<Oder> oders = null;
         try {
             oders = OderDAO.getOrder();
+            System.out.println(oders.size());
             req.setAttribute("oders", oders);
             req.getRequestDispatcher("/Page/Admin/doc/table-data-oder.jsp").forward(req, res);
         } catch (SQLException e) {
@@ -120,6 +121,9 @@ public class Admin extends HttpServlet {
         res.setCharacterEncoding("UTF-8");
         Cookie[] cookies = req.getCookies();
         String action = req.getParameter("action");
+        User user = (User) req.getSession().getAttribute("user");
+
+        req.setAttribute("userInfo", user);
         String id = req.getParameter("id");
         if (action != null && action.equalsIgnoreCase("editproduct")) {
             Product product = ProductDAO.getProductById(Integer.valueOf(id));
@@ -141,6 +145,9 @@ public class Admin extends HttpServlet {
         res.setContentType("text/html;charset=UTF-8");
         res.setCharacterEncoding("UTF-8");
         User user = (User) req.getSession().getAttribute("user");
+
+        req.setAttribute("userInfo", user);
+
         String page = req.getParameter("page");
         try {
             User u = UserDAO.getUserByName(user.getUserName());
@@ -166,6 +173,7 @@ public class Admin extends HttpServlet {
                 default:
                     indexPage(req, res);
             }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -208,7 +216,7 @@ public class Admin extends HttpServlet {
     }
 
     public void addMap(Map<String, List<User>> map, User tmp) {
-        if (tmp.getRole() == 0) {
+        if (tmp.getRole().getId() == 0) {
             if (!map.containsKey("customersAccount")) {
                 List<User> list = new ArrayList<>();
                 list.add(tmp);
@@ -219,7 +227,7 @@ public class Admin extends HttpServlet {
             }
 
         } else {
-            if (tmp.getRole() == 1) {
+            if (tmp.getRole().getId() == 1) {
                 if (!map.containsKey("employeesAccount")) {
                     List<User> list = new ArrayList<>();
                     list.add(tmp);
@@ -230,7 +238,7 @@ public class Admin extends HttpServlet {
                 }
 
             } else {
-                if (tmp.getRole() == 2) {
+                if (tmp.getRole().getId() == 2) {
                     if (!map.containsKey("managesAccount")) {
                         List<User> list = new ArrayList<>();
                         list.add(tmp);
@@ -241,7 +249,7 @@ public class Admin extends HttpServlet {
                     }
 
                 } else {
-                    if (tmp.getRole() == 3) {
+                    if (tmp.getRole().getId() == 3) {
                         if (!map.containsKey("adminsAccount")) {
                             List<User> list = new ArrayList<>();
                             list.add(tmp);
