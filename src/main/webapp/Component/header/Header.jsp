@@ -36,7 +36,8 @@
         </a>
     </span>
                         <div style="display: none" id="profile">
-                            <a href="/profile"><i class="fa-solid fa-user"></i><span class="name_user" style="margin-left: 10px"></span></a>
+                            <a href="/profile"><i class="fa-solid fa-user"></i><span class="name_user"
+                                                                                     style="margin-left: 10px"></span></a>
                         </div>
 
                     </div>
@@ -75,8 +76,19 @@
     const home = () => {
         window.location.pathname = "/"
     }
+    const checkToActive=()=>{
+        if(window.location.pathname=="/"){
+            document.querySelectorAll(".menu-top > li> a")[0].classList.add("active")
 
-
+        }else {
+            if(window.location.pathname=="/product"){
+                document.querySelectorAll(".menu-top > li> a")[1].classList.add("active")
+            }else {
+                document.querySelectorAll(".menu-top > li> a")[2].classList.add("active")
+            }
+        }
+    }
+    checkToActive();
     const findCookieByname = (name) => {
         const cookies = document.cookie.split("; ")
         for (const i in cookies) {
@@ -99,19 +111,16 @@
             url: "/check/UserIsExist",
             contentType: "application/x-www-form-urlencoded",
             success: function (data) {
-                console.log( data)
-                if( data.includes("not ok")){
+                console.log(data)
+                if (data.includes("not ok")) {
 
-                }else{
+                } else {
                     document.querySelector(".name_user").textContent = JSON.parse(data).name
                     Login_Res.classList.add("hidden")
                     profile.classList.add("show")
                 }
             }
         });
-        // if(findCookieByname("isAdmin") !=1){
-        //     document.querySelector("#checkIsAdmin").style.display = 'none'
-        // }
     }
     checkAccountExist()
 </script>
