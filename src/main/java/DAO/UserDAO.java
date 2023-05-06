@@ -134,15 +134,6 @@ public class UserDAO {
         return -1;
 
     }
-    public static boolean checkUser(String username, String email) throws SQLException, ClassNotFoundException {
-        Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("select * from user where username=? or email=?");
-        stmt.setString(1, username);
-        stmt.setString(2, email);
-        ResultSet rs = stmt.executeQuery();
-        return rs.next();
-    }
-
     public static int insertUser(User user) throws SQLException, ClassNotFoundException {
         Connection c = ConnectDB.getConnect();
         PreparedStatement stmt = c.prepareStatement("insert into user (username,password,fullname,email,phone,address,role,status,statusLogin) value(?,?,?,?,?,?,?,?,?)");
@@ -242,26 +233,6 @@ public class UserDAO {
         }
         return list;
     }
-
-    public static User getUserAuthenticated(String userName) throws SQLException {
-        Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("select * from user where username=?");
-        stmt.setString(1, userName);
-        ResultSet rs = stmt.executeQuery();
-//        if (rs.next()) {
-//            int idUser = rs.getInt("id");
-//            String userName = rs.getString("username");
-//            int role = Integer.valueOf(rs.getString("role"));
-//            int status = Integer.valueOf(rs.getString("status"));
-//            int statusLogin = rs.getInt("statusLogin");
-////            User user = new User(userName, pass, fullName, email, phone, avatar, address, role, status, statusLogin);
-////            user.setId(idUser);
-////            return user;
-//        }
-        return null;
-
-    }
-
     public Role getRole(int idRole) throws SQLException {
         Connection c = ConnectDB.getConnect();
         PreparedStatement stmt = c.prepareStatement("select * from role where id=?");
@@ -316,6 +287,16 @@ public class UserDAO {
         stmt.setString(1, address);
         stmt.setString(2, username);
 
+        int rs = stmt.executeUpdate();
+        return rs;
+    }
+    public static int changePassword(String pass,int id) throws SQLException {
+        Connection c = ConnectDB.getConnect();
+        PreparedStatement stmt = c.prepareStatement("UPDATE user\n" +
+                "SET  password = ? " +
+                "WHERE id = ?");
+        stmt.setString(1, pass);
+        stmt.setInt(2, id);
         int rs = stmt.executeUpdate();
         return rs;
     }

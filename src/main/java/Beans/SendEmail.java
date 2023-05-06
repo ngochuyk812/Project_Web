@@ -46,6 +46,21 @@ public class SendEmail {
         } catch (Exception e) {
         }
     }
+    public void sendTokenVerifyForgot(String email,String linkVerify){
+        try {
+            MimeMessage mimeMessage = mailSender.createMimeMessage();
+            MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, false, "utf-8");
+            mimeMessage.setSubject("Verify Forgot Password Account");
+            mimeMessage.setContent("<p>Nhấn vào đường dẫn bên dươi để hoàn thành đăng ký: </p> </br> <b>Đường dẫn chỉ có tác dụng trong "+JWT.TIMEOUT+" phút</b> </br> <a href = \""+linkVerify+"\">"+linkVerify+"</a> ", "text/html; charset=utf-8");
+
+            helper.setFrom("nguyenhauxmvt@gmail.com");
+            helper.setTo(email);
+
+            mailSender.send(mimeMessage);
+
+        } catch (Exception e) {
+        }
+    }
     public void sendText(String toEmail,String title,String text) {
 
         try {
