@@ -102,7 +102,6 @@ public class CommentControl extends HttpServlet {
             if (fileName == null) {
                 continue;
             }
-            System.out.println(12312);
             String newFileName = "video" + token + countVideo + "_" + fileName;
             Path filePath = Paths.get(realPath, "Img/Comment", newFileName);
             Files.copy(filePart.getInputStream(), filePath, StandardCopyOption.REPLACE_EXISTING);

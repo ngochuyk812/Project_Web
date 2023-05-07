@@ -17,7 +17,7 @@ public class RoleDAO {
         PreparedStatement stmt = c.prepareStatement("select * from role where status=1");
         ResultSet rs = stmt.executeQuery();
         while  (rs.next()) {
-            list.add(new Role(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            list.add(new Role(rs.getInt(1), rs.getString(2), rs.getInt(5)));
         }
         return list;
     }
