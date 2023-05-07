@@ -49,9 +49,11 @@ public class User implements Serializable {
         this.statusLogin = statusLogin;
         this.id = id;
     }
+
     public User() {
 
     }
+
     public int getId() {
         return id;
     }
@@ -124,9 +126,6 @@ public class User implements Serializable {
         this.avatar = avatar;
     }
 
-
-
-
     public String getAddress() {
         return address;
     }
@@ -134,11 +133,22 @@ public class User implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     }
+
     public String getNameRole() {
+        System.out.println(role.getId());
+        if(role.getId()==3){
+            return "Admin";
+        }else {
+            if(role.getId()==4){
+                System.out.println(12);
+                return "User";
 
-            return "getNameRole_Clas_User_Model";
-
+            }
+        }
+        System.out.println(123);
+        return "Nhân viên";
     }
+
     @Override
     public String toString() {
         return "User{" +

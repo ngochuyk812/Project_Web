@@ -255,8 +255,6 @@
                             </c:if>
                         </div>
                     </c:forEach>
-
-
                 </div>
 
             </div>
@@ -269,14 +267,10 @@
 </div>
 
 <jsp:include page="../Component/footer/footer.jsp"/>
-
 </body>
-
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>
+<script type="text/javascript">
     var slideIndex = 1;
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script type="application/javascript">
     const containerImg = document.querySelector(".containerImg")
     const containerVideo = document.querySelector(".containerVideo")
     document.querySelector(".imgUploadBtn").addEventListener("click", () => {
@@ -286,15 +280,18 @@
         const wrapperImg = e.target.parentNode;
         wrapperImg.remove();
     }
-    const createItemImg = (src) => {
+    const createItemImg = (src,index) => {
         const newDiv = document.createElement("div");
-        newDiv.setAttribute("id", "your-div-id");
         newDiv.classList.add("wrapperImg");
         const deleteIcon = document.createElement("i");
         deleteIcon.classList.add("imgDel");
         deleteIcon.classList.add("fa-solid");
         deleteIcon.classList.add("fa-trash");
-        deleteIcon.addEventListener("click", (e) => delImg(e))
+        deleteIcon.classList.add("fa-trash");
+        deleteIcon.addEventListener("click", (e) => {
+            delImg(e);
+            ImgObject.arrFileImg[index].status=0
+        })
         newDiv.appendChild(deleteIcon);
         const newImg = document.createElement("img");
         newImg.setAttribute("src", src);
@@ -302,14 +299,18 @@
         newDiv.appendChild(newImg);
         return newDiv;
     }
-    const createItemVideo = (src) => {
+    const createItemVideo = (src,index) => {
         const newDiv = document.createElement("div");
         newDiv.classList.add("wrapperVideo");
         const deleteIcon = document.createElement("i");
         deleteIcon.classList.add("videoDel");
         deleteIcon.classList.add("fa-solid");
         deleteIcon.classList.add("fa-trash");
-        deleteIcon.addEventListener("click", (e) => delImg(e))
+        deleteIcon.addEventListener("click", (e) => {
+            delImg(e)
+            VideoObject.arrFileVideo[index].status=0
+        })
+
         newDiv.appendChild(deleteIcon);
         const newVideo = document.createElement("video");
         newVideo.setAttribute("src", src);
@@ -319,6 +320,14 @@
         const container = document.querySelector(".containerVideo");
         container.appendChild(newDiv);
         return newDiv;
+    }
+    let ImgObject={
+        indexFileImg:0,
+        arrFileImg:[]
+    }
+    let VideoObject={
+        indexFileVideo:0,
+        arrFileVideo:[]
     }
     var formData = new FormData();
     const fileInput = document.getElementById("myFileInput");
@@ -331,26 +340,34 @@
             reader.addEventListener("load", () => {
                 const base64String = reader.result;
                 if (file.type.includes("image")) {
-                    if (formData.getAll("fileImage").length + 1 > 5) {
+                    if (ImgObject.arrFileImg.length  + 1 > 5) {
                         swal({
                             title: "Thất bại",
                             text: "Chỉ được chọn 5 image",
                         })
                     } else {
-                        formData.append("fileImage", file)
-                        const div = createItemImg(base64String)
+                        ImgObject.arrFileImg.push({
+                            data:file,
+                            status:1
+                        })
+                        const div = createItemImg(base64String,ImgObject.indexFileImg)
                         containerImg.appendChild(div)
+                        ImgObject.indexFileImg++;
                     }
                 } else if (file.type.includes("video/mp4")) {
-                    if (formData.getAll("fileVideo").length + 1 > 2) {
+                    if (VideoObject.arrFileVideo.length + 1 > 2) {
                         swal({
                             title: "Thất bại",
                             text: "Chỉ được chọn 2 video",
                         })
                     } else {
-                        formData.append(`fileVideo`, file)
-                        const div = createItemVideo(base64String)
+                        VideoObject.arrFileVideo.push({
+                            data:file,
+                            status: 1
+                        })
+                        const div = createItemVideo(base64String,VideoObject.indexFileVideo)
                         containerVideo.appendChild(div)
+                        VideoObject.indexFileVideo++;
                     }
                 }
             });
@@ -364,6 +381,16 @@
         formData.append("content", content)
         formData.append("star", star)
         formData.append("idPost", idPost)
+        for (const x of ImgObject.arrFileImg) {
+            if(x.status==1){
+                formData.append("fileImage",x.data)
+            }
+        }
+        for (const x of VideoObject.arrFileVideo) {
+            if(x.status==1){
+                formData.append("fileVideo",x.data)
+            }
+        }
         if (idPost && star && content) {
             $.ajax({
                 url: "/postComment",

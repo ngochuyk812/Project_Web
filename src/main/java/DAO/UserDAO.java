@@ -143,7 +143,7 @@ public class UserDAO {
         stmt.setString(4, user.getEmail());
         stmt.setString(5, user.getPhone());
         stmt.setString(6, user.getAddress());
-        stmt.setInt(7, 0);
+        stmt.setInt(7, 4);
         stmt.setInt(8, user.getStatus());
         stmt.setInt(9, user.getStatusLogin());
         int rs = stmt.executeUpdate();
@@ -225,7 +225,7 @@ public class UserDAO {
     public static List<User> getAllUser() throws SQLException {
         List<User> list = new ArrayList<>();
         Connection c = ConnectDB.getConnect();
-        PreparedStatement stmt = c.prepareStatement("select * from user where role<3");
+        PreparedStatement stmt = c.prepareStatement("select * from user where role>3");
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
 
