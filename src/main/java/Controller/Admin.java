@@ -96,6 +96,9 @@ public class Admin extends HttpServlet {
         }
 
     }
+    protected void oderStatis(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+            req.getRequestDispatcher("/Page/Admin/doc/order_statistics.jsp").forward(req, res);
+    }
 
     protected void setShowProfile(HttpServletRequest req) {
         String username = "";
@@ -167,6 +170,9 @@ public class Admin extends HttpServlet {
                     break;
                 case "odermanagement":
                     oderPage(req, res);
+                    break;
+                case "orderstatistics":
+                    oderStatis(req, res);
                     break;
 
 

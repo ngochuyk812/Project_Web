@@ -4,6 +4,7 @@ import Beans.HashSHA216;
 import DAO.OderDAO;
 import DAO.ProductDAO;
 import DAO.UserDAO;
+import DTO.Orders;
 import Model.Oder;
 import Model.OrderDetail;
 import Model.RespJsonServlet;
@@ -29,7 +30,7 @@ public class OrderAPI extends HttpServlet {
         res.setContentType("text/html;charset=UTF-8");
         req.setCharacterEncoding("utf-8");
         try {
-            ArrayList<Oder> orders = OderDAO.getOrder();
+            ArrayList<Orders> orders = OderDAO.getOrderDTO();
             res.getWriter().println(new Gson().toJson(orders));
             return;
         } catch (SQLException e) {
@@ -81,13 +82,24 @@ public class OrderAPI extends HttpServlet {
         long idOrder = Long.valueOf(req.getParameter("idOrder"));
         String data = req.getParameter("data");
         String address = req.getParameter("address");
+        String status = req.getParameter("status");
+        Oder orderUpdate = OderDAO.getOrderById(idOrder);
+
         if(address != null){
-            Oder order = OderDAO.getOrderById(idOrder);
-            order.setAddress(address);
-            OderDAO.updateById(order);
+            orderUpdate.setAddress(address);
         }
+        if(status != null){
+            orderUpdate.setStatus(Integer.valueOf(status));
+        }
+        if(address != null || status != null)
+            OderDAO.updateById(orderUpdate);
+
         ArrayList<String[]> arrData = new ArrayList<>();
-        String[] dataSplit = data.split("\\|");
+        String[] dataSplit;
+        if(data != null)
+            dataSplit = data.split("\\|");
+        else
+            dataSplit= new String[0];
         for (String tmp : dataSplit){
             arrData.add(tmp.split("-"));
         }
